@@ -16,7 +16,7 @@
     </p>
 
 
-    <!-- Funktionier noch nicht -->
+    <!-- Funktioniert noch nicht -->
     <div id="SearchResult" v-show="address"> {{ addressData }} </div>
 
 
