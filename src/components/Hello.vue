@@ -4,80 +4,60 @@
     <p> {{ msg }} </p>
 
     <!-- Autocomplete https://www.npmjs.com/package/vue-google-autocomplete -->
-    <p id="autocomplete"> Adresse:
-         <vue-google-autocomplete id="autocomplete"  classname="form-control"
+      <vue-google-autocomplete id="autocomplete" classname="form-control"
             placeholder="Start typing"
-            v-on:placechanged="getFromData"
-            enable-geolocation: true
-            country: de
-            v-model="autocompleteText"
+            v-on:placechanged="getAddressData"
+            country="de"
         >
-        </vue-google-autocomplete>
-    </p>
-
-
-    <!-- Funktioniert noch nicht -->
-    <div id="SearchResult" v-show="address"> {{ addressData }} </div>
-
-
-
-
+      </vue-google-autocomplete>
 
     <p></p>
-    <p id="map"> </p>
-
+    <div id="map"></div>
+    <div class="data">{{ address }}</div>
   </div>
-
-
 </template>
 
-
 <script>
-import VueGoogleAutocomplete from 'vue-google-autocomplete'
+import VueGoogleAutocomplete from 'vue-google-autocomplete';
 
-    export default {
-        components: { VueGoogleAutocomplete },
-  name: 'map',
-  data () {
-    return {
-      msg: 'Google Map Test',
-      adress: '',
-      autocompleteText: '',
-    }
+  export default {
+    components: { VueGoogleAutocomplete },
+    name: 'map',
+    data () {
+      return {
+        msg: 'Google Map Test',
+        address: '',
+        autocompleteText: '',
+      }
 
-  },
-  // map Start
-  mounted: function() {
+    },
+    // map Start
+    mounted: function() {
       this.initMap();
     },
 
-  methods: {
-    initMap: function () {
-      map = new google.maps.Map(document.getElementById('map'),
-      {center: {lat: 52.518755, lng: 13.398600}, zoom: 8,});
-    },
-    // Funktion fuer autocomplete. Funktioniert noch nicht.
-    /**
-    * When the location found
-    * @param {Object} addressData Data of the found location
-    * @param {Object} placeResultData PlaceResult object
-    */
-    getAddressData: function (addressData) {
-      this.address = addressData;
-    },
-    getFromData: function (){
-      alert('hello!')
-    }
+    methods: {
+      initMap: function () {
+        var map = new google.maps.Map(document.getElementById('map'),
+        {center: {lat: 52.518755, lng: 13.398600}, zoom: 8,});
+      },
 
-
-  }
+      /**
+      * When the location found
+      * @param {Object} addressData Data of the found location
+      * @param {Object} placeResultData PlaceResult object
+      */
+      getAddressData: function (addressData, placeResultData) {
+        console.log(addressData, placeResultData);
+        this.address = addressData;
+      },
+      getFromData: function () {
+        alert('hello!')
+      },
+    },
 
 }
 </script>
-
-
-
-
 
 
 
@@ -116,7 +96,10 @@ a {
   width: 500px;
 }
 
-
+.data {
+  margin: auto;
+  width: 500px;
+}
 
 #map {
   margin: auto;
