@@ -36,11 +36,20 @@
     <div>{{ "Longitute: " + addressB.longitude }}</div>
     <p></p>
 
+    <div id="Choose-Travel-mode">
+      <b>Mode of Travel: </b>
+      <select id="mode">
+        <option value="DRIVING">Driving</option>
+        <option value="TRANSIT">Transit</option>
+      </select>
+    </div>
+    <button v-on:click="calculateAndDisplayRoute">Go</button>
+
     <!-- Google Map canvas-->
     <div id="map"></div>
 
     <!-- Show all availabe data in returned object-->
-    <div class="data">{{ address }}</div>
+    <div class="data">{{ addressA }}</div>
   </div>
 </template>
 
@@ -58,18 +67,29 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
         addressB: '',
         autocompleteText: '',
         geo: '',
+
       }
 
     },
     // map Start
     mounted: function() {
       this.initMap();
+
     },
 
     methods: {
       initMap: function () {
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
         var map = new google.maps.Map(document.getElementById('map'),
         {center: {lat: 52.518755, lng: 13.398600}, zoom: 8,});
+        directionsDisplay.setMap(map);
+
+
+
+        document.getElementById('mode').addEventListener('change', function() {
+          calculateAndDisplayRoute(directionsService, directionsDisplay);
+});
       },
 
 
@@ -86,6 +106,28 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
       getAddressDataB: function (addressData, placeResultData) {
         console.log(addressData, placeResultData);
         this.addressB = addressData;
+      },
+
+
+      // Direction Service
+      calculateAndDisplayRoute: function  (directionsService, directionsDisplay) {
+        console.log("directionsService", directionsService);
+
+        var selectedMode = document.getElementById('mode').value;
+        directionsService.route({
+          origin: {lat: 37.77, lng: -122.447},
+          destination: {lat: 37.768, lng: -122.511},
+          // Note that Javascript allows us to access the constant
+          // using square brackets and a string value as its
+          // "property."
+          travelMode: google.maps.TravelMode[selectedMode]
+        }, function(response, status) {
+          if (status == 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
       },
 
     },
@@ -143,5 +185,12 @@ a {
   margin: auto;
   height: 300px;
   width: 500px;
+}
+
+#right-panel {
+  margin: auto;
+  width: 500px;
+  height: 300px;
+
 }
 </style>
