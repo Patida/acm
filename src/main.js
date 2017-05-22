@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueGoogleAutocomplete from '.././node_modules/vue-google-autocomplete'
+import vueResource from '.././node_modules/vue-resource'
+Vue.use(vueResource);
+
 
 Vue.config.productionTip = false
 

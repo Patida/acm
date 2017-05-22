@@ -43,7 +43,10 @@
         <option value="TRANSIT">Transit</option>
       </select>
     </div>
-    <button v-on:click="calculateAndDisplayRoute">Go</button>
+
+    <!-- TEST BUTTONS -->
+    <button v-on:click="calculateAndDisplayRoute">Test Google Marker and Route</button>
+    <button v-on:click="requestData">Test Google API (console)</button>
 
     <!-- Google Map canvas-->
     <div id="map"></div>
@@ -55,6 +58,8 @@
 
 <script>
 import VueGoogleAutocomplete from 'vue-google-autocomplete';
+//import vueResource from 'vue-resource';
+
 
   export default {
     components: { VueGoogleAutocomplete },
@@ -66,7 +71,8 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
         addressA: '',
         addressB: '',
         autocompleteText: '',
-        geo: '',
+
+        testobject: '',
 
       }
 
@@ -80,16 +86,17 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
     methods: {
       initMap: function () {
         var directionsDisplay = new google.maps.DirectionsRenderer;
-        var directionsService = new google.maps.DirectionsService;
         var map = new google.maps.Map(document.getElementById('map'),
         {center: {lat: 52.518755, lng: 13.398600}, zoom: 8,});
+
+
+        // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
+        // Momentan noch ERROR
         directionsDisplay.setMap(map);
-
-
-
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
         document.getElementById('mode').addEventListener('change', function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
-});
+        });
       },
 
 
@@ -109,7 +116,8 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
       },
 
 
-      // Direction Service
+      // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
+      // Momentan noch ERROR
       calculateAndDisplayRoute: function  (directionsService, directionsDisplay) {
         console.log("directionsService", directionsService);
 
@@ -130,9 +138,30 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
         });
       },
 
-    },
+      // JSON HTTP Abfrage
+      requestData: function() {
+        var data;
+        // GET /someUrl
+        this.$http.get('https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyC2LiKg0HU1IxAhC7IYczuGF82wg9q7Axs').then(response => {
 
+          // get body data
+          // URL https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyC2LiKg0HU1IxAhC7IYczuGF82wg9q7Axs
+          data = response.body;
+          console.log(data.destination_addresses);
+          console.log(data.origin_addresses);
+
+          // distance gibt aus: Entfernung in km + Zeit in Sekunden.
+          console.log(data.rows[0].elements[0].distance);
+        }, response => {
+          // error callback
+        });
+
+      },
+
+    }
 }
+
+
 </script>
 
 
