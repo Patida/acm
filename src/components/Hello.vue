@@ -46,7 +46,7 @@
 
     <!-- TEST BUTTONS -->
     <button v-on:click="calculateAndDisplayRoute">Test Google Marker and Route</button>
-    <button v-on:click="requestData">Test Google API (console)</button>
+    <button v-on:click="requestData(addressA, addressB)">Test Google Directions API (console)</button>
 
     <!-- Google Map canvas-->
     <div id="map"></div>
@@ -139,10 +139,11 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
       },
 
       // JSON HTTP Abfrage
-      requestData: function() {
+      requestData: function(origin, destination) {
         var data;
         // GET /someUrl
-        this.$http.get('https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyC2LiKg0HU1IxAhC7IYczuGF82wg9q7Axs').then(response => {
+        var directionWay = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="+origin.latitude+","+origin.longitude+"&destinations="+destination.latitude+","+destination.longitude+"&key=AIzaSyC2LiKg0HU1IxAhC7IYczuGF82wg9q7Axs"
+        this.$http.get(directionWay).then(response => {
 
           // get body data
           // URL https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyC2LiKg0HU1IxAhC7IYczuGF82wg9q7Axs
