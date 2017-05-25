@@ -46,7 +46,7 @@
 
     <!-- TEST BUTTONS -->
     <button v-on:click="calculateAndDisplayRoute">Test Google Marker and Route</button>
-    <button v-on:click="requestData(addressA, addressB)">Test Google Directions API (console)</button>
+    <button v-on:click="getDistance(addressA, addressB)">Test Google Directions API (console)</button>
 
     <!-- Google Map canvas-->
     <div id="map"></div>
@@ -137,7 +137,7 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
           }
         });
       },
-
+      /*
       // JSON HTTP Abfrage
       requestData: function(origin, destination) {
         var data;
@@ -158,6 +158,34 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
         });
 
       },
+      */
+      getDistance: function(origin, destination) {
+        var data;
+        var service = new google.maps.DistanceMatrixService;
+
+        var origin1 = {lat: origin.latitude, lng: origin.longitude};
+        var dest1 = {lat: destination.latitude, lng: destination.longitude};
+        service.getDistanceMatrix({
+            origins: [origin1],
+            destinations: [dest1],
+            travelMode: 'DRIVING',
+            unitSystem: google.maps.UnitSystem.METRIC,
+            avoidHighways: false,
+            avoidTolls: false
+          }, function(response, status){
+          if (status == 'OK') {
+            console.log("Transpormittel: Driving")
+            console.log("Der Weg beträgt: "+response.rows[0].elements[0].distance.text);
+            console.log("Die Fahrzeit beträgt: " + response.rows[0].elements[0].duration.text);
+          }
+          else
+          {
+            window.alert('Directions request failed due to ' + status);
+          }
+
+        });
+
+      }
 
     }
 }
