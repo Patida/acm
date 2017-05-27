@@ -159,6 +159,7 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
 
       },
       */
+      
       getDistance: function(origin, destination) {
         var data;
         var service = new google.maps.DistanceMatrixService;
