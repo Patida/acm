@@ -53,8 +53,8 @@
     </div>
 
     <!-- TEST BUTTONS -->
-    <button v-on:click="calculateAndDisplayRoute()">Test Google Marker and Route</button>
-    <button v-on:click="getDistance(addressA, addressB)">Test Google Directions API (console)</button>
+    <button v-on:click="">Test Google Marker and Route</button>
+    <button v-on:click="getresultA(getDistance(addressA, addressB))">Test Google Directions API (console)</button>
     <button v-on:click="showDirection">Test Wegbeschreibung anzeigen</button>
 
     <!-- Google Map canvas-->
@@ -62,8 +62,9 @@
 
     <!-- Show all availabe data in returned object-->
     <div class="data">{{ addressA }}</div>
-    <div class="directionWindow">- Placeholder Google Direction Service -</div>
-      <div class="data"> {{ result1 }}</div>      <div id="result2"></div>
+    <div class="data"> {{ result1}}</div>
+      <div class="data"> {{ result2 }}</div>
+      <div class="directionWindow">- Placeholder Google Direction Service -</div>
   </div>
 </div>
 </div>
@@ -73,7 +74,6 @@
 <script>
 import VueGoogleAutocomplete from 'vue-google-autocomplete';
 import vueResource from 'vue-resource';
-
 
   export default {
     components: { VueGoogleAutocomplete },
@@ -87,8 +87,8 @@ import vueResource from 'vue-resource';
         addressA: '',
         addressB: '',
         autocompleteText: '',
-        result1: '',
-        result2: '',
+        result1: 'A',
+        result2: 'B',
 
         testobject: '',
 
@@ -138,6 +138,10 @@ import vueResource from 'vue-resource';
         this.addressB = addressData;
       },
 
+      getresultA: function (results) {
+        console.log(results);
+        this.result1 = results;
+      },
 
       // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
       // Momentan noch ERROR
@@ -164,7 +168,6 @@ import vueResource from 'vue-resource';
       },
 
       getDistance: function(origin, destination) {
-        var data;
         var service = new google.maps.DistanceMatrixService;
         var transport = document.getElementById("mode").value;
         var origin1 = {lat: origin.latitude, lng: origin.longitude};
@@ -179,8 +182,8 @@ import vueResource from 'vue-resource';
             avoidTolls: false
           }, function(response, status){
           if (status == 'OK') {
-            console.log("Transpormittel: Driving");
-            this.result1 = response.rows[0].elements[0].distance.text;
+            console.log("Transpormittel: " + transport);
+            console.log("Der Weg beträgt: " + response.rows[0].elements[0].distance.text);
             console.log("Die Fahrzeit beträgt: " + response.rows[0].elements[0].duration.text);
           }
           else
@@ -209,6 +212,7 @@ import vueResource from 'vue-resource';
         };
         directionsService.route(request, function(response, status) {
           if (status == 'OK') {
+              console.log(response);
             directionsDisplay.setDirections(response);
           }
           else {
