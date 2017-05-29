@@ -6,28 +6,28 @@
     <!-- Autocomplete https://www.npmjs.com/package/vue-google-autocomplete -->
 
           <!-- InputFrom: own location-->
-      <vue-google-autocomplete id="InputA" classname="form-control"
+    <vue-google-autocomplete id="InputA" classname="form-control"
             placeholder="Your Position"
             v-on:placechanged="getAddressDataA"
             country="de"
             enable-geolocation: true
-        >
-      </vue-google-autocomplete>
+    >
+    </vue-google-autocomplete>
 
-<p></p>
+    <p></p>
 
-<div>{{ "Latitute: " + addressA.latitude }}</div>
-<div>{{ "Longitute: " + addressA.longitude }}</div>
+    <div>{{ "Latitute: " + addressA.latitude }}</div>
+    <div>{{ "Longitute: " + addressA.longitude }}</div>
 
-<p></p>
+    <p></p>
       <!-- InputTo: Destination-->
-      <vue-google-autocomplete id="InputB" classname="form-control"
+    <vue-google-autocomplete id="InputB" classname="form-control"
             placeholder="Your Destination"
             v-on:placechanged="getAddressDataB"
             country="de"
             enable-geolocation: true
-        >
-      </vue-google-autocomplete>
+    >
+    </vue-google-autocomplete>
 
     <p></p>
 
@@ -44,10 +44,6 @@
       </select>
     </div>
 
-    <!-- TEST BUTTONS -->
-    <button v-on:click="calculateAndDisplayRoute">Test Google Marker and Route</button>
-    <button v-on:click="getDistance(addressA, addressB)">Test Google Directions API (console)</button>
-
     <!-- Google Map canvas-->
     <div id="map"></div>
 
@@ -58,8 +54,8 @@
 
 <script>
 import VueGoogleAutocomplete from 'vue-google-autocomplete';
-//import vueResource from 'vue-resource';
-
+import vueResource from 'vue-resource';
+import car2go from 'car2go';
 
   export default {
     components: { VueGoogleAutocomplete },
@@ -89,7 +85,7 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
         var map = new google.maps.Map(document.getElementById('map'),
         {center: {lat: 52.518755, lng: 13.398600}, zoom: 8,});
 
-
+  ////getDistance(addressA, addressB),
         // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
         // Momentan noch ERROR
         directionsDisplay.setMap(map);
@@ -158,8 +154,8 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
         });
 
       },
-      */
-      
+
+
       getDistance: function(origin, destination) {
         var data;
         var service = new google.maps.DistanceMatrixService;
@@ -186,8 +182,26 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
 
         });
 
-      }
+      },
 
+      getCar2Go: function () {
+          var car2go = require("car2go").createClient({
+         // key: MY_OAUTH_KEY,
+          //secret: MY_OAUTH_SECRET
+        });
+
+// get a list of available cars in Toronto in JSON format
+        car2go.vehicles({
+          format: "json",
+          loc: "Toronto"
+        }, function(err, cars) {
+          if (err) {
+            return console.log(err);
+          }
+
+          console.log(cars);
+        });
+      } */
     }
 }
 

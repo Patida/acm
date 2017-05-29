@@ -12,6 +12,10 @@
     "test": "npm run e2e"
   },
   "dependencies": {
+    "car2go": "0.0.1",
+    "dgram": "^1.0.1",
+    "fs": "0.0.1-security",
+    "request": "^2.81.0",
     "vue": "^2.2.6",
     "vue-google-autocomplete": "^1.0.7",
     "vue-router": "^2.3.1"
