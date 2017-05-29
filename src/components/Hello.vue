@@ -1,6 +1,14 @@
 <template>
 
   <div>
+    <div class ='bg'>
+    <div class = 'standard'>
+    <p class='headline'> {{ headline }} </p>
+
+    <p class='subline'> {{ subline }} </p>
+
+
+
     <p> {{ msg }} </p>
 
     <!-- Autocomplete https://www.npmjs.com/package/vue-google-autocomplete -->
@@ -47,13 +55,18 @@
     <!-- TEST BUTTONS -->
     <button v-on:click="calculateAndDisplayRoute">Test Google Marker and Route</button>
     <button v-on:click="getDistance(addressA, addressB)">Test Google Directions API (console)</button>
+    <button v-on:click="showDirection">Test Wegbeschreibung anzeigen</button>
 
     <!-- Google Map canvas-->
     <div id="map"></div>
 
     <!-- Show all availabe data in returned object-->
     <div class="data">{{ addressA }}</div>
+    <div class="directionWindow">- Placeholder Google Direction Service -</div>
   </div>
+</div>
+</div>
+
 </template>
 
 <script>
@@ -66,6 +79,8 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
     name: 'map',
     data () {
       return {
+        headline: 'Appcimo',
+        subline: 'Application for City Movement',
         msg: 'Please enter your location and destination.',
         address: '',
         addressA: '',
@@ -77,9 +92,14 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
       }
 
     },
-    // map Start
+
     mounted: function() {
+      // Map initialisieren
       this.initMap();
+
+      // Wegbeschreibung initialisieren
+      var directionsDisplay;
+      var directionsService = new google.maps.DirectionsService();
 
     },
 
@@ -118,6 +138,8 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
 
       // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
       // Momentan noch ERROR
+
+
       calculateAndDisplayRoute: function  (directionsService, directionsDisplay) {
         console.log("directionsService", directionsService);
 
@@ -137,6 +159,11 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
           }
         });
       },
+
+
+
+
+
       /*
       // JSON HTTP Abfrage
       requestData: function(origin, destination) {
@@ -159,7 +186,7 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
 
       },
       */
-      
+
       getDistance: function(origin, destination) {
         var data;
         var service = new google.maps.DistanceMatrixService;
@@ -186,7 +213,40 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
 
         });
 
-      }
+      },
+
+      // Funktioniert momentan noch nicht
+      showDirection: function() {
+
+        var directionsService = new google.maps.DirectionsService();
+        var directionsDisplay = new google.maps.DirectionsRenderer();
+
+        // Testdaten
+        var start = "Berlin";
+        var end = "Hamburg";
+
+        var request = {
+          origin:start,
+          destination:end,
+          travelMode: 'DRIVING'
+        };
+        directionsService.route(request, function(response, status) {
+          if (status == 'OK') {
+            directionsDisplay.setDirections(response);
+          }
+          else {
+      window.alert('Directions request failed due to ' + status);
+    }
+        });
+    },
+
+/*
+TO DO
+Wegbeschreibung einfügen
+
+*/
+
+
 
     }
 }
@@ -199,10 +259,40 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.bg {
+  background-color: #e6e6e6;
+  width: 100%;
+  height: 100%;
+}
+
+.headline {
+  width: 80%;
+  font-family: "Impact", sans-serif;
+  font-size: 5em;
+  margin: auto;
+  color: brown;
+  letter-spacing: 5px;
+  border-style: solid;
+  border-top-color: white;
+}
+
+.subline {
+  font-family: "Impact", Charcoal, sans-serif;
+  font-size: 2em;
+  margin: 5px 0px 30px 0px;
+  color: #4d4d4d;
 
 
-h1, h2 {
-  font-weight: normal;
+}
+
+.standard {
+  color: black;
+  width: 80%;
+  background-color: white;
+  margin: auto;
+  height: 100%;
+  border-style: solid;
+  border-color: brown;
 }
 
 ul {
@@ -217,6 +307,11 @@ li {
 
 a {
   color: #42b983;
+}
+
+button {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 #InputA {
@@ -238,6 +333,13 @@ a {
 .data {
   margin: auto;
   width: 500px;
+}
+
+.directionWindow {
+  margin: auto;
+  margin-top: 30px;
+  width:500px;
+  height: 300px;
 }
 
 #map {
