@@ -48,9 +48,9 @@
     <button v-on:click="calculateAndDisplayRoute">Test Google Marker and Route</button>
     <button v-on:click="getDistance(addressA, addressB)">Test Google Directions API (console)</button>
 
-    <!-- Google Map canvas-->
+    <!-- Google Map canvas
     <div id="map"></div>
-
+    -->
     <!-- Show all availabe data in returned object-->
     <div class="data">{{ addressA }}</div>
   </div>
@@ -58,7 +58,7 @@
 
 <script>
 import VueGoogleAutocomplete from 'vue-google-autocomplete';
-//import vueResource from 'vue-resource';
+import vueResource from 'vue-resource';
 
 
   export default {
@@ -159,17 +159,18 @@ import VueGoogleAutocomplete from 'vue-google-autocomplete';
 
       },
       */
-      
+
       getDistance: function(origin, destination) {
         var data;
         var service = new google.maps.DistanceMatrixService;
-
+        var transport = document.getElementById("mode").value;
         var origin1 = {lat: origin.latitude, lng: origin.longitude};
         var dest1 = {lat: destination.latitude, lng: destination.longitude};
+
         service.getDistanceMatrix({
             origins: [origin1],
             destinations: [dest1],
-            travelMode: 'DRIVING',
+            travelMode: transport,
             unitSystem: google.maps.UnitSystem.METRIC,
             avoidHighways: false,
             avoidTolls: false
