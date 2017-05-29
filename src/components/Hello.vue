@@ -53,16 +53,17 @@
     </div>
 
     <!-- TEST BUTTONS -->
-    <button v-on:click="calculateAndDisplayRoute">Test Google Marker and Route</button>
+    <button v-on:click="calculateAndDisplayRoute()">Test Google Marker and Route</button>
     <button v-on:click="getDistance(addressA, addressB)">Test Google Directions API (console)</button>
     <button v-on:click="showDirection">Test Wegbeschreibung anzeigen</button>
 
-    <!-- Google Map canvas
+    <!-- Google Map canvas-->
     <div id="map"></div>
-    -->
+
     <!-- Show all availabe data in returned object-->
     <div class="data">{{ addressA }}</div>
     <div class="directionWindow">- Placeholder Google Direction Service -</div>
+      <div class="data"> {{ result1 }}</div>      <div id="result2"></div>
   </div>
 </div>
 </div>
@@ -86,6 +87,8 @@ import vueResource from 'vue-resource';
         addressA: '',
         addressB: '',
         autocompleteText: '',
+        result1: '',
+        result2: '',
 
         testobject: '',
 
@@ -160,33 +163,6 @@ import vueResource from 'vue-resource';
         });
       },
 
-
-
-
-
-      /*
-      // JSON HTTP Abfrage
-      requestData: function(origin, destination) {
-        var data;
-        // GET /someUrl
-        var directionWay = "https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins="+origin.latitude+","+origin.longitude+"&destinations="+destination.latitude+","+destination.longitude+"&key=AIzaSyC2LiKg0HU1IxAhC7IYczuGF82wg9q7Axs"
-        this.$http.get(directionWay).then(response => {
-
-          // get body data
-          // URL https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=Washington,DC&destinations=New+York+City,NY&key=AIzaSyC2LiKg0HU1IxAhC7IYczuGF82wg9q7Axs
-          data = response.body;
-          console.log(data.destination_addresses);
-          console.log(data.origin_addresses);
-
-          // distance gibt aus: Entfernung in km + Zeit in Sekunden.
-          console.log(data.rows[0].elements[0].distance);
-        }, response => {
-          // error callback
-        });
-
-      },
-      */
-
       getDistance: function(origin, destination) {
         var data;
         var service = new google.maps.DistanceMatrixService;
@@ -203,8 +179,8 @@ import vueResource from 'vue-resource';
             avoidTolls: false
           }, function(response, status){
           if (status == 'OK') {
-            console.log("Transpormittel: Driving")
-            console.log("Der Weg beträgt: "+response.rows[0].elements[0].distance.text);
+            console.log("Transpormittel: Driving");
+            this.result1 = response.rows[0].elements[0].distance.text;
             console.log("Die Fahrzeit beträgt: " + response.rows[0].elements[0].duration.text);
           }
           else
@@ -355,4 +331,5 @@ button {
   height: 300px;
 
 }
+
 </style>
