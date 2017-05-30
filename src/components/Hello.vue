@@ -53,17 +53,15 @@
     </div>
 
     <!-- TEST BUTTONS -->
-    <button v-on:click="">Test Google Marker and Route</button>
-    <button v-on:click="getresultA(getDistance(addressA, addressB))">Test Google Directions API (console)</button>
-    <button v-on:click="showDirection">Test Wegbeschreibung anzeigen</button>
+    <button v-on:click="calculateAndDisplayRoute()">Test Google Marker and Route</button>
+    <button v-on:click="getDistance(addressA, addressB)">Test Google Directions API (console)</button>
+    <button v-on:click="getRoute(addressA, addressB)">Test Wegbeschreibung anzeigen</button>
 
     <!-- Google Map canvas-->
     <div id="map"></div>
 
     <!-- Show all availabe data in returned object-->
     <div class="data">{{ addressA }}</div>
-    <div class="data"> {{ result1}}</div>
-      <div class="data"> {{ result2 }}</div>
       <div class="directionWindow">- Placeholder Google Direction Service -</div>
   </div>
 </div>
@@ -87,8 +85,6 @@ import vueResource from 'vue-resource';
         addressA: '',
         addressB: '',
         autocompleteText: '',
-        result1: 'A',
-        result2: 'B',
 
         testobject: '',
 
@@ -122,7 +118,6 @@ import vueResource from 'vue-resource';
         });
       },
 
-
       /**
       * When the location found
       * @param {Object} addressData Data of the found location
@@ -136,11 +131,6 @@ import vueResource from 'vue-resource';
       getAddressDataB: function (addressData, placeResultData) {
         console.log(addressData, placeResultData);
         this.addressB = addressData;
-      },
-
-      getresultA: function (results) {
-        console.log(results);
-        this.result1 = results;
       },
 
       // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
@@ -167,59 +157,86 @@ import vueResource from 'vue-resource';
         });
       },
 
+      getRoute: function (origin1, dest1) {
+        var directionsService = new google.maps.DirectionsService();
+        var transport = document.getElementById("mode").value;
+        var request = {
+            origin: {lat: origin1.latitude, lng: origin1.longitude},
+            destination: {lat: dest1.latitude, lng: dest1.longitude},
+            travelMode: transport
+        };
+        directionsService.route(request, function(result, status) {
+            if (status == 'OK') {
+              if (transport == 'TRANSIT') {
+                var steps = result.routes[0].legs[0].steps;
+                console.log("Startadresse: " + result.routes[0].legs[0].start_address)
+                for (var i = 0; i < steps.length; i++) {
+                      if (steps[i].travel_mode == 'WALKING') {
+                        var walkduration = 0;
+                        var walkdistance = 0;
+                        for (var j = 0; j < steps[i].steps.length; j++) {
+                          walkduration +=  steps[i].steps[j].distance.value
+                          walkdistance += steps[i].steps[j].duration.value
+                        }
+                        if (i+1 < steps.length) {
+                          console.log("Zu Fuß " + walkduration + "m in ca. " + (walkdistance) + "sec nach " + steps[i + 1].transit.departure_stop.name);
+                        }
+                        else {
+                          console.log("Zu Fuß " + walkduration + "m in ca. " + (walkdistance) + "sec nach " + result.routes[0].legs[0].end_address);
+                        }
+                      }
+                      if (steps[i].travel_mode == 'TRANSIT') {
+                        console.log("Mit der " + steps[i].transit.headsign +" Abfahrt um " + steps[i].transit.departure_time.text + " in " + steps[i].duration.text + " nach " + steps[i].transit.arrival_stop.name)
+                      }
+                  }
+              }
+              if (transport == 'DRIVING') {
+                console.log("Mit dem Auto von " + result.routes[0].legs[0].start_address + " nach " + result.routes[0].legs[0].end_address + " sind es " + result.routes[0].legs[0].distance.text + " in " + result.routes[0].legs[0].duration.text);
+                }
+            }
+        });
+      },
+
       getDistance: function(origin, destination) {
         var service = new google.maps.DistanceMatrixService;
         var transport = document.getElementById("mode").value;
         var origin1 = {lat: origin.latitude, lng: origin.longitude};
         var dest1 = {lat: destination.latitude, lng: destination.longitude};
 
-        service.getDistanceMatrix({
+          service.getDistanceMatrix({
             origins: [origin1],
             destinations: [dest1],
             travelMode: transport,
             unitSystem: google.maps.UnitSystem.METRIC,
             avoidHighways: false,
             avoidTolls: false
-          }, function(response, status){
-          if (status == 'OK') {
-            console.log("Transpormittel: " + transport);
-            console.log("Der Weg beträgt: " + response.rows[0].elements[0].distance.text);
-            console.log("Die Fahrzeit beträgt: " + response.rows[0].elements[0].duration.text);
+          }, callback);
+        function callback(response, status) {
+              if (status == 'OK') {
+                var origins = response.originAddresses;
+                var destinations = response.destinationAddresses;
+                for (var i = 0; i < origins.length; i++) {
+                  var results = response.rows[i].elements;
+                  for (var j = 0; j < results.length; j++) {
+                    var element = results[j];
+                    var distance = element.distance.text;
+                    var duration = element.duration.text;
+                    var from = origins[i];
+                    var to = destinations[j];
+                    console.log(
+                        element,
+                    distance,
+                    duration,
+                    from,
+                    to
+                    );
+                  }
+                }
+              }
           }
-          else
-          {
-            window.alert('Directions request failed due to ' + status);
-          }
-
-        });
-
       },
 
       // Funktioniert momentan noch nicht
-      showDirection: function() {
-
-        var directionsService = new google.maps.DirectionsService();
-        var directionsDisplay = new google.maps.DirectionsRenderer();
-
-        // Testdaten
-        var start = "Berlin";
-        var end = "Hamburg";
-
-        var request = {
-          origin:start,
-          destination:end,
-          travelMode: 'DRIVING'
-        };
-        directionsService.route(request, function(response, status) {
-          if (status == 'OK') {
-              console.log(response);
-            directionsDisplay.setDirections(response);
-          }
-          else {
-      window.alert('Directions request failed due to ' + status);
-    }
-        });
-    },
 
 /*
 TO DO
