@@ -169,7 +169,8 @@ import vueResource from 'vue-resource';
             if (status == 'OK') {
               if (transport == 'TRANSIT') {
                 var steps = result.routes[0].legs[0].steps;
-                console.log("Startadresse: " + result.routes[0].legs[0].start_address)
+                console.log(result.routes[0]);
+                console.log("Startadresse: " + result.routes[0].legs[0].start_address);
                 for (var i = 0; i < steps.length; i++) {
                       if (steps[i].travel_mode == 'WALKING') {
                         var walkduration = 0;
@@ -186,7 +187,7 @@ import vueResource from 'vue-resource';
                         }
                       }
                       if (steps[i].travel_mode == 'TRANSIT') {
-                        console.log("Mit der " + steps[i].transit.headsign +" Abfahrt um " + steps[i].transit.departure_time.text + " in " + steps[i].duration.text + " nach " + steps[i].transit.arrival_stop.name)
+                        console.log("Mit der " + steps[i].transit.line.vehicle.name + " " + steps[i].transit.line.short_name +" Abfahrt um " + steps[i].transit.departure_time.text + " in " + steps[i].duration.text + " nach " + steps[i].transit.arrival_stop.name)
                       }
                   }
               }
