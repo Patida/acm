@@ -187,7 +187,7 @@ import vueResource from 'vue-resource';
                         }
                       }
                       if (steps[i].travel_mode == 'TRANSIT') {
-                        console.log("Mit der " + steps[i].transit.line.vehicle.name + " " + steps[i].transit.line.short_name +" Abfahrt um " + steps[i].transit.departure_time.text + " in " + steps[i].duration.text + " nach " + steps[i].transit.arrival_stop.name)
+                        console.log("Mit der " + steps[i].transit.line.vehicle.name + "  " + steps[i].transit.line.short_name +" Abfahrt um " + steps[i].transit.departure_time.text + " in " + steps[i].duration.text + " nach " + steps[i].transit.arrival_stop.name)
                       }
                   }
               }
