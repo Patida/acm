@@ -62,7 +62,7 @@
 
     <!-- Show all availabe data in returned object-->
     <div class="data">{{ addressA }}</div>
-      <div class="directionWindow">- Placeholder Google Direction Service -</div>
+      <div class="directionWindow"> {{ wegbeschreibung }}</div>
   </div>
 </div>
 </div>
@@ -71,7 +71,7 @@
 
 <script>
 import VueGoogleAutocomplete from 'vue-google-autocomplete';
-import vueResource from 'vue-resource';
+// import vueResource from 'vue-resource';
 
   export default {
     components: { VueGoogleAutocomplete },
@@ -85,7 +85,7 @@ import vueResource from 'vue-resource';
         addressA: '',
         addressB: '',
         autocompleteText: '',
-
+        wegbeschreibung: '',
         testobject: '',
 
       }
@@ -111,11 +111,13 @@ import vueResource from 'vue-resource';
 
         // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
         // Momentan noch ERROR
+
+      /* alt
         directionsDisplay.setMap(map);
         calculateAndDisplayRoute(directionsService, directionsDisplay);
         document.getElementById('mode').addEventListener('change', function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
-        });
+        }); */
       },
 
       /**
@@ -136,7 +138,7 @@ import vueResource from 'vue-resource';
       // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
       // Momentan noch ERROR
 
-
+/* alt
       calculateAndDisplayRoute: function  (directionsService, directionsDisplay) {
         console.log("directionsService", directionsService);
 
@@ -156,8 +158,10 @@ import vueResource from 'vue-resource';
           }
         });
       },
+*/
 
       getRoute: function (origin1, dest1) {
+        var that = this;
         var directionsService = new google.maps.DirectionsService();
         var transport = document.getElementById("mode").value;
         var request = {
@@ -193,6 +197,7 @@ import vueResource from 'vue-resource';
               }
               if (transport == 'DRIVING') {
                 console.log("Mit dem Auto von " + result.routes[0].legs[0].start_address + " nach " + result.routes[0].legs[0].end_address + " sind es " + result.routes[0].legs[0].distance.text + " in " + result.routes[0].legs[0].duration.text);
+                that.wegbeschreibung = "Mit dem Auto von " + result.routes[0].legs[0].start_address + " nach " + result.routes[0].legs[0].end_address + " sind es " + result.routes[0].legs[0].distance.text + " in " + result.routes[0].legs[0].duration.text;
                 }
             }
         });
