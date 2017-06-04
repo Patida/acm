@@ -62,9 +62,7 @@
 
     <!-- Show all availabe data in returned object-->
     <div class="data">{{ addressA }}</div>
-      <div class="data">{{ directionObject }}</div>
-
-      <div class="directionWindow">- Placeholder Google Direction Service -</div>
+      <div class="directionWindow"> {{ wegbeschreibung }}</div>
   </div>
 </div>
 </div>
@@ -87,8 +85,7 @@ import vueResource from 'vue-resource';
         addressA: '',
         addressB: '',
         autocompleteText: '',
-        directionObject: '',
-
+        wegbeschreibung: '',
         testobject: '',
 
       }
@@ -114,11 +111,13 @@ import vueResource from 'vue-resource';
 
         // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
         // Momentan noch ERROR
+
+      /* alt
         directionsDisplay.setMap(map);
         calculateAndDisplayRoute(directionsService, directionsDisplay);
         document.getElementById('mode').addEventListener('change', function() {
           calculateAndDisplayRoute(directionsService, directionsDisplay);
-        });
+        }); */
       },
 
       /**
@@ -139,7 +138,7 @@ import vueResource from 'vue-resource';
       // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
       // Momentan noch ERROR
 
-
+/* alt
       calculateAndDisplayRoute: function  (directionsService, directionsDisplay) {
         console.log("directionsService", directionsService);
 
@@ -159,19 +158,18 @@ import vueResource from 'vue-resource';
           }
         });
       },
+*/
 
       getRoute: function (origin1, dest1) {
-        this.directionObject = new google.maps.DirectionsService();
+        var that = this;
+        var directionsService = new google.maps.DirectionsService();
         var transport = document.getElementById("mode").value;
-        var routeresult;
         var request = {
             origin: {lat: origin1.latitude, lng: origin1.longitude},
             destination: {lat: dest1.latitude, lng: dest1.longitude},
             travelMode: transport
         };
-
-        this.directionObject = this.directionObject.route(request, function(result, status) {
-
+        directionsService.route(request, function(result, status) {
             if (status == 'OK') {
               if (transport == 'TRANSIT') {
                 var steps = result.routes[0].legs[0].steps;
@@ -199,8 +197,8 @@ import vueResource from 'vue-resource';
               }
               if (transport == 'DRIVING') {
                 console.log("Mit dem Auto von " + result.routes[0].legs[0].start_address + " nach " + result.routes[0].legs[0].end_address + " sind es " + result.routes[0].legs[0].distance.text + " in " + result.routes[0].legs[0].duration.text);
-                document.getElementById("runs").value =  "Mit dem Auto von " + result.routes[0].legs[0].start_address + " nach " + result.routes[0].legs[0].end_address + " sind es " + result.routes[0].legs[0].distance.text + " in " + result.routes[0].legs[0].duration.text;
-              }
+                that.wegbeschreibung = "Mit dem Auto von " + result.routes[0].legs[0].start_address + " nach " + result.routes[0].legs[0].end_address + " sind es " + result.routes[0].legs[0].distance.text + " in " + result.routes[0].legs[0].duration.text;
+                }
             }
         });
       },
@@ -360,9 +358,5 @@ button {
   height: 300px;
 
 }
-  #runs {
-    margin: auto;
-    width: 500px;
-  }
 
 </style>
