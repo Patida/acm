@@ -2,60 +2,50 @@
   <div>
 
 
+    <div class="resultBar">
+      <span class="shortinfo">{{ directionRoute.transportmethod }}</span>
+     <span class="shortInfo">{{ directionRoute.start }}</span>
+      <span class="shortInfo">{{ directionRoute.finish }}</span>
+      <span class="shortInfo">{{ directionRoute.duration }}</span>
+
+      </div>
+
   </div>
 </template>
 
 <script>
   export default {
-    name: "directions",
-
+    name: "GoogleDirections",
     props: {
-      origin: '',
-      destination: '',
-      directionsSearch: null,
-      directionsSearchText: ''
+      directionRoute: '',
     },
 
-    data: function () {
+    data() {
       return {
-        /**
-         * The Autocomplete object.
-         *
-         * @type {Autocomplete}
-         * @link https://developers.google.com/maps/documentation/javascript/reference#Autocomplete
-         */
-        directionsSearch: null,
-
-        /**
-         * Autocomplete input text
-         * @type {String}
-         */
-        directionsSearchText: '',
+          wegbeschreibung: '',
       }
     },
+
 
     methods: {
-      onclick: function() {
-      },
 
-      getRoute: function() {
-          this.directionsSearch = new google.maps.DirectionsService();
-
-          var request = {
-            origin: {lat: this.origin.latitude, lng:  this.origin.longitude},
-            destination: {lat: this.destination.latitude, lng: this.destination.longitude},
-            travelMode: transport
-          }
-
-          let Route = directionsService.route(request, function(result, status) {
-          let returnData = {};
-          returnData['Way'] = Route;
-          this.$emit(returndata);
-          });
-
-
-      }
     }
   }
 
 </script>
+<style scoped>
+  .directionWindow {
+    margin: auto;
+    margin-top: 30px;
+    width:500px;
+    height: 300px;
+  }
+  .resultBar {
+    margin: auto;
+    width: 80%;
+    background-color: rgba(79,147,248,0.3);
+  }
+  .shortInfo {
+
+  }
+</style>

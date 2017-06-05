@@ -46,7 +46,7 @@
 
     <div id="Choose-Travel-mode">
       <b>Mode of Travel: </b>
-      <select id="mode">
+      <select id="mode" v-on:change="getTransport($event)">
         <option value="DRIVING">Driving</option>
         <option value="TRANSIT">Transit</option>
       </select>
@@ -55,14 +55,19 @@
     <!-- TEST BUTTONS -->
     <button v-on:click="calculateAndDisplayRoute()">Test Google Marker and Route</button>
     <button v-on:click="getDistance(addressA, addressB)">Test Google Directions API (console)</button>
-    <button v-on:click="getRoute(addressA, addressB)">Test Wegbeschreibung anzeigen</button>
+
 
     <!-- Google Map canvas-->
     <div id="map"></div>
 
     <!-- Show all availabe data in returned object-->
     <div class="data">{{ addressA }}</div>
-      <div class="directionWindow"> {{ wegbeschreibung }}</div>
+    <GoogleDirections class="data"
+      :origin="addressA"
+      :destination="addressB"
+      :transport="transport"
+    ></GoogleDirections>
+
   </div>
 </div>
 </div>
@@ -72,9 +77,13 @@
 <script>
 import VueGoogleAutocomplete from 'vue-google-autocomplete';
 import vueResource from 'vue-resource';
+import GoogleDirections from './GoogleDirections.vue';
 
   export default {
-    components: { VueGoogleAutocomplete },
+    components: {
+        VueGoogleAutocomplete,
+        GoogleDirections
+    },
     name: 'map',
     data () {
       return {
@@ -84,8 +93,8 @@ import vueResource from 'vue-resource';
         address: '',
         addressA: '',
         addressB: '',
+        transport: '',
         autocompleteText: '',
-        wegbeschreibung: '',
         testobject: '',
 
       }
@@ -133,6 +142,11 @@ import vueResource from 'vue-resource';
       getAddressDataB: function (addressData, placeResultData) {
         console.log(addressData, placeResultData);
         this.addressB = addressData;
+      },
+
+      getTransport: function (event) {
+        console.log(event.target.value);
+        this.transport = event.target.value;
       },
 
       // Direction Service von Google Maps Tutorials zur Anzeige von Markern und Routen auf der Karte.
