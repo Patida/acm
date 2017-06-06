@@ -216,7 +216,7 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 
   .bg {
     background-color: #e6e6e6;
@@ -274,6 +274,12 @@
     margin-bottom: 5px;
   }
 
+/* Ueberschreiben des autocomplete css, da die pos-vorschlaege verschoben wurden */
+  .pac-container {
+      position: relative;
+      margin-top: -60px;
+  }
+
     .tabs {
       padding-top: 10px;
     }
@@ -293,10 +299,7 @@
     height: 300px;
     width: 500px;
   }
-  .autocompleteInput {
-    margin: auto;
-    padding: 10px;
-  }
+
 
   .data {
     margin: auto;
