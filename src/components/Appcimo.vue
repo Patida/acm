@@ -14,6 +14,7 @@
         <!-- Autocomplete https://www.npmjs.com/package/vue-google-autocomplete -->
 
         <!-- InputFrom: own location-->
+        <div class="autocompleteInput">
         <vue-google-autocomplete id="InputA" classname="form-control"
                                  placeholder="Your Position"
                                  v-on:placechanged="getOrigin"
@@ -29,10 +30,15 @@
                                  enable-geolocation: true
         >
         </vue-google-autocomplete>
+      </div>
 
-        <!-- TEST BUTTONS -->
+        <!-- BUTTONS -->
         <button v-on:click="getRoutes()">Finde meinen Weg!</button>
-        <p></p>
+
+        <!-- vue-material button -->
+        <!-- Funktioniert momentan nicht -->
+        <md-button class="md-raised md-primary" v-on:click="getRoutes()">Finde meinen Weg!</md-button>
+
 
         <div id="resultsFieldDescriptor">
           <span class="resultFieldMenue">Transportmittel</span>
@@ -53,6 +59,28 @@
                           :directionRoute="OutputTRANSIT"
         ></GoogleDirections>
 
+
+
+
+
+        <md-tabs md-fixed class="tabs">
+          <md-tab id="movies" md-label="Wegbeschreibung">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+          </md-tab>
+
+          <md-tab id="music" md-label="Map">
+            <div id="map"></div>
+          </md-tab>
+
+          <md-tab id="books" md-label="Preise">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+          </md-tab>
+        </md-tabs>
+
+
+
+
+
       </div>
     </div>
   </div>
@@ -63,6 +91,7 @@
   import VueGoogleAutocomplete from 'vue-google-autocomplete';
   import vueResource from 'vue-resource';
   import GoogleDirections from './GoogleDirections.vue';
+
 
   export default {
     components: {
@@ -85,9 +114,17 @@
       }
 
     },
+    mounted: function() {
+      // Map initialisieren
+      this.initMap();
+    },
 
     methods: {
 
+      initMap: function () {
+      var map = new google.maps.Map(document.getElementById('map'),
+      {center: {lat: 52.518755, lng: 13.398600}, zoom: 8,});
+      },
 
       /**
        * When the location found
@@ -184,7 +221,7 @@
   .bg {
     background-color: #e6e6e6;
     width: 100%;
-    height: 100%;
+    height: 100%px;
   }
 
   .headline {
@@ -192,6 +229,7 @@
     font-family: "Impact", sans-serif;
     font-size: 5em;
     margin: auto;
+    padding: 50px;
     color: brown;
     letter-spacing: 5px;
     border-style: solid;
@@ -236,6 +274,10 @@
     margin-bottom: 5px;
   }
 
+    .tabs {
+      padding-top: 10px;
+    }
+
   #InputA {
     margin: auto;
     width: 300px;
@@ -250,6 +292,10 @@
     margin: auto;
     height: 300px;
     width: 500px;
+  }
+  .autocompleteInput {
+    margin: auto;
+    padding: 10px;
   }
 
   .data {

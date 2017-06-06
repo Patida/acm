@@ -6,6 +6,9 @@ import router from './router'
 import VueGoogleAutocomplete from '.././node_modules/vue-google-autocomplete'
 // import vueResource from '.././node_modules/vue-resource'
 // Vue.use(vueResource);
+import VueMaterial from 'vue-material'
+import 'vue-material/dist/vue-material.css'
+Vue.use(VueMaterial);
 
 
 Vue.config.productionTip = false
