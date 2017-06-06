@@ -132,7 +132,7 @@
        * @param {Object} placeResultData PlaceResult object
        */
       getOrigin: function (addressData, placeResultData) {
-        //console.log(addressData, placeResultData);
+        console.log(addressData, placeResultData);
         this.origin = addressData;
       },
 
@@ -144,6 +144,30 @@
       getRoutes: function() {
         this.getRoute(this.origin, this.destination, "DRIVING");
         this.OutputTransit = this.getRoute(this.origin, this.destination, "TRANSIT");
+      },
+
+      getCarLocation: function (originCar) {
+        var carAddress = originCar.route + " 5"
+        var car = {
+            address: carAddress,
+            coordinates: [],
+            engineType: 'CE',
+            exterior: 'GOOD',
+            fuel: 100,
+            interior: 'GOOD',
+            name: '123456',
+            vin: 'WMEEJ3BA8DK643640'
+        }
+
+        var geocoder = new google.maps.Geocoder();
+        var loc = [];
+        geocoder.geocode({'address' : carAddress}, function(results, status) {
+            if (status=='OK') {
+              loc[0]=results[0].geometry.location.lat();
+              loc[1]=results[0].geometry.location.lng();
+            }
+        });
+        car.coordinates = loc;
       },
 
       getRoute: function (origin1, dest1, transport) {
