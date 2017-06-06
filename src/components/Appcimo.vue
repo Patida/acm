@@ -168,6 +168,7 @@
             }
         });
         car.coordinates = loc;
+        return car;
       },
 
       getRoute: function (origin1, dest1, transport) {
