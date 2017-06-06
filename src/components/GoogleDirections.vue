@@ -48,4 +48,12 @@
   .shortInfo {
 
   }
+
+  .bus {
+
+  }
+
+  .tram {
+
+  }
 </style>
