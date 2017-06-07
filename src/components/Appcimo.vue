@@ -69,7 +69,7 @@
 
           <md-tab id="Googlemap" md-label="Transit">
 
-            <DirectionService :addressData="addressData" ></DirectionService>
+            <DirectionService :directionRoute = "directionRouteComplete"></DirectionService>
           </md-tab>
 
           <md-tab id="preise" md-label="Car2go">
@@ -120,7 +120,8 @@
         destination: '',
         autocompleteText: '',
         OutputDRIVING: '',
-        OutputTRANSIT: ''
+        OutputTRANSIT: '',
+        directionRouteComplete: '',
 
       }
 
@@ -185,6 +186,7 @@
         directionsService.route(request, function(result, status) {
           var resultarray;
           if (status == 'OK') {
+            that.directionRouteComplete = result;
             //console.log(result.routes[0]);
             if (transport == 'TRANSIT') {
               resultarray = {

@@ -22,6 +22,7 @@
     props: {
       directionRoute: '',
       addressData: '',
+      map: '',
     },
 
     data() {
@@ -39,9 +40,9 @@
 
       initMap: function() {
         var that = this;
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: {lat: -24.345, lng: 134.46}  // Australia.
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 11,
+          center: {lat: 52.5152811, lng: 13.4018376}  // Berlin.
         });
 
         var directionsService = new google.maps.DirectionsService;
@@ -52,27 +53,11 @@
         });
 
         directionsDisplay.addListener('directions_changed', function() {
+
           that.computeTotalDistance(directionsDisplay.getDirections());
         });
+        directionsDisplay.setDirections(that.directionRoute);
 
-        that.displayRoute('-32.534700, 115.723509', 'Sydney, NSW', directionsService,
-        directionsDisplay);
-      },
-
-      displayRoute: function(origin, destination, service, display) {
-        service.route({
-          origin: origin,
-          destination: destination,
-          waypoints: [{location: 'Adelaide, SA'}, {location: 'Broken Hill, NSW'}],
-          travelMode: 'DRIVING',
-          avoidTolls: true
-        }, function(response, status) {
-          if (status === 'OK') {
-            display.setDirections(response);
-          } else {
-            alert('Could not display directions due to: ' + status);
-          }
-        });
       },
 
       computeTotalDistance: function(result) {
