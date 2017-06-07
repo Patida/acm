@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import GoogleDirections from '@/components/GoogleDirections'
 import DirectionService from '@/components/DirectionService'
+import car2go from '@/components/car2go'
 import Appcimo from '@/components/Appcimo'
 
 Vue.use(Router)

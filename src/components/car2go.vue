@@ -1,16 +1,9 @@
 <template>
   <div>
 
-   <div class="test"></div>
-
-
-  <div></div>
-
-
-
-  <div id="map"></div>
-  <div id="right-panel">
-    <p>Total Distance: <span id="total"></span></p>
+  <div id="gmap"></div>
+  <div id="right-panelcar2go">
+    <p>Total Distance: <span id="totalcar2go"></span></p>
   </div>
 
   </div>
@@ -18,7 +11,7 @@
 
 <script>
   export default {
-    name: "DirectionService",
+    name: "car2go",
     props: {
       directionRoute: '',
       addressData: '',
@@ -39,7 +32,7 @@
 
       initMap: function() {
         var that = this;
-        var map = new google.maps.Map(document.getElementById('map'), {
+        var gmap = new google.maps.Map(document.getElementById('gmap'), {
           zoom: 4,
           center: {lat: -24.345, lng: 134.46}  // Australia.
         });
@@ -47,8 +40,8 @@
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer({
           draggable: true,
-          map: map,
-          panel: document.getElementById('right-panel')
+          map: gmap,
+          panel: document.getElementById('right-panelcar2go')
         });
 
         directionsDisplay.addListener('directions_changed', function() {
@@ -83,7 +76,7 @@
           total += myroute.legs[i].distance.value;
         }
         total = total / 1000;
-        document.getElementById('total').innerHTML = total + ' km';
+        document.getElementById('total').innerHTML = total + ' kms';
       },
 
 
@@ -97,21 +90,21 @@
 
 </script>
 <style scoped>
-  #right-panel {
+  #right-panelcar2go {
     font-family: 'Roboto','sans-serif';
     line-height: 30px;
     padding-left: 10px;
   }
 
-  #right-panel select, #right-panel input {
+  #right-panelcar2go select, #right-panelcar2go input {
     font-size: 15px;
   }
 
-  #right-panel select {
+  #right-panelcar2go select {
     width: 100%;
   }
 
-  #right-panel i {
+  #right-panelcar2go i {
     font-size: 12px;
   }
   html, body {
@@ -119,19 +112,19 @@
     margin: 0;
     padding: 0;
   }
-  #map {
+  #gmap {
 
     height: 500px;
     width: 500px;
     float: left;
 
   }
-  #right-panel {
+  #right-panelcar2go {
     float: left;
     width: 34%;
     height: 100%;
   }
-  .panel {
+  .panelcar2go {
     height: 100%;
     overflow: auto;
   }

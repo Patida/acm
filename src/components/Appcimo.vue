@@ -60,19 +60,22 @@
                           :directionRoute="OutputTRANSIT"
         ></GoogleDirections>
 
-
+        <div>Details</div>
         <md-tabs md-fixed class="tabs">
-          <md-tab id="wegbeschreibung" md-label="Wegbeschreibung">
+          <md-tab id="wegbeschreibung" md-label="Driving">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
 
           </md-tab>
 
-          <md-tab id="Googlemap" md-label="Map">
-            
-            <DirectionService></DirectionService>
+          <md-tab id="Googlemap" md-label="Transit">
+
+            <DirectionService :addressData="addressData" ></DirectionService>
           </md-tab>
 
-          <md-tab id="preise" md-label="Preise">
+          <md-tab id="preise" md-label="Car2go">
+            <car2go></car2go>
+          </md-tab>
+          <md-tab id="bicycle" md-label="Bicycle">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
           </md-tab>
         </md-tabs>
@@ -96,6 +99,7 @@
   import vueResource from 'vue-resource';
   import GoogleDirections from './GoogleDirections.vue';
   import DirectionService from './DirectionService.vue';
+  import car2go from './car2go.vue';
 
 
   export default {
@@ -103,6 +107,7 @@
       VueGoogleAutocomplete,
       GoogleDirections,
       DirectionService,
+      car2go,
     },
     name: 'Gmap',
     data () {
