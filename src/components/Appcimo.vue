@@ -36,7 +36,7 @@
         <button v-on:click="getRoutes()">Finde meinen Weg!</button>
 
         <!-- vue-material button -->
-        <!-- Funktioniert momentan nicht -->
+        <!-- Funktion wird momentan noch nicht ausgefuehrt -->
         <md-button class="md-raised md-primary" v-on:click="getRoutes()">Finde meinen Weg!</md-button>
 
 
@@ -64,22 +64,27 @@
 
 
         <md-tabs md-fixed class="tabs">
-          <md-tab id="movies" md-label="Wegbeschreibung">
+          <md-tab id="wegbeschreibung" md-label="Wegbeschreibung">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+            <!-- DirectionService>{{ directionRoute }}</DirectionService-->
           </md-tab>
 
-          <md-tab id="music" md-label="Map">
-            <div id="map"></div>
+          <md-tab id="Googlemap" md-label="Map">
+            <div id="Gmap"></div>
           </md-tab>
 
-          <md-tab id="books" md-label="Preise">
+          <md-tab id="preise" md-label="Preise">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
           </md-tab>
         </md-tabs>
+        <hr>
 
-
-
-
+        <!-- AUS DIRECTIONSERVICE.VUE-->
+        <div id="map"></div>
+        <div id="right-panel">
+          <p>Total Distance: <span id="total"></span></p>
+        </div>
+        <!-- ENDE DIRECTIONSERVICE.VUE-->
 
       </div>
     </div>
@@ -91,14 +96,17 @@
   import VueGoogleAutocomplete from 'vue-google-autocomplete';
   import vueResource from 'vue-resource';
   import GoogleDirections from './GoogleDirections.vue';
+// vorerst in Appcimo.vue umgesetzt
+//  import DirectionService from './DirectionService.vue';
 
 
   export default {
     components: {
       VueGoogleAutocomplete,
-      GoogleDirections
+      GoogleDirections,
+      // DirectionService,
     },
-    name: 'map',
+    name: 'Gmap',
     data () {
       return {
         headline: 'Appcimo',
@@ -121,11 +129,13 @@
 
     methods: {
 
+/*
       initMap: function () {
-      var map = new google.maps.Map(document.getElementById('map'),
+      var Gmap = new google.maps.Map(document.getElementById('map'),
       {center: {lat: 52.518755, lng: 13.398600}, zoom: 8,});
       },
 
+*/
       /**
        * When the location found
        * @param {Object} addressData Data of the found location
@@ -234,6 +244,65 @@
           }
         });
       },
+
+
+
+
+      /* MAP + DIRECTIONS */
+
+
+      initMap: function() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: -24.345, lng: 134.46}  // Australia.
+        });
+
+        var directionsService = new google.maps.DirectionsService;
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+          draggable: true,
+          map: map,
+          panel: document.getElementById('right-panel')
+        });
+
+        directionsDisplay.addListener('directions_changed', function() {
+          computeTotalDistance(directionsDisplay.getDirections());
+        });
+
+        displayRoute('Perth, WA', 'Sydney, NSW', directionsService,
+        directionsDisplay);
+      },
+
+      displayRoute: function(origin, destination, service, display) {
+        service.route({
+          origin: origin,
+          destination: destination,
+          waypoints: [{location: 'Adelaide, SA'}, {location: 'Broken Hill, NSW'}],
+          travelMode: 'DRIVING',
+          avoidTolls: true
+        }, function(response, status) {
+          if (status === 'OK') {
+            display.setDirections(response);
+          } else {
+            alert('Could not display directions due to: ' + status);
+          }
+        });
+      },
+
+      computeTotalDistance: function(result) {
+        var total = 0;
+        var myroute = result.routes[0];
+        for (var i = 0; i < myroute.legs.length; i++) {
+          total += myroute.legs[i].distance.value;
+        }
+        total = total / 1000;
+        document.getElementById('total').innerHTML = total + ' kms';
+      },
+
+
+
+
+
+
     }
   }
 
@@ -338,9 +407,9 @@
     height: 300px;
   }
 
-  #map {
+  #Gmap {
     margin: auto;
-    height: 300px;
+    height: 500px;
     width: 500px;
   }
 
@@ -366,6 +435,48 @@
     margin-right: 0px;
     width: 20px;
     background-color: lightgrey;
+  }
+
+
+
+
+
+
+  #right-panel {
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+  }
+
+  #right-panel select, #right-panel input {
+    font-size: 15px;
+  }
+
+  #right-panel select {
+    width: 100%;
+  }
+
+  #right-panel i {
+    font-size: 12px;
+  }
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #map {
+    margin: auto;
+    height: 500px;
+    width: 500px;
+  }
+  #right-panel {
+    float: right;
+    width: 34%;
+    height: 100%;
+  }
+  .panel {
+    height: 100%;
+    overflow: auto;
   }
 
 </style>
