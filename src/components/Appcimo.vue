@@ -32,12 +32,13 @@
         </vue-google-autocomplete>
       </div>
 
-        <!-- BUTTONS -->
+        <!-- BUTTON -->
+        <p></p>
         <button v-on:click="getRoutes()">Finde meinen Weg!</button>
-
+        <p></p>
         <!-- vue-material button -->
         <!-- Funktion wird momentan noch nicht ausgefuehrt -->
-        <md-button class="md-raised md-primary" v-on:click="getRoutes()">Finde meinen Weg!</md-button>
+        <!-- md-button class="md-raised md-primary" v-on:click="getRoutes()">Finde meinen Weg!</md-button -->
 
 
         <div id="resultsFieldDescriptor">
@@ -56,29 +57,81 @@
                           :directionRoute="OutputDRIVING"
         ></GoogleDirections>
         <p></p>
+
+
+
+
+        <!-- TRANSITION DEMO -->
+        <div id="demo">
+          <button v-on:click="showDrive = !showDrive">
+            Details
+          </button>
+          <transition name="fade">
+            <p v-if="showDrive">
+
+
+              <md-tabs md-fixed class="tabs">
+
+                <md-tab id="Zusammenfassung" md-label="Zusammenfassung">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+                </md-tab>
+
+                <md-tab id="Map" md-label="Map">
+                  <DirectionService></DirectionService>
+                </md-tab>
+
+                <md-tab id="Wegbeschreibung" md-label="Wegbeschreibung">
+                  <car2go></car2go>
+                </md-tab>
+
+                <md-tab id="Preis" md-label="Preis">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+                </md-tab>
+
+              </md-tabs>
+            </p>
+          </transition>
+        </div>
+
+
+
+
         <GoogleDirections class="resultsField"
                           :directionRoute="OutputTRANSIT"
         ></GoogleDirections>
+        <div id="demo2">
+          <button v-on:click="showTransit = !showTransit">
+            Details
+          </button>
+          <transition name="fade">
+            <p v-if="showTransit">
 
-        <div>Details</div>
-        <md-tabs md-fixed class="tabs">
-          <md-tab id="wegbeschreibung" md-label="Driving">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
 
-          </md-tab>
+                            <md-tabs md-fixed class="tabs">
 
-          <md-tab id="Googlemap" md-label="Transit">
+                              <md-tab id="Zusammenfassung" md-label="Zusammenfassung">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
+                              </md-tab>
 
-            <DirectionService :addressData="addressData" ></DirectionService>
-          </md-tab>
+                              <md-tab id="Map" md-label="Map">
+                                <DirectionService></DirectionService>
+                              </md-tab>
 
-          <md-tab id="preise" md-label="Car2go">
-            <car2go></car2go>
-          </md-tab>
-          <md-tab id="bicycle" md-label="Bicycle">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-          </md-tab>
-        </md-tabs>
+                              <md-tab id="Wegbeschreibung" md-label="Wegbeschreibung">
+                                <car2go></car2go>
+                              </md-tab>
+
+                              <md-tab id="Preis" md-label="Preis">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
+                              </md-tab>
+
+                            </md-tabs>
+                          </p>
+                        </transition>
+                      </div>
+
+
+
         <hr>
 
         <!-- AUS DIRECTIONSERVICE.VUE>
@@ -120,7 +173,9 @@
         destination: '',
         autocompleteText: '',
         OutputDRIVING: '',
-        OutputTRANSIT: ''
+        OutputTRANSIT: '',
+        showDrive: false,
+        showTransit: false,
 
       }
 
@@ -299,8 +354,8 @@
   }
 
   button {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
   }
 
 /* Ueberschreiben des autocomplete css, da die pos-vorschlaege verschoben wurden */
@@ -372,7 +427,12 @@
     background-color: lightgrey;
   }
 
-
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+    opacity: 0
+  }
 
 
 

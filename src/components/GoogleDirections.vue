@@ -36,7 +36,7 @@
 <style scoped>
   .directionWindow {
     margin: auto;
-    margin-top: 30px;
+    margin-top: 0px;
     width:500px;
     height: 300px;
   }
