@@ -252,6 +252,7 @@
 
 
       initMap: function() {
+        var that = this;
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
           center: {lat: -24.345, lng: 134.46}  // Australia.
@@ -265,7 +266,7 @@
         });
 
         directionsDisplay.addListener('directions_changed', function() {
-          computeTotalDistance(directionsDisplay.getDirections());
+          that.computeTotalDistance(directionsDisplay.getDirections());
         });
 
         displayRoute('Perth, WA', 'Sydney, NSW', directionsService,
@@ -289,6 +290,7 @@
       },
 
       computeTotalDistance: function(result) {
+        var that = this;
         var total = 0;
         var myroute = result.routes[0];
         for (var i = 0; i < myroute.legs.length; i++) {
