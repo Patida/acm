@@ -1,8 +1,11 @@
 <template>
   <div>
 
-    <div class="test">{{ wegbeschreibung }}</div>
-  test1
+  <!-- <div class="test">{{ wegbeschreibung }}</div> -->
+
+
+  <div></div>
+
 
 
   <div id="map"></div>
@@ -18,6 +21,7 @@
     name: "DirectionService",
     props: {
       directionRoute: '',
+      addressData: '',
     },
 
     data() {
@@ -26,13 +30,18 @@
       }
     },
 
+    mounted: function() {
+      // Map initialisieren
+      this.initMap();
+    },
 
     methods: {
 
       initMap: function() {
+        var that = this;
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: {lat: 52.518755, lng: 13.398600}  // Berlin.
+          zoom: 4,
+          center: {lat: -24.345, lng: 134.46}  // Australia.
         });
 
         var directionsService = new google.maps.DirectionsService;
@@ -43,10 +52,10 @@
         });
 
         directionsDisplay.addListener('directions_changed', function() {
-          computeTotalDistance(directionsDisplay.getDirections());
+          that.computeTotalDistance(directionsDisplay.getDirections());
         });
 
-        displayRoute('Perth, WA', 'Sydney, NSW', directionsService,
+        that.displayRoute('-32.534700, 115.723509', 'Sydney, NSW', directionsService,
         directionsDisplay);
       },
 
@@ -67,6 +76,7 @@
       },
 
       computeTotalDistance: function(result) {
+        var that = this;
         var total = 0;
         var myroute = result.routes[0];
         for (var i = 0; i < myroute.legs.length; i++) {
@@ -87,11 +97,6 @@
 
 </script>
 <style scoped>
-  .test {
-    font-size: 1em;
-  }
-
-
   #right-panel {
     font-family: 'Roboto','sans-serif';
     line-height: 30px;
@@ -115,13 +120,14 @@
     padding: 0;
   }
   #map {
-    height: 100%;
+
+    height: 500px;
+    width: 500px;
     float: left;
-    width: 63%;
-    height: 100%;
+
   }
   #right-panel {
-    float: right;
+    float: left;
     width: 34%;
     height: 100%;
   }
@@ -129,6 +135,5 @@
     height: 100%;
     overflow: auto;
   }
-
 
 </style>

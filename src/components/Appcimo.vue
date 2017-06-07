@@ -51,6 +51,7 @@
 
         <p></p>
         <!-- Show all availabe data in returned object-->
+
         <GoogleDirections class="resultsField"
                           :directionRoute="OutputDRIVING"
         ></GoogleDirections>
@@ -60,17 +61,15 @@
         ></GoogleDirections>
 
 
-
-
-
         <md-tabs md-fixed class="tabs">
           <md-tab id="wegbeschreibung" md-label="Wegbeschreibung">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-            <!-- DirectionService>{{ directionRoute }}</DirectionService-->
+
           </md-tab>
 
           <md-tab id="Googlemap" md-label="Map">
-            <div id="Gmap"></div>
+            
+            <DirectionService></DirectionService>
           </md-tab>
 
           <md-tab id="preise" md-label="Preise">
@@ -79,12 +78,12 @@
         </md-tabs>
         <hr>
 
-        <!-- AUS DIRECTIONSERVICE.VUE-->
+        <!-- AUS DIRECTIONSERVICE.VUE>
         <div id="map"></div>
         <div id="right-panel">
           <p>Total Distance: <span id="total"></span></p>
         </div>
-        <!-- ENDE DIRECTIONSERVICE.VUE-->
+        < ENDE DIRECTIONSERVICE.VUE-->
 
       </div>
     </div>
@@ -96,15 +95,14 @@
   import VueGoogleAutocomplete from 'vue-google-autocomplete';
   import vueResource from 'vue-resource';
   import GoogleDirections from './GoogleDirections.vue';
-// vorerst in Appcimo.vue umgesetzt
-//  import DirectionService from './DirectionService.vue';
+  import DirectionService from './DirectionService.vue';
 
 
   export default {
     components: {
       VueGoogleAutocomplete,
       GoogleDirections,
-      // DirectionService,
+      DirectionService,
     },
     name: 'Gmap',
     data () {
@@ -122,20 +120,9 @@
       }
 
     },
-    mounted: function() {
-      // Map initialisieren
-      this.initMap();
-    },
 
     methods: {
 
-/*
-      initMap: function () {
-      var Gmap = new google.maps.Map(document.getElementById('map'),
-      {center: {lat: 52.518755, lng: 13.398600}, zoom: 8,});
-      },
-
-*/
       /**
        * When the location found
        * @param {Object} addressData Data of the found location
@@ -154,6 +141,7 @@
       getRoutes: function() {
         this.getRoute(this.origin, this.destination, "DRIVING");
         this.OutputTransit = this.getRoute(this.origin, this.destination, "TRANSIT");
+
       },
 
       getCarLocation: function (originCar) {
@@ -244,66 +232,6 @@
           }
         });
       },
-
-
-
-
-      /* MAP + DIRECTIONS */
-
-
-      initMap: function() {
-        var that = this;
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: {lat: -24.345, lng: 134.46}  // Australia.
-        });
-
-        var directionsService = new google.maps.DirectionsService;
-        var directionsDisplay = new google.maps.DirectionsRenderer({
-          draggable: true,
-          map: map,
-          panel: document.getElementById('right-panel')
-        });
-
-        directionsDisplay.addListener('directions_changed', function() {
-          that.computeTotalDistance(directionsDisplay.getDirections());
-        });
-
-        displayRoute('Perth, WA', 'Sydney, NSW', directionsService,
-        directionsDisplay);
-      },
-
-      displayRoute: function(origin, destination, service, display) {
-        service.route({
-          origin: origin,
-          destination: destination,
-          waypoints: [{location: 'Adelaide, SA'}, {location: 'Broken Hill, NSW'}],
-          travelMode: 'DRIVING',
-          avoidTolls: true
-        }, function(response, status) {
-          if (status === 'OK') {
-            display.setDirections(response);
-          } else {
-            alert('Could not display directions due to: ' + status);
-          }
-        });
-      },
-
-      computeTotalDistance: function(result) {
-        var that = this;
-        var total = 0;
-        var myroute = result.routes[0];
-        for (var i = 0; i < myroute.legs.length; i++) {
-          total += myroute.legs[i].distance.value;
-        }
-        total = total / 1000;
-        document.getElementById('total').innerHTML = total + ' kms';
-      },
-
-
-
-
-
 
     }
   }
@@ -443,42 +371,5 @@
 
 
 
-
-  #right-panel {
-    font-family: 'Roboto','sans-serif';
-    line-height: 30px;
-    padding-left: 10px;
-  }
-
-  #right-panel select, #right-panel input {
-    font-size: 15px;
-  }
-
-  #right-panel select {
-    width: 100%;
-  }
-
-  #right-panel i {
-    font-size: 12px;
-  }
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  #map {
-    margin: auto;
-    height: 500px;
-    width: 500px;
-  }
-  #right-panel {
-    float: right;
-    width: 34%;
-    height: 100%;
-  }
-  .panel {
-    height: 100%;
-    overflow: auto;
-  }
 
 </style>
