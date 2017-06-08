@@ -77,7 +77,7 @@
 <script>
 import VueGoogleAutocomplete from 'vue-google-autocomplete';
 import vueResource from 'vue-resource';
-import GoogleDirections from './GoogleDirections.vue';
+import GoogleDirections from './resultComponent.vue';
 
   export default {
     components: {

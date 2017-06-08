@@ -1,13 +1,6 @@
 <template>
   <div>
 
-   <div class="test"></div>
-
-
-  <div></div>
-
-
-
   <div id="map"></div>
   <div id="right-panel">
     <p>Total Distance: <span id="total"></span></p>
@@ -44,7 +37,7 @@
           zoom: 11,
           center: {lat: 52.5152811, lng: 13.4018376}  // Berlin.
         });
-
+//
         var directionsService = new google.maps.DirectionsService;
         var directionsDisplay = new google.maps.DirectionsRenderer({
           draggable: true,

@@ -52,88 +52,16 @@
         <p></p>
         <!-- Show all availabe data in returned object-->
 
-        <GoogleDirections class="resultsField"
-                          :directionRoute="OutputDRIVING"
-        ></GoogleDirections>
+        <resultComponent class="resultsField"
+                         :directionRoute="OutputDRIVING"
+                         :completeRoute="directionRouteCompleteCar">
+
+        </resultComponent>
         <p></p>
-
-
-
-
-        <!-- TRANSITION DEMO -->
-        <div id="demo">
-          <button v-on:click="showDrive = !showDrive">
-            Details
-          </button>
-          <transition name="fade">
-            <p v-if="showDrive">
-
-
-              <md-tabs md-fixed class="tabs">
-
-                <md-tab id="Zusammenfassung" md-label="Zusammenfassung">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-                </md-tab>
-
-                <md-tab id="Map" md-label="Map">
-                  <DirectionService></DirectionService>
-                </md-tab>
-
-                <md-tab id="Wegbeschreibung" md-label="Wegbeschreibung">
-                  <car2go></car2go>
-                </md-tab>
-
-                <md-tab id="Preis" md-label="Preis">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-                </md-tab>
-
-              </md-tabs>
-            </p>
-          </transition>
-        </div>
-
-
-
-
-        <GoogleDirections class="resultsField"
-                          :directionRoute="OutputTRANSIT"
-        ></GoogleDirections>
-        <div id="demo2">
-          <button v-on:click="showTransit = !showTransit">
-            Details
-          </button>
-          <transition name="fade">
-            <p v-if="showTransit">
-
-
-                            <md-tabs md-fixed class="tabs">
-
-                              <md-tab id="Zusammenfassung" md-label="Zusammenfassung">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-                              </md-tab>
-
-                              <md-tab id="Map" md-label="Map">
-                                <DirectionService></DirectionService>
-                              </md-tab>
-          <md-tab id="Googlemap" md-label="Transit">
-
-            <DirectionService :directionRoute = "directionRouteComplete"></DirectionService>
-          </md-tab>
-
-                              <md-tab id="Wegbeschreibung" md-label="Wegbeschreibung">
-                                <car2go></car2go>
-                              </md-tab>
-
-                              <md-tab id="Preis" md-label="Preis">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas.</p>
-                              </md-tab>
-
-                            </md-tabs>
-                          </p>
-                        </transition>
-                      </div>
-
-
+        <resultComponent class="resultsField"
+                         :directionRoute="OutputTRANSIT"
+                         :completeRoute="directionRouteCompleteTransit">
+        </resultComponent>
 
         <hr>
 
@@ -153,17 +81,15 @@
 <script>
   import VueGoogleAutocomplete from 'vue-google-autocomplete';
   import vueResource from 'vue-resource';
-  import GoogleDirections from './GoogleDirections.vue';
+  import resultComponent from './resultComponent.vue';
   import DirectionService from './DirectionService.vue';
-  import car2go from './car2go.vue';
 
 
   export default {
     components: {
       VueGoogleAutocomplete,
-      GoogleDirections,
+      resultComponent,
       DirectionService,
-      car2go,
     },
     name: 'Gmap',
     data () {
@@ -179,7 +105,8 @@
         OutputTRANSIT: '',
         showDrive: false,
         showTransit: false,
-        directionRouteComplete: '',
+        directionRouteCompleteCar: '',
+        directionRouteCompleteTransit: '',
       }
 
     },
@@ -243,9 +170,10 @@
         directionsService.route(request, function(result, status) {
           var resultarray;
           if (status == 'OK') {
-            that.directionRouteComplete = result;
+
             //console.log(result.routes[0]);
             if (transport == 'TRANSIT') {
+              that.directionRouteCompleteTransit = result;
               resultarray = {
                 transportmethod: transport,
                 distance: result.routes[0].legs[0].distance.value,
@@ -278,6 +206,7 @@
               that.OutputTRANSIT = resultarray;
             }
             if (transport == 'DRIVING') {
+              that.directionRouteCompleteCar = result;
               var Zeit = new Date();
               var Startzeit = Zeit.getHours()+":"+Zeit.getMinutes();
               var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime()+ result.routes[0].legs[0].duration.value*1000));
@@ -430,15 +359,5 @@
     width: 20px;
     background-color: lightgrey;
   }
-
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-    opacity: 0
-  }
-
-
-
 
 </style>
