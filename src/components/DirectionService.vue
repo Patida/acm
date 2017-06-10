@@ -1,8 +1,7 @@
 <template>
   <div>
-
-  <div id="map"></div>
-  <div id="right-panel">
+    <div class="maps" ref="map"></div>
+  <div class="right-panels" ref="rightpanel">
     <p>Total Distance: <span id="total"></span></p>
   </div>
 
@@ -15,7 +14,7 @@
     props: {
       directionRoute: '',
       addressData: '',
-      map: '',
+      vuemap: '',
     },
 
     data() {
@@ -33,7 +32,7 @@
 
       initMap: function() {
         var that = this;
-        var map = new google.maps.Map(document.getElementById("map"), {
+        var map = new google.maps.Map(that.$refs.map, {
           zoom: 11,
           center: {lat: 52.5152811, lng: 13.4018376}  // Berlin.
         });
@@ -42,7 +41,7 @@
         var directionsDisplay = new google.maps.DirectionsRenderer({
           draggable: true,
           map: map,
-          panel: document.getElementById('right-panel')
+          panel: that.$refs.rightpanel
         });
 
         directionsDisplay.addListener('directions_changed', function() {
@@ -63,12 +62,6 @@
         total = total / 1000;
         document.getElementById('total').innerHTML = total + ' km';
       },
-
-
-
-
-
-
 
     }
   }
@@ -97,14 +90,14 @@
     margin: 0;
     padding: 0;
   }
-  #map {
+  .maps {
 
     height: 500px;
     width: 500px;
     float: left;
 
   }
-  #right-panel {
+  .right-panels {
     float: left;
     width: 34%;
     height: 100%;
