@@ -20,12 +20,10 @@
 
           <md-tabs md-fixed class="tabs">
 
-          <md-tab id="Zusammenfassung" md-label="Zusammenfassung">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorum quas amet cum vitae, omnis! Illum quas voluptatem, expedita iste, dicta ipsum ea veniam dolore in, quod saepe reiciendis nihil.</p>
-          </md-tab>
-
           <md-tab id="Map" md-label="Map">
-            <DirectionService :directionRoute="completeRoute"></DirectionService>
+            <DirectionService :directionRoute="completeRoute"
+                              :walkRoute="walkRoute"
+            ></DirectionService>
           </md-tab>
 
           <md-tab id="Preis" md-label="Preis">
@@ -51,19 +49,9 @@
     props: {
       directionRoute: '',
       completeRoute: '',
+      walkRoute: '',
+      showDrive: '',
     },
-
-    data() {
-      return {
-          wegbeschreibung: '',
-          showDrive: false,
-      }
-    },
-
-
-    methods: {
-
-    }
   }
 
 </script>

@@ -2,7 +2,7 @@
   <div>
     <div class="maps" ref="map"></div>
   <div class="right-panels" ref="rightpanel">
-    <p>Total Distance: <span id="total"></span></p>
+    <p>Total Distance: <span class="total" ref="total"> {{ total }}</span></p>
   </div>
 
   </div>
@@ -14,12 +14,12 @@
     props: {
       directionRoute: '',
       addressData: '',
-      vuemap: '',
+      walkRoute: '',
     },
 
     data() {
       return {
-          wegbeschreibung: 'one',
+          total: '',
       }
     },
 
@@ -38,17 +38,25 @@
         });
 //
         var directionsService = new google.maps.DirectionsService;
+        if (that.walkRoute != null) {
+
+          var directionsDisplayWalk = new google.maps.DirectionsRenderer({
+            panel: that.$refs.rightpanel
+          });
+          directionsDisplayWalk.setDirections(that.walkRoute);
+        }
         var directionsDisplay = new google.maps.DirectionsRenderer({
           draggable: true,
           map: map,
           panel: that.$refs.rightpanel
         });
-
         directionsDisplay.addListener('directions_changed', function() {
 
           that.computeTotalDistance(directionsDisplay.getDirections());
         });
         directionsDisplay.setDirections(that.directionRoute);
+
+
 
       },
 
@@ -60,7 +68,7 @@
           total += myroute.legs[i].distance.value;
         }
         total = total / 1000;
-        document.getElementById('total').innerHTML = total + ' km';
+        that.total = new Intl.NumberFormat('de-DE').format(total) + ' km';
       },
 
     }

@@ -33,12 +33,12 @@
       </div>
 
         <!-- BUTTONS -->
-        <button v-on:click="getRoutes()">Finde meinen Weg!</button>
+        <button @click="getRoutes()">Finde meinen Weg!</button>
 
         <!-- vue-material button -->
-        <!-- Funktion wird momentan noch nicht ausgefuehrt -->
+        <!-- Funktion wird momentan noch nicht ausgefuehrt
         <md-button class="md-raised md-primary" v-on:click="getRoutes()">Finde meinen Weg!</md-button>
-
+        -->
 
         <div id="resultsFieldDescriptor">
           <span class="resultFieldMenue">Transportmittel</span>
@@ -52,25 +52,24 @@
         <p></p>
         <!-- Show all availabe data in returned object-->
 
-        <resultComponent class="resultsField"
+        <resultComponent v-if="showResults"
+                          class="resultsField"
                          :directionRoute="OutputDRIVING"
-                         :completeRoute="directionRouteCompleteCar">
+                         :completeRoute="directionRouteCompleteCar"
+                         :walkRoute="directionRouteCompleteWalking"
+                        :showDrive="false">
 
         </resultComponent>
-        <p></p>
-        <resultComponent class="resultsField"
+
+        <resultComponent  v-if="showResults"
+                          class="resultsField"
                          :directionRoute="OutputTRANSIT"
-                         :completeRoute="directionRouteCompleteTransit">
+                         :completeRoute="directionRouteCompleteTransit"
+                         :showDrive="false"
+                          :walkRoute="null">
         </resultComponent>
 
         <hr>
-
-        <!-- AUS DIRECTIONSERVICE.VUE>
-        <div id="map"></div>
-        <div id="right-panel">
-          <p>Total Distance: <span id="total"></span></p>
-        </div>
-        < ENDE DIRECTIONSERVICE.VUE-->
 
       </div>
     </div>
@@ -103,42 +102,41 @@
         autocompleteText: '',
         OutputDRIVING: '',
         OutputTRANSIT: '',
+        OutputWALKING: '',
         showDrive: false,
         showTransit: false,
         directionRouteCompleteCar: '',
         directionRouteCompleteTransit: '',
+        directionRouteCompleteWalking:'',
+        car2go: '',
+        showResults:false,
       }
 
     },
 
     methods: {
 
-      /**
-       * When the location found
-       * @param {Object} addressData Data of the found location
-       * @param {Object} placeResultData PlaceResult object
-       */
       getOrigin: function (addressData, placeResultData) {
-        console.log(addressData, placeResultData);
         this.origin = addressData;
+        this.getCarLocation(addressData); // Ist eine Startadresse angegeben soll relativ zu dieser der Autostandort ermittelt werden.
       },
 
       getDestination: function (addressData, placeResultData) {
-        //console.log(addressData, placeResultData);
         this.destination = addressData;
       },
 
       getRoutes: function() {
-        this.getRoute(this.origin, this.destination, "DRIVING");
-        this.OutputTransit = this.getRoute(this.origin, this.destination, "TRANSIT");
-
+        this.getRoute(this.origin, this.destination, null, "TRANSIT");
+        this.getRoute(this.origin, this.destination, this.car2go.coordinates, "DRIVING");
+        this.showResults = true;  // results einblenden
       },
 
+      // Simulieren des Autostandortes, da noch kein Zugang zur Car2Go API gewährt wurde
       getCarLocation: function (originCar) {
         var carAddress = originCar.route + " 5"
         var car = {
             address: carAddress,
-            coordinates: [],
+            coordinates: '',
             engineType: 'CE',
             exterior: 'GOOD',
             fuel: 100,
@@ -148,29 +146,64 @@
         }
 
         var geocoder = new google.maps.Geocoder();
-        var loc = [];
+        var loc = {
+            latitude: '',
+            longitude: ''
+        };
         geocoder.geocode({'address' : carAddress}, function(results, status) {
             if (status=='OK') {
-              loc[0]=results[0].geometry.location.lat();
-              loc[1]=results[0].geometry.location.lng();
+              loc.latitude=results[0].geometry.location.lat();
+              loc.longitude=results[0].geometry.location.lng();
             }
         });
         car.coordinates = loc;
-        return car;
+        this.car2go = car;
       },
 
-      getRoute: function (origin1, dest1, transport) {
+      //Funktion zur Ermittlung der Routen über Google Javascript API Directions
+      getRoute: function (origin1, dest1, waypoint, transport) {
         var that = this;
         var directionsService = new google.maps.DirectionsService();
-        var request = {
-          origin: {lat: origin1.latitude, lng: origin1.longitude},
-          destination: {lat: dest1.latitude, lng: dest1.longitude},
-          travelMode: transport
-        };
+        if (waypoint != null) {
+          var request = {
+            origin: {lat: origin1.latitude, lng: origin1.longitude},
+            destination: {lat: dest1.latitude, lng: dest1.longitude},
+            travelMode: transport,
+            provideRouteAlternatives: false,
+            waypoints: [{
+                location: {lat: waypoint.latitude, lng: waypoint.longitude},
+                stopover: true
+            }]
+          };
+        }
+        else {
+          var request = {
+            origin: {lat: origin1.latitude, lng: origin1.longitude},
+            destination: {lat: dest1.latitude, lng: dest1.longitude},
+            travelMode: transport,
+            provideRouteAlternatives: false
+          };
+        }
+
         directionsService.route(request, function(result, status) {
+            console.log(result);
           var resultarray;
           if (status == 'OK') {
-
+            if (transport == 'WALKING') {
+              that.directionRouteCompleteWalking = result;
+              var Zeit = new Date();
+              var Startzeit = Zeit.getHours()+":"+Zeit.getMinutes();
+              var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime()+ result.routes[0].legs[0].duration.value*1000));
+              Ankuftszeit = Ankuftszeit.getHours()+":"+Ankuftszeit.getMinutes();
+                resultarray = {
+                  transportmethod: transport,
+                  distance: result.routes[0].legs[0].distance.value,
+                  duration: result.routes[0].legs[0].duration.text,
+                  start: Startzeit,
+                  finish: Ankuftszeit,
+                };
+                that.OutputWALKING = resultarray;
+            }
             //console.log(result.routes[0]);
             if (transport == 'TRANSIT') {
               that.directionRouteCompleteTransit = result;
@@ -224,8 +257,7 @@
             }
           }
         });
-      },
-
+      }
     }
   }
 
