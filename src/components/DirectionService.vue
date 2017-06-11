@@ -1,9 +1,12 @@
 <template>
   <div>
     <div class="maps" ref="map"></div>
-  <div class="right-panels" ref="rightpanel">
-    <p>Total Distance: <span class="total" ref="total"> {{ total }}</span></p>
-  </div>
+    <div class="right-panels">
+      <p>Wegpunkt A = Startadresse</p>
+      <p v-if="isCarSearch">Wegpunkt B = Standort des Autos</p>
+      <p v-if="isCarSearch" >Wegpunkt C = Zieladresse</p>
+      <p v-if="isTrainSearch">Wegpunkt B = Zieladresse</p>
+    </div>
 
   </div>
 </template>
@@ -13,13 +16,13 @@
     name: "DirectionService",
     props: {
       directionRoute: '',
-      addressData: '',
-      walkRoute: '',
     },
 
     data() {
       return {
           total: '',
+          isCarSearch: false,
+          isTrainSearch: false
       }
     },
 
@@ -32,41 +35,24 @@
 
       initMap: function() {
         var that = this;
+        if (that.directionRoute.request.travelMode == "DRIVING") {
+            that.isCarSearch = true;
+        }
+        else {
+            that.isTrainSearch = true;
+        }
         var map = new google.maps.Map(that.$refs.map, {
           zoom: 11,
           center: {lat: 52.5152811, lng: 13.4018376}  // Berlin.
         });
-//
-        var directionsService = new google.maps.DirectionsService;
-        if (that.walkRoute != null) {
-          var directionsDisplayWalk = new google.maps.DirectionsRenderer({
-            panel: that.$refs.rightpanel
-          });
-          directionsDisplayWalk.setDirections(that.walkRoute);
-        }
+
         var directionsDisplay = new google.maps.DirectionsRenderer({
           draggable: true,
-          map: map,
-          panel: that.$refs.rightpanel
-        });
-        directionsDisplay.addListener('directions_changed', function() {
-
-          that.computeTotalDistance(directionsDisplay.getDirections());
+          map: map
         });
         directionsDisplay.setDirections(that.directionRoute);
-      },
 
-      computeTotalDistance: function(result) {
-        var that = this;
-        var total = 0;
-        var myroute = result.routes[0];
-        for (var i = 0; i < myroute.legs.length; i++) {
-          total += myroute.legs[i].distance.value;
-        }
-        total = total / 1000;
-        that.total = new Intl.NumberFormat('de-DE').format(total) + ' km';
       },
-
     }
   }
 

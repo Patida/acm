@@ -6,10 +6,10 @@
       <button v-on:click="showDrive = !showDrive">
         <img src="../assets/downarrow.png" height="20" width="15">
       </button>
-      <span class="shortinfo">{{ directionRoute.transportmethod }}</span>
-     <span class="shortInfo">{{ directionRoute.start }}</span>
-      <span class="shortInfo">{{ directionRoute.finish }}</span>
-      <span class="shortInfo">{{ directionRoute.duration }}</span>
+      <span class="shortinfo" id="transport">{{ transportSystem }}</span>
+     <span class="shortInfo" id="Start">{{ start }}</span>
+      <span class="shortInfo">{{ end }}</span>
+      <span class="shortInfo" id="duration">{{ duration }}</span>
 
       </div>
 
@@ -19,10 +19,17 @@
         <div v-if="showDrive">
 
           <md-tabs md-fixed class="tabs">
+            <md-tab id="Zusammenfgassung" md-label="Zusammenfassung">
+              <RouteDescription
+                :description="completeRoute"
+                :descriptionCar="shortRouteCar"
+                :descriptionWalk="walkRoute"
+              ></RouteDescription>
+            </md-tab>
 
           <md-tab id="Map" md-label="Map">
-            <DirectionService :directionRoute="completeRoute"
-                              :walkRoute="walkRoute"
+            <DirectionService
+              :directionRoute="completeRoute"
             ></DirectionService>
           </md-tab>
 
@@ -40,18 +47,83 @@
 <script>
 
   import DirectionService from './DirectionService.vue';
+  import RouteDescription from './RouteDescription.vue';
 
   export default {
     components: {
       DirectionService,
+      RouteDescription,
     },
     name: "resultComponent",
     props: {
       directionRoute: '',
+      directionRouteSecond: '',
       completeRoute: '',
+      shortRouteCar: '',
       walkRoute: '',
       showDrive: ''
-    }
+    },
+
+    computed: {
+      transportSystem: function() {
+        var that = this;
+        if (that.directionRoute.transportmethod == "DRIVING") {
+          return "Carsharing";
+        }
+        else if (that.directionRoute.transportmethod == "TRANSIT") {
+          return "Öffis";
+        }
+        else {}
+      },
+      duration: function() {
+        var that = this;
+        var time = 0;
+        if (that.directionRoute.transportmethod == "DRIVING") {
+          time = that.directionRoute.duration + that.directionRouteSecond.duration;
+        }
+        else if (that.directionRoute.transportmethod == "TRANSIT") {
+          time = that.directionRoute.duration;
+        }
+        else {}
+        return (time-(time%=60))/60+(9<time?':':':0')+time + 'min';
+      },
+      distance: function() {
+        var that = this;
+        if (that.directionRoute.transportmethod == "DRIVING") {
+          return that.directionRoute.distance + that.directionRouteSecond.distance;
+        }
+        else if (that.directionRoute.transportmethod == "TRANSIT") {
+          return that.directionRoute.distance;
+        }
+        else {}
+      },
+      start: function() {
+        var that = this;
+        if (that.directionRoute.transportmethod == "DRIVING") {
+          return that.directionRouteSecond.start;
+        }
+        else if (that.directionRoute.transportmethod == "TRANSIT") {
+          return that.directionRoute.start;
+        }
+        else {}
+      },
+      end: function() {
+        var that = this;
+        if (that.directionRoute.transportmethod == "DRIVING") {
+          var Zeit = new Date();
+          var time = (that.directionRoute.duration + that.directionRouteSecond.duration) * 1000;
+          var Finishtime = new Date(Zeit.setTime(Zeit.getTime() + time));
+          var Finishtime = Finishtime.getHours() + ":" + Finishtime.getMinutes();
+          return Finishtime;
+        }
+        else if (that.directionRoute.transportmethod == "TRANSIT") {
+          return that.directionRoute.finish;
+        }
+        else {
+        }
+      }
+    },
+
   }
 
 </script>
@@ -63,6 +135,7 @@
     height: 300px;
   }
   .resultBar {
+    text-align: left;
     margin: auto;
     width: 80%;
     height: 50px;
@@ -91,5 +164,17 @@
     margin-top: 5px;
     width: 80%;
     background-color: rgba(0,0,0,0.15);
+  }
+
+  #transport {
+    margin-left: 2%;
+    width: 100px;
+  }
+
+  #Start {
+    margin-left: 5%;
+  }
+  #duration {
+    margin-right: 100px;
   }
 </style>

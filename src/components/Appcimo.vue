@@ -40,11 +40,11 @@
         <md-button class="md-raised md-primary" v-on:click="getRoutes()">Finde meinen Weg!</md-button>
         -->
 
-        <div id="resultsFieldDescriptor">
-          <span class="resultFieldMenue">Transportmittel</span>
-          <span class="resultFieldMenue">Startzeit</span>
-          <span class="resultFieldMenue">Ankunftszeit</span>
-          <span class="resultFieldMenue">Dauer</span>
+        <div v-if="showResults" id="resultsFieldDescriptor">
+          <span class="resultFieldMenue" id="transport">Transportmittel</span>
+          <span class="resultFieldMenue" id="Start">Startzeit</span>
+          <span class="resultFieldMenue" id="End">Ankunftszeit</span>
+          <span class="resultFieldMenue" id="duration">Dauer</span>
           <span class="resultFieldMenue"></span>
           <span class="resultFieldMenue">Kurzansicht</span>
         </div>
@@ -54,10 +54,12 @@
 
         <resultComponent v-if="showResults"
                           class="resultsField"
-                         :directionRoute="OutputDRIVING"
-                         :completeRoute="directionRouteCompleteCar"
-                         :walkRoute="directionRouteCompleteWalking"
-                         :showDrive="false"
+                          :directionRoute="OutputDRIVING"
+                          :directionRouteSecond="OutputWALKING"
+                          :completeRoute="directionRouteCompleteCar"
+                          :walkRoute="directionRouteCompleteWalking"
+                          :showDrive="false"
+                          :shortRouteCar="directionRouteShortCar"
         >
 
 
@@ -65,10 +67,11 @@
 
         <resultComponent  v-if="showResults"
                           class="resultsField"
-                         :directionRoute="OutputTRANSIT"
-                         :completeRoute="directionRouteCompleteTransit"
-                         :showDrive="false"
+                          :directionRoute="OutputTRANSIT"
+                          :completeRoute="directionRouteCompleteTransit"
+                          :showDrive="false"
                           :walkRoute="null"
+                          :shortRouteCar="null"
         >
         </resultComponent>
 
@@ -77,9 +80,7 @@
       </div>
     </div>
   </div>
-
 </template>
-
 <script>
   import VueGoogleAutocomplete from 'vue-google-autocomplete';
   import vueResource from 'vue-resource';
@@ -109,10 +110,11 @@
         showDrive: false,
         showTransit: false,
         directionRouteCompleteCar: '',
+        directionRouteShortCar: '',
         directionRouteCompleteTransit: '',
-        directionRouteCompleteWalking:'',
+        directionRouteCompleteWalking: '',
         car2go: '',
-        showResults:false,
+        showResults: false,
       }
 
     },
@@ -128,11 +130,13 @@
         this.destination = addressData;
       },
 
-      getRoutes: function() {
-        this.showResults = true; // results einblenden
+      getRoutes: function () {
+
         this.getRoute(this.origin, this.destination, null, "TRANSIT");
-        this.getRoute(this.origin, this.destination, null, "WALKING");
+        this.getRoute(this.origin, this.car2go.coordinates, null, "WALKING");
+        this.getRoute(this.car2go.coordinates, this.destination, null, "DRIVING");
         this.getRoute(this.origin, this.destination, this.car2go.coordinates, "DRIVING");
+        this.showResults = true; // results einblenden
 
       },
 
@@ -140,26 +144,26 @@
       getCarLocation: function (originCar) {
         var carAddress = originCar.route + " 5"
         var car = {
-            address: carAddress,
-            coordinates: '',
-            engineType: 'CE',
-            exterior: 'GOOD',
-            fuel: 100,
-            interior: 'GOOD',
-            name: '123456',
-            vin: 'WMEEJ3BA8DK643640'
+          address: carAddress,
+          coordinates: '',
+          engineType: 'CE',
+          exterior: 'GOOD',
+          fuel: 100,
+          interior: 'GOOD',
+          name: '123456',
+          vin: 'WMEEJ3BA8DK643640'
         }
 
         var geocoder = new google.maps.Geocoder();
         var loc = {
-            latitude: '',
-            longitude: ''
+          latitude: '',
+          longitude: ''
         };
-        geocoder.geocode({'address' : carAddress}, function(results, status) {
-            if (status=='OK') {
-              loc.latitude=results[0].geometry.location.lat();
-              loc.longitude=results[0].geometry.location.lng();
-            }
+        geocoder.geocode({'address': carAddress}, function (results, status) {
+          if (status == 'OK') {
+            loc.latitude = results[0].geometry.location.lat();
+            loc.longitude = results[0].geometry.location.lng();
+          }
         });
         car.coordinates = loc;
         this.car2go = car;
@@ -169,6 +173,7 @@
       getRoute: function (origin1, dest1, waypoint, transport) {
         var that = this;
         var directionsService = new google.maps.DirectionsService();
+
         if (waypoint != null) {
           var request = {
             origin: {lat: origin1.latitude, lng: origin1.longitude},
@@ -176,8 +181,8 @@
             travelMode: transport,
             provideRouteAlternatives: false,
             waypoints: [{
-                location: {lat: waypoint.latitude, lng: waypoint.longitude},
-                stopover: true
+              location: {lat: waypoint.latitude, lng: waypoint.longitude},
+              stopover: true
             }]
           };
         }
@@ -190,76 +195,60 @@
           };
         }
 
-        directionsService.route(request, function(result, status) {
-            console.log(result);
+        directionsService.route(request, function (result, status) {
           var resultarray;
           if (status == 'OK') {
-            if (transport == 'WALKING') {
-              that.directionRouteCompleteWalking = result;
-              var Zeit = new Date();
-              var Startzeit = Zeit.getHours()+":"+Zeit.getMinutes();
-              var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime()+ result.routes[0].legs[0].duration.value*1000));
-              Ankuftszeit = Ankuftszeit.getHours()+":"+Ankuftszeit.getMinutes();
-                resultarray = {
-                  transportmethod: transport,
-                  distance: result.routes[0].legs[0].distance.value,
-                  duration: result.routes[0].legs[0].duration.text,
-                  start: Startzeit,
-                  finish: Ankuftszeit,
-                };
-                that.OutputWALKING = resultarray;
-            }
-            //console.log(result.routes[0]);
-            if (transport == 'TRANSIT') {
+
+            if (transport == "TRANSIT") {
               that.directionRouteCompleteTransit = result;
               resultarray = {
                 transportmethod: transport,
                 distance: result.routes[0].legs[0].distance.value,
-                duration: result.routes[0].legs[0].duration.text,
+                duration: result.routes[0].legs[0].duration.value,
                 start: result.routes[0].legs[0].departure_time.text,
                 finish: result.routes[0].legs[0].arrival_time.text,
               };
-              /*var steps = result.routes[0].legs[0].steps;
-              console.log("Startadresse: " + result.routes[0].legs[0].start_address);
-              for (var i = 0; i < steps.length; i++) {
-                if (steps[i].travel_mode == 'WALKING') {
-                  var walkduration = 0;
-                  var walkdistance = 0;
-                  for (var j = 0; j < steps[i].steps.length; j++) {
-                    walkduration +=  steps[i].steps[j].distance.value
-                    walkdistance += steps[i].steps[j].duration.value
-                  }
-                  if (i+1 < steps.length) {
-                    console.log("Zu Fuß " + walkduration + "m in ca. " + (walkdistance) + "sec nach " + steps[i + 1].transit.departure_stop.name);
-                  }
-                  else {
-                    console.log("Zu Fuß " + walkduration + "m in ca. " + (walkdistance) + "sec nach " + result.routes[0].legs[0].end_address);
-                  }
-                }
-                if (steps[i].travel_mode == 'TRANSIT') {
-                  console.log("Mit der " + steps[i].transit.line.vehicle.name + "  " + steps[i].transit.line.short_name +" Abfahrt um " + steps[i].transit.departure_time.text + " in " + steps[i].duration.text + " nach " + steps[i].transit.arrival_stop.name)
-
-                }
-              }*/
               that.OutputTRANSIT = resultarray;
             }
-            if (transport == 'DRIVING') {
-              that.directionRouteCompleteCar = result;
-              var Zeit = new Date();
-              var Startzeit = Zeit.getHours()+":"+Zeit.getMinutes();
-              var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime()+ result.routes[0].legs[0].duration.value*1000));
-              Ankuftszeit = Ankuftszeit.getHours()+":"+Ankuftszeit.getMinutes();
 
+            else if (transport == "WALKING") {
+              that.directionRouteCompleteWalking = result;
+              var Zeit = new Date();
+              var Startzeit = Zeit.getHours() + ":" + Zeit.getMinutes();
+              var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + result.routes[0].legs[0].duration.value * 1000));
+              Ankuftszeit = Ankuftszeit.getHours() + ":" + Ankuftszeit.getMinutes();
               resultarray = {
                 transportmethod: transport,
                 distance: result.routes[0].legs[0].distance.value,
-                duration: result.routes[0].legs[0].duration.text,
+                duration: result.routes[0].legs[0].duration.value,
                 start: Startzeit,
                 finish: Ankuftszeit,
               };
-              //console.log("Mit dem Auto von " + result.routes[0].legs[0].start_address + " nach " + result.routes[0].legs[0].end_address + " sind es " + result.routes[0].legs[0].distance.text + " in " + result.routes[0].legs[0].duration.text);
-              that.OutputDRIVING = resultarray;
+              that.OutputWALKING = resultarray;
             }
+
+            else {
+              var Zeit = new Date();
+              var Startzeit = Zeit.getHours() + ":" + Zeit.getMinutes();
+              var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + result.routes[0].legs[0].duration.value * 1000));
+              Ankuftszeit = Ankuftszeit.getHours() + ":" + Ankuftszeit.getMinutes();
+
+              if (waypoint == null) {
+                that.directionRouteShortCar = result;
+                resultarray = {
+                  transportmethod: transport,
+                  distance: result.routes[0].legs[0].distance.value,
+                  duration: result.routes[0].legs[0].duration.value,
+                  start: Startzeit,
+                  finish: Ankuftszeit,
+                };
+                that.OutputDRIVING = resultarray;
+              }
+              else {
+                that.directionRouteCompleteCar = result;
+              }
+            }
+
           }
         });
       }
@@ -386,15 +375,29 @@
   }
 
   #resultsFieldDescriptor {
+    text-align: left;
     margin: auto;
-    width: 100%;
+    width: 80%;
   }
 
-  .resultFieldMenue {
+  .resultFieldMenue  {
     left: 100px;
     margin-right: 0px;
     width: 20px;
     background-color: lightgrey;
   }
+
+  #transport {
+    margin-left: 40px;
+  }
+
+  #Start {
+    margin-left: 40px;
+  }
+  #duration {
+    margin-right: 100px;
+  }
+
+
 
 </style>
