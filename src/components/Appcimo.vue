@@ -57,7 +57,9 @@
                          :directionRoute="OutputDRIVING"
                          :completeRoute="directionRouteCompleteCar"
                          :walkRoute="directionRouteCompleteWalking"
-                        :showDrive="false">
+                         :showDrive="false"
+        >
+
 
         </resultComponent>
 
@@ -66,7 +68,8 @@
                          :directionRoute="OutputTRANSIT"
                          :completeRoute="directionRouteCompleteTransit"
                          :showDrive="false"
-                          :walkRoute="null">
+                          :walkRoute="null"
+        >
         </resultComponent>
 
         <hr>
@@ -126,9 +129,11 @@
       },
 
       getRoutes: function() {
+        this.showResults = true; // results einblenden
         this.getRoute(this.origin, this.destination, null, "TRANSIT");
+        this.getRoute(this.origin, this.destination, null, "WALKING");
         this.getRoute(this.origin, this.destination, this.car2go.coordinates, "DRIVING");
-        this.showResults = true;  // results einblenden
+
       },
 
       // Simulieren des Autostandortes, da noch kein Zugang zur Car2Go API gewährt wurde
@@ -270,7 +275,7 @@
   .bg {
     background-color: #e6e6e6;
     width: 100%;
-    height: 100%px;
+    height: 100%;
   }
 
   .headline {

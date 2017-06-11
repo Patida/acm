@@ -50,8 +50,8 @@
       directionRoute: '',
       completeRoute: '',
       walkRoute: '',
-      showDrive: '',
-    },
+      showDrive: ''
+    }
   }
 
 </script>

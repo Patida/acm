@@ -39,7 +39,6 @@
 //
         var directionsService = new google.maps.DirectionsService;
         if (that.walkRoute != null) {
-
           var directionsDisplayWalk = new google.maps.DirectionsRenderer({
             panel: that.$refs.rightpanel
           });
@@ -55,9 +54,6 @@
           that.computeTotalDistance(directionsDisplay.getDirections());
         });
         directionsDisplay.setDirections(that.directionRoute);
-
-
-
       },
 
       computeTotalDistance: function(result) {
