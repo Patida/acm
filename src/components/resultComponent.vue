@@ -6,7 +6,7 @@
       <button v-on:click="showDrive = !showDrive">
         <img src="../assets/downarrow.png" height="20" width="15">
       </button>
-      <span class="shortinfo" id="transport">{{ transportSystem }}</span>
+      <span class="shortinfo" id="transport"> {{ transportSystem }}</span>
      <span class="shortInfo" id="Start">{{ start }}</span>
       <span class="shortInfo">{{ end }}</span>
       <span class="shortInfo" id="duration">{{ duration }}</span>
@@ -78,6 +78,9 @@
         else if (that.directionRoute.transportmethod == "TRANSIT") {
           return "Öffis";
         }
+        else if (that.directionRoute.transportmethod == "BICYCLING") {
+            return "Fahrrad"
+        }
         else {}
       },
       duration: function() {
@@ -86,10 +89,9 @@
         if (that.directionRoute.transportmethod == "DRIVING") {
           time = that.directionRoute.duration + that.directionRouteSecond.duration;
         }
-        else if (that.directionRoute.transportmethod == "TRANSIT") {
+        else   {
           time = that.directionRoute.duration;
         }
-        else {}
         return (time-(time%=60))/60+(9<time?':':':0')+time + 'min';
       },
       distance: function() {
@@ -107,10 +109,9 @@
         if (that.directionRoute.transportmethod == "DRIVING") {
           return that.directionRouteSecond.start;
         }
-        else if (that.directionRoute.transportmethod == "TRANSIT") {
+        else {
           return that.directionRoute.start;
         }
-        else {}
       },
       end: function() {
         var that = this;
@@ -121,10 +122,8 @@
           var Finishtime = Finishtime.getHours() + ":" + Finishtime.getMinutes();
           return Finishtime;
         }
-        else if (that.directionRoute.transportmethod == "TRANSIT") {
-          return that.directionRoute.finish;
-        }
         else {
+          return that.directionRoute.finish;
         }
       }
     },

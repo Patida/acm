@@ -75,6 +75,16 @@
         >
         </resultComponent>
 
+        <resultComponent  v-if="showResults"
+                          class="resultsField"
+                          :directionRoute="OutputCYCLING"
+                          :completeRoute="directionRouteCompleteCycling"
+                          :showDrive="false"
+                          :walkRoute="null"
+                          :shortRouteCar="null"
+        >
+        </resultComponent>
+
         <hr>
 
       </div>
@@ -107,12 +117,14 @@
         OutputDRIVING: '',
         OutputTRANSIT: '',
         OutputWALKING: '',
+        OutputCYCLING: '',
         showDrive: false,
         showTransit: false,
         directionRouteCompleteCar: '',
         directionRouteShortCar: '',
         directionRouteCompleteTransit: '',
         directionRouteCompleteWalking: '',
+        directionRouteCompleteCycling: '',
         car2go: '',
         showResults: false,
       }
@@ -133,6 +145,7 @@
       getRoutes: function () {
 
         this.getRoute(this.origin, this.destination, null, "TRANSIT");
+        this.getRoute(this.origin, this.destination, null, "BICYCLING");
         this.getRoute(this.origin, this.car2go.coordinates, null, "WALKING");
         this.getRoute(this.car2go.coordinates, this.destination, null, "DRIVING");
         this.getRoute(this.origin, this.destination, this.car2go.coordinates, "DRIVING");
@@ -225,6 +238,21 @@
                 finish: Ankuftszeit,
               };
               that.OutputWALKING = resultarray;
+            }
+            else if (transport == "BICYCLING") {
+              that.directionRouteCompleteCycling = result;
+              var Zeit = new Date();
+              var Startzeit = Zeit.getHours() + ":" + Zeit.getMinutes();
+              var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + result.routes[0].legs[0].duration.value * 1000));
+              Ankuftszeit = Ankuftszeit.getHours() + ":" + Ankuftszeit.getMinutes();
+              resultarray = {
+                transportmethod: transport,
+                distance: result.routes[0].legs[0].distance.value,
+                duration: result.routes[0].legs[0].duration.value,
+                start: Startzeit,
+                finish: Ankuftszeit,
+              };
+              that.OutputCYCLING = resultarray;
             }
 
             else {
