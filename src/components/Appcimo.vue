@@ -30,10 +30,12 @@
                                  enable-geolocation: true
         >
         </vue-google-autocomplete>
+
+        <button @click="getRoutes()">Finde meinen Weg!</button>
       </div>
 
         <!-- BUTTONS -->
-        <button @click="getRoutes()">Finde meinen Weg!</button>
+
 
         <!-- vue-material button -->
         <!-- Funktion wird momentan noch nicht ausgefuehrt
@@ -47,6 +49,7 @@
           <span class="resultFieldMenue" id="duration">Dauer</span>
           <span class="resultFieldMenue"></span>
           <span class="resultFieldMenue">Kurzansicht</span>
+          <span class="resultFieldMenue">Preis</span>
         </div>
 
         <p></p>
@@ -62,28 +65,31 @@
                           :shortRouteCar="directionRouteShortCar"
         >
 
-
         </resultComponent>
 
-        <resultComponent  v-if="showResults"
-                          class="resultsField"
-                          :directionRoute="OutputTRANSIT"
-                          :completeRoute="directionRouteCompleteTransit"
-                          :showDrive="false"
-                          :walkRoute="null"
-                          :shortRouteCar="null"
-        >
-        </resultComponent>
+        <RouteGeneral v-if="showResults"
+                      class="resultsField"
+                      :options=' [{
+                          origin: {lat: origin.latitude, lng: origin.longitude},
+                          destination: {lat: destination.latitude, lng: destination.longitude},
+                          travelMode: "TRANSIT",
+                          provideRouteAlternatives: false
+                      }]'
+                      :time="watcher"
 
-        <resultComponent  v-if="showResults"
-                          class="resultsField"
-                          :directionRoute="OutputCYCLING"
-                          :completeRoute="directionRouteCompleteCycling"
-                          :showDrive="false"
-                          :walkRoute="null"
-                          :shortRouteCar="null"
-        >
-        </resultComponent>
+        ></RouteGeneral>
+
+        <RouteGeneral v-if="showResults"
+                      class="resultsField"
+                      :options=' [{
+                          origin: {lat: origin.latitude, lng: origin.longitude},
+                          destination: {lat: destination.latitude, lng: destination.longitude},
+                          travelMode: "BICYCLING",
+                          provideRouteAlternatives: false
+                      }]'
+                      :time="watcher"
+
+        ></RouteGeneral>
 
         <hr>
 
@@ -96,6 +102,7 @@
   import vueResource from 'vue-resource';
   import resultComponent from './resultComponent.vue';
   import DirectionService from './DirectionService.vue';
+  import RouteGeneral from './RouteGeneral.vue';
 
 
   export default {
@@ -103,30 +110,25 @@
       VueGoogleAutocomplete,
       resultComponent,
       DirectionService,
+      RouteGeneral,
     },
+
     name: 'Gmap',
     data () {
       return {
         headline: 'Appcimo',
         subline: 'Application for City Movement',
         msg: 'Please enter your location and destination.',
-        address: '',
         origin: '',
         destination: '',
-        autocompleteText: '',
+        car2go: '',
         OutputDRIVING: '',
-        OutputTRANSIT: '',
         OutputWALKING: '',
-        OutputCYCLING: '',
-        showDrive: false,
-        showTransit: false,
         directionRouteCompleteCar: '',
         directionRouteShortCar: '',
-        directionRouteCompleteTransit: '',
         directionRouteCompleteWalking: '',
-        directionRouteCompleteCycling: '',
-        car2go: '',
         showResults: false,
+        watcher:'',
       }
 
     },
@@ -143,13 +145,12 @@
       },
 
       getRoutes: function () {
-
-        this.getRoute(this.origin, this.destination, null, "TRANSIT");
-        this.getRoute(this.origin, this.destination, null, "BICYCLING");
         this.getRoute(this.origin, this.car2go.coordinates, null, "WALKING");
         this.getRoute(this.car2go.coordinates, this.destination, null, "DRIVING");
         this.getRoute(this.origin, this.destination, this.car2go.coordinates, "DRIVING");
         this.showResults = true; // results einblenden
+        var time = new Date()
+        this.watcher = time.getTime();
 
       },
 
@@ -211,20 +212,7 @@
         directionsService.route(request, function (result, status) {
           var resultarray;
           if (status == 'OK') {
-
-            if (transport == "TRANSIT") {
-              that.directionRouteCompleteTransit = result;
-              resultarray = {
-                transportmethod: transport,
-                distance: result.routes[0].legs[0].distance.value,
-                duration: result.routes[0].legs[0].duration.value,
-                start: result.routes[0].legs[0].departure_time.text,
-                finish: result.routes[0].legs[0].arrival_time.text,
-              };
-              that.OutputTRANSIT = resultarray;
-            }
-
-            else if (transport == "WALKING") {
+            if (transport == "WALKING") {
               that.directionRouteCompleteWalking = result;
               var Zeit = new Date();
               var Startzeit = Zeit.getHours() + ":" + Zeit.getMinutes();
@@ -239,22 +227,6 @@
               };
               that.OutputWALKING = resultarray;
             }
-            else if (transport == "BICYCLING") {
-              that.directionRouteCompleteCycling = result;
-              var Zeit = new Date();
-              var Startzeit = Zeit.getHours() + ":" + Zeit.getMinutes();
-              var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + result.routes[0].legs[0].duration.value * 1000));
-              Ankuftszeit = Ankuftszeit.getHours() + ":" + Ankuftszeit.getMinutes();
-              resultarray = {
-                transportmethod: transport,
-                distance: result.routes[0].legs[0].distance.value,
-                duration: result.routes[0].legs[0].duration.value,
-                start: Startzeit,
-                finish: Ankuftszeit,
-              };
-              that.OutputCYCLING = resultarray;
-            }
-
             else {
               var Zeit = new Date();
               var Startzeit = Zeit.getHours() + ":" + Zeit.getMinutes();

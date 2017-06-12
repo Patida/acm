@@ -5,6 +5,7 @@ import resultComponent from '@/components/resultComponent'
 import DirectionService from '@/components/DirectionService'
 import prices from '@/components/prices'
 import Appcimo from '@/components/Appcimo'
+import RouteGeneral from '@/components/RouteGeneral'
 
 Vue.use(Router)
 
