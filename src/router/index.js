@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Hello from '@/components/Hello'
 import resultComponent from '@/components/resultComponent'
 import DirectionService from '@/components/DirectionService'
+import prices from '@/components/prices'
 import Appcimo from '@/components/Appcimo'
 
 Vue.use(Router)

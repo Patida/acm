@@ -13,7 +13,7 @@
 
       </div>
 
-    <!-- TRANSITION DEMO -->
+    <!-- TRANSITION TABS-->
     <div id="demo">
       <transition name="fade">
         <div v-if="showDrive">
@@ -34,7 +34,10 @@
           </md-tab>
 
           <md-tab id="Preis" md-label="Preis">
-            <p>Comming soon...</p>
+            <prices
+              :carData = "directionRoute"
+            >
+          </prices>
           </md-tab>
 
           </md-tabs>
@@ -48,11 +51,13 @@
 
   import DirectionService from './DirectionService.vue';
   import RouteDescription from './RouteDescription.vue';
+  import prices from './prices.vue';
 
   export default {
     components: {
       DirectionService,
       RouteDescription,
+      prices,
     },
     name: "resultComponent",
     props: {
