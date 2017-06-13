@@ -72,18 +72,18 @@
     methods: {
       transportSystem: function() {
         var that = this;
-        for (var i = 0;i < that.shortRoute.length;i++) {
-          if (that.shortRoute[i].transportmethod == "DRIVING") {
+
+          if (that.shortRoute.transportmethod == "DRIVING") {
             return "Carsharing";
           }
-          else if (that.shortRoute[i].transportmethod == "TRANSIT") {
+          else if (that.shortRoute.transportmethod == "TRANSIT") {
             return "Öffis";
           }
-          else if (that.shortRoute[i].transportmethod == "BICYCLING") {
+          else if (that.shortRoute.transportmethod == "BICYCLING") {
             return "Fahrrad"
           }
           else {
-          }
+
         }
       },
       duration: function() {

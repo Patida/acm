@@ -16,14 +16,13 @@
       name: 'RouteGeneral',
       props: {
         options: '',
-        time: '',
       },
     components: {
       resultComponent
     },
     data () {
           return {
-              directionRouteDescription: [],
+              directionRouteDescription: '',
               directionRouteMap: '',
               shortWaysOutput: '',
           }
@@ -32,21 +31,24 @@
       this.getRoutes(this.options);
     },
     methods: {
-      getRoutes: function(options1) {
-        console.log(this.shortWaysOutput)
+      getRoutes: function(options) {
+        this.shortWaysOutput = null;
+        this.directionRouteDescription = null;
+        this.shortWaysOutput = [];
+        this.directionRouteDescription = [];
         for (var i = 0; i < this.options.length; i++) {
-          this.getRoute(options1[i]);
+          this.getRoute(options[i]);
         }
       },
 
       getRoute: function (options) {
         var that = this;
-        that.shortWaysOutput = [];
         var directionsService = new google.maps.DirectionsService();
         directionsService.route(options, function (result, status) {
           if (status == 'OK') {
             var resultarray;
-            that.directionRouteDescription=result;
+            that.directionRouteMap=result;
+            that.directionRouteDescription.push(result);
             if (result.routes[0].legs[0].departure_time) {
               resultarray = {
                 transportmethod: options.travelMode,
@@ -76,12 +78,9 @@
 
     },
     watch: {
-          'options'(newoptions, options) {
-            this.getRoutes(newoptions)
-          },
-          /*'time'(newtime,time) {
-            this.getRoutes(this.options)
-          }*/
+         'options'(options) {
+            this.getRoutes(this.options);
+         }
     }
   }
 </script>

@@ -57,12 +57,26 @@
         <RouteGeneral v-if="showResults"
                       class="resultsField"
                       :options=' [{
-                          origin: {lat: origin.latitude, lng: origin.longitude},
+                          origin: {lat: car2go.coordinates.latitude, lng: car2go.coordinates.longitude},
                           destination: {lat: destination.latitude, lng: destination.longitude},
                           travelMode: "DRIVING",
                           provideRouteAlternatives: false
+                      },
+                      {
+                      origin: {lat: origin.latitude, lng: origin.longitude},
+                      destination: {lat: destination.latitude, lng: destination.longitude},
+                      travelMode: "DRIVING",
+                      provideRouteAlternatives: false,
+                      waypoints: [{
+                          location: {lat: car2go.coordinates.latitude, lng: car2go.coordinates.longitude},
+                          stopover: true
+                          }]
+                      },{
+                          origin: {lat: origin.latitude, lng: origin.longitude},
+                          destination: {lat: car2go.coordinates.latitude, lng: car2go.coordinates.longitude},
+                          travelMode: "WALKING",
+                          provideRouteAlternatives: false
                       }]'
-                      :time="watcher"
 
         ></RouteGeneral>
 
@@ -74,7 +88,6 @@
                           travelMode: "TRANSIT",
                           provideRouteAlternatives: false
                       }]'
-                      :time="watcher"
 
         ></RouteGeneral>
 
@@ -86,7 +99,6 @@
                           travelMode: "BICYCLING",
                           provideRouteAlternatives: false
                       }]'
-                      :time="watcher"
 
         ></RouteGeneral>
 
@@ -124,7 +136,6 @@
         directionRouteShortCar: '',
         directionRouteCompleteWalking: '',
         showResults: false,
-        watcher:'',
       }
 
     },
@@ -145,9 +156,8 @@
         this.getRoute(this.car2go.coordinates, this.destination, null, "DRIVING");
         this.getRoute(this.origin, this.car2go.coordinates, null, "WALKING");
         this.getRoute(this.origin, this.destination, this.car2go.coordinates, "DRIVING");
-        this.showResults = true; // results einblenden
-        var time = new Date()
-        this.watcher = time.getTime();
+        this.showResults = true;
+        //this.showResults = true; // results einblenden
       },
 
       // Simulieren des Autostandortes, da noch kein Zugang zur Car2Go API gewährt wurde
