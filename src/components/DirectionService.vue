@@ -15,7 +15,7 @@
   export default {
     name: "DirectionService",
     props: {
-      directionRoute: '',
+      shortRoute: '',
     },
 
     data() {
@@ -35,7 +35,7 @@
 
       initMap: function() {
         var that = this;
-        if (that.directionRoute.request.travelMode == "DRIVING") {
+        if (that.shortRoute.request.travelMode == "DRIVING") {
             that.isCarSearch = true;
         }
         else {
@@ -50,7 +50,7 @@
           draggable: true,
           map: map
         });
-        directionsDisplay.setDirections(that.directionRoute);
+        directionsDisplay.setDirections(that.shortRoute);
 
       },
     }

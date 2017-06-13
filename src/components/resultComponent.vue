@@ -6,10 +6,10 @@
       <button v-on:click="showDrive = !showDrive">
         <img src="../assets/downarrow.png" height="20" width="15">
       </button>
-      <span class="shortinfo" id="transport"> {{ transportSystem }}</span>
-     <span class="shortInfo" id="Start">{{ start }}</span>
-      <span class="shortInfo">{{ end }}</span>
-      <span class="shortInfo" id="duration">{{ duration }}</span>
+      <span class="shortinfo" id="transport"> {{ transportSystem() }}</span>
+     <span class="shortInfo" id="Start">{{ start() }}</span>
+      <span class="shortInfo">{{ end() }}</span>
+      <span class="shortInfo" id="duration">{{ duration() }}</span>
 
       </div>
 
@@ -35,7 +35,7 @@
 
           <md-tab id="Preis" md-label="Preis">
             <prices
-              :carData = "directionRoute"
+              :carData = "shortRoute"
             >
           </prices>
           </md-tab>
@@ -61,69 +61,69 @@
     },
     name: "resultComponent",
     props: {
-      directionRoute: '',
-      directionRouteSecond: '',
+      shortRoute: '',
+      shortRouteSecond: '',
       completeRoute: '',
       shortRouteCar: '',
       walkRoute: '',
       showDrive: ''
     },
 
-    computed: {
+    methods: {
       transportSystem: function() {
         var that = this;
-        if (that.directionRoute.transportmethod == "DRIVING") {
-          return "Carsharing";
-        }
-        else if (that.directionRoute.transportmethod == "TRANSIT") {
-          return "Öffis";
-        }
-        else if (that.directionRoute.transportmethod == "BICYCLING") {
+        for (var i = 0;i < that.shortRoute.length;i++) {
+          if (that.shortRoute[i].transportmethod == "DRIVING") {
+            return "Carsharing";
+          }
+          else if (that.shortRoute[i].transportmethod == "TRANSIT") {
+            return "Öffis";
+          }
+          else if (that.shortRoute[i].transportmethod == "BICYCLING") {
             return "Fahrrad"
+          }
+          else {
+          }
         }
-        else {}
       },
       duration: function() {
         var that = this;
         var time = 0;
-        if (that.directionRoute.transportmethod == "DRIVING") {
-          time = that.directionRoute.duration + that.directionRouteSecond.duration;
-        }
-        else   {
-          time = that.directionRoute.duration;
+        for (var i = 0;i < that.shortRoute.length;i++) {
+            time = time + that.shortRoute[i].duration
         }
         return (time-(time%=60))/60+(9<time?':':':0')+time + 'min';
       },
-      distance: function() {
+     /* distance: function() {
         var that = this;
-        if (that.directionRoute.transportmethod == "DRIVING") {
-          return that.directionRoute.distance + that.directionRouteSecond.distance;
+        if (that.shortRoute[0].transportmethod == "DRIVING") {
+          return that.shortRoute.distance + that.shortRouteSecond.distance;
         }
-        else if (that.directionRoute.transportmethod == "TRANSIT") {
-          return that.directionRoute.distance;
+        else if (that.shortRoute[0].transportmethod == "TRANSIT") {
+          return that.shortRoute.distance;
         }
         else {}
-      },
+      },*/
       start: function() {
         var that = this;
-        if (that.directionRoute.transportmethod == "DRIVING") {
-          return that.directionRouteSecond.start;
+        if (that.shortRoute.transportmethod == "DRIVING") {
+          return that.shortRouteSecond.start;
         }
         else {
-          return that.directionRoute.start;
+          return that.shortRoute.start;
         }
       },
       end: function() {
         var that = this;
-        if (that.directionRoute.transportmethod == "DRIVING") {
+        if (that.shortRoute.transportmethod == "DRIVING") {
           var Zeit = new Date();
-          var time = (that.directionRoute.duration + that.directionRouteSecond.duration) * 1000;
+          var time = (that.shortRoute.duration + that.shortRouteSecond.duration) * 1000;
           var Finishtime = new Date(Zeit.setTime(Zeit.getTime() + time));
           var Finishtime = Finishtime.getHours() + ":" + Finishtime.getMinutes();
           return Finishtime;
         }
         else {
-          return that.directionRoute.finish;
+          return that.shortRoute.finish;
         }
       }
     },

@@ -1,6 +1,6 @@
 <template>
   <resultComponent   class="resultsField"
-                    :directionRoute="shortOutput"
+                    :shortRoute="shortWaysOutput"
                     :completeRoute="directionRouteDescription"
                     :showDrive="false"
                     :walkRoute="null"
@@ -16,8 +16,7 @@
       name: 'RouteGeneral',
       props: {
         options: '',
-        time:'',
-
+        time: '',
       },
     components: {
       resultComponent
@@ -26,7 +25,7 @@
           return {
               directionRouteDescription: [],
               directionRouteMap: '',
-              shortOutput: [],
+              shortWaysOutput: '',
           }
     },
     mounted: function() {
@@ -34,6 +33,7 @@
     },
     methods: {
       getRoutes: function(options1) {
+        console.log(this.shortWaysOutput)
         for (var i = 0; i < this.options.length; i++) {
           this.getRoute(options1[i]);
         }
@@ -41,13 +41,14 @@
 
       getRoute: function (options) {
         var that = this;
+        that.shortWaysOutput = [];
         var directionsService = new google.maps.DirectionsService();
         directionsService.route(options, function (result, status) {
           if (status == 'OK') {
             var resultarray;
             that.directionRouteDescription=result;
             if (result.routes[0].legs[0].departure_time) {
-                resultarray = {
+              resultarray = {
                 transportmethod: options.travelMode,
                 distance: result.routes[0].legs[0].distance.value,
                 duration: result.routes[0].legs[0].duration.value,
@@ -68,7 +69,7 @@
                 finish: Ankuftszeit,
               };
             }
-            that.shortOutput = resultarray;
+            that.shortWaysOutput.push(resultarray);
           }
         });
       }
@@ -78,13 +79,10 @@
           'options'(newoptions, options) {
             this.getRoutes(newoptions)
           },
-          'time'(newtime,time) {
+          /*'time'(newtime,time) {
             this.getRoutes(this.options)
-          }
+          }*/
     }
-
-
-
   }
 </script>
 <style>

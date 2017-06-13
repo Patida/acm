@@ -4,11 +4,7 @@
     <div class ='bg'>
       <div class = 'standard'>
         <p class='headline'> {{ headline }} </p>
-
         <p class='subline'> {{ subline }} </p>
-
-
-
         <p> {{ msg }} </p>
 
         <!-- Autocomplete https://www.npmjs.com/package/vue-google-autocomplete -->
@@ -34,14 +30,6 @@
         <button @click="getRoutes()">Finde meinen Weg!</button>
       </div>
 
-        <!-- BUTTONS -->
-
-
-        <!-- vue-material button -->
-        <!-- Funktion wird momentan noch nicht ausgefuehrt
-        <md-button class="md-raised md-primary" v-on:click="getRoutes()">Finde meinen Weg!</md-button>
-        -->
-
         <div v-if="showResults" id="resultsFieldDescriptor">
           <span class="resultFieldMenue" id="transport">Transportmittel</span>
           <span class="resultFieldMenue" id="Start">Startzeit</span>
@@ -53,12 +41,11 @@
         </div>
 
         <p></p>
-        <!-- Show all availabe data in returned object-->
+        <!-- Show all availabe data in returned object
 
         <resultComponent v-if="showResults"
                           class="resultsField"
-                          :directionRoute="OutputDRIVING"
-                          :directionRouteSecond="OutputWALKING"
+                          :shortRoute="shortWayOutput"
                           :completeRoute="directionRouteCompleteCar"
                           :walkRoute="directionRouteCompleteWalking"
                           :showDrive="false"
@@ -66,6 +53,18 @@
         >
 
         </resultComponent>
+-->
+        <RouteGeneral v-if="showResults"
+                      class="resultsField"
+                      :options=' [{
+                          origin: {lat: origin.latitude, lng: origin.longitude},
+                          destination: {lat: destination.latitude, lng: destination.longitude},
+                          travelMode: "DRIVING",
+                          provideRouteAlternatives: false
+                      }]'
+                      :time="watcher"
+
+        ></RouteGeneral>
 
         <RouteGeneral v-if="showResults"
                       class="resultsField"
@@ -91,8 +90,6 @@
 
         ></RouteGeneral>
 
-        <hr>
-
       </div>
     </div>
   </div>
@@ -104,7 +101,6 @@
   import DirectionService from './DirectionService.vue';
   import RouteGeneral from './RouteGeneral.vue';
 
-
   export default {
     components: {
       VueGoogleAutocomplete,
@@ -112,8 +108,7 @@
       DirectionService,
       RouteGeneral,
     },
-
-    name: 'Gmap',
+    name: 'Appcimo',
     data () {
       return {
         headline: 'Appcimo',
@@ -122,6 +117,7 @@
         origin: '',
         destination: '',
         car2go: '',
+        shortWayOutput: [],
         OutputDRIVING: '',
         OutputWALKING: '',
         directionRouteCompleteCar: '',
@@ -145,13 +141,13 @@
       },
 
       getRoutes: function () {
-        this.getRoute(this.origin, this.car2go.coordinates, null, "WALKING");
+        this.shortWayOutput = [];
         this.getRoute(this.car2go.coordinates, this.destination, null, "DRIVING");
+        this.getRoute(this.origin, this.car2go.coordinates, null, "WALKING");
         this.getRoute(this.origin, this.destination, this.car2go.coordinates, "DRIVING");
         this.showResults = true; // results einblenden
         var time = new Date()
         this.watcher = time.getTime();
-
       },
 
       // Simulieren des Autostandortes, da noch kein Zugang zur Car2Go API gewährt wurde
@@ -167,7 +163,6 @@
           name: '123456',
           vin: 'WMEEJ3BA8DK643640'
         }
-
         var geocoder = new google.maps.Geocoder();
         var loc = {
           latitude: '',
@@ -208,7 +203,6 @@
             provideRouteAlternatives: false
           };
         }
-
         directionsService.route(request, function (result, status) {
           var resultarray;
           if (status == 'OK') {
@@ -225,7 +219,7 @@
                 start: Startzeit,
                 finish: Ankuftszeit,
               };
-              that.OutputWALKING = resultarray;
+              that.shortWayOutput.push(resultarray);
             }
             else {
               var Zeit = new Date();
@@ -242,7 +236,7 @@
                   start: Startzeit,
                   finish: Ankuftszeit,
                 };
-                that.OutputDRIVING = resultarray;
+                that.shortWayOutput.push(resultarray);
               }
               else {
                 that.directionRouteCompleteCar = result;
