@@ -1,9 +1,13 @@
 <template>
-
   <div>
     <div class ='bg'>
+      <div id="menubar">
+        <span id="title">{{ headline }}</span>
+        <span class="submenu">Contact us</span>
+        <span class="submenu">About</span>
+        <span class="submenu">Home</span>
+      </div>
       <div class = 'standard'>
-        <p class='headline'> {{ headline }} </p>
         <p class='subline'> {{ subline }} </p>
         <p> {{ msg }} </p>
 
@@ -11,23 +15,23 @@
 
         <!-- InputFrom: own location-->
         <div class="autocompleteInput">
-        <vue-google-autocomplete id="InputA" classname="form-control"
+        <VueGoogleAutocomplete id="InputA" classname="form-control"
                                  placeholder="Your Position"
                                  v-on:placechanged="getOrigin"
                                  country="de"
                                  enable-geolocation: true
         >
-        </vue-google-autocomplete>
+        </VueGoogleAutocomplete>
         <!-- InputTo: Destination-->
-        <vue-google-autocomplete id="InputB" classname="form-control"
+        <VueGoogleAutocomplete id="InputB" classname="form-control"
                                  placeholder="Your Destination"
                                  v-on:placechanged="getDestination"
                                  country="de"
                                  enable-geolocation: true
         >
-        </vue-google-autocomplete>
+        </VueGoogleAutocomplete>
 
-        <button @click="getRoutes()">Finde meinen Weg!</button>
+        <button id="buttonFind" @click="getRoutes()">Finde meinen Weg!</button>
       </div>
 
         <div v-if="showResults" id="resultsFieldDescriptor">
@@ -107,7 +111,7 @@
     name: 'Appcimo',
     data () {
       return {
-        headline: 'Appcimo',
+        headline: 'app-ci-mo',
         subline: 'Application for City Movement',
         msg: 'Please enter your location and destination.',
         origin: '',
@@ -172,111 +176,44 @@
 <style>
 
   .bg {
-    background-color: #e6e6e6;
+    background-color: white;
     width: 100%;
     height: 100%;
   }
 
-  .headline {
-    width: 80%;
-    font-family: "Impact", sans-serif;
-    font-size: 5em;
-    margin: auto;
-    padding: 50px;
-    color: brown;
-    letter-spacing: 5px;
-    border-style: solid;
-    border-top-color: white;
+  #buttonFind {
+    height: 40px;
+    width: 150px;
+    border-radius: 5px;
+    border-style: groove;
+    background-color: rgb(71,82,94);
+    color: white;
   }
-
   .subline {
     font-family: "Impact", Charcoal, sans-serif;
     font-size: 2em;
-    margin: 5px 0px 30px 0px;
+    margin: 120px 0px 30px 0px;
     color: #4d4d4d;
-
-
   }
 
   .standard {
     color: black;
     width: 80%;
     background-color: white;
-    margin: auto;
+    margin-left: 10%;
     height: 100%;
-    border-style: solid;
-    border-color: brown;
+    border: solid;
+    border-color: white;
   }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
-  }
-
-  button {
-    margin-top: 3px;
-    margin-bottom: 3px;
-  }
-
-/* Ueberschreiben des autocomplete css, da die pos-vorschlaege verschoben wurden */
-  .pac-container {
-      position: relative;
-      margin-top: -60px;
-  }
-
-    .tabs {
-      padding-top: 10px;
-    }
 
   #InputA {
-    margin: auto;
     width: 300px;
+    heigth: 50px;
   }
 
   #InputB {
-    margin: auto;
     width: 300px;
-  }
-
-  #SearchResult {
-    margin: auto;
-    height: 300px;
-    width: 500px;
-  }
-
-
-  .data {
-    margin: auto;
-    width: 500px;
-  }
-
-  .directionWindow {
-    margin: auto;
-    margin-top: 30px;
-    width:500px;
-    height: 300px;
-  }
-
-  #Gmap {
-    margin: auto;
-    height: 500px;
-    width: 500px;
-  }
-
-  #right-panel {
-    margin: auto;
-    width: 500px;
-    height: 300px;
-
+    heigt: 50px;
   }
 
   .resultsField {
@@ -308,6 +245,31 @@
     margin-right: 100px;
   }
 
+  #menubar {
+    height: 100px;
+    background-color: rgba(0,81,187,0.5);
+    width: 80%;
+    margin-left: 10%;
+    position: fixed;
+  }
+
+  #title {
+    float: left;
+    margin-left: 10px;
+    margin-top: 40px;
+    font-size: 4em;
+  }
+
+  .submenu {
+    float: right;
+    margin-left: 20px;
+    margin-top: 40px;
+    font-size: 2em;
+  }
+
+  .autocompleteInput {
+    height: 50px;
+  }
 
 
 </style>

@@ -4,6 +4,8 @@ import resultComponent from '@/components/ResultView'
 import DirectionService from '@/components/SubResultMap'
 import Appcimo from '@/components/Appcimo'
 import RouteGeneral from '@/components/GetRoutes'
+import VueGoogleAutocomplete from '@/components/VueGoogleAutocomplete'
+
 
 Vue.use(Router)
 
