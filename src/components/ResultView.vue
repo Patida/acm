@@ -1,0 +1,182 @@
+<template>
+  <div>
+
+
+    <div class="resultBar">
+      <button v-on:click="showDrive = !showDrive">
+        <img src="../assets/downarrow.png" height="20" width="15">
+      </button>
+      <span class="shortinfo" id="transport"> {{ transportmethod }}</span>
+     <span class="shortInfo" id="Start">{{ start }}</span>
+      <span class="shortInfo">{{ end }}</span>
+      <span class="shortInfo" id="duration">{{ duration }}</span>
+      <span class="shortInfo">{{ price }}</span>
+
+      </div>
+
+    <!-- TRANSITION TABS-->
+    <div id="demo">
+      <transition name="fade">
+        <div v-if="showDrive">
+
+          <md-tabs md-fixed class="tabs">
+            <md-tab id="Zusammenfgassung" md-label="Zusammenfassung">
+              <SubResultDescription
+                :description="directionRouteDescription"
+              ></SubResultDescription>
+            </md-tab>
+
+            <md-tab id="Map" md-label="Map">
+              <SubResultMap
+                :directionRouteMap="directionRouteMap"
+              ></SubResultMap>
+            </md-tab>
+          </md-tabs>
+        </div>
+      </transition>
+    </div>
+  </div>
+</template>
+
+<script>
+
+  import SubResultMap from './SubResultMap.vue';
+  import SubResultDescription from './SubResultDescription.vue';
+
+  export default {
+    components: {
+      SubResultMap,
+      SubResultDescription,
+    },
+    name: "ResultView",
+    props: {
+      shortWaysOutput: '',
+      directionRouteMap: '',
+      directionRouteDescription: '',
+    },
+    data() {
+        return {
+          transportmethod: '',
+          duration: '',
+          start: '',
+          end: '',
+          price: '',
+          showDrive: '',
+        }
+    },
+    methods: {
+      updateShortInfo: function(Way) {
+        var that = this;
+        var time = 0;
+
+        if (Way[0].transportmethod == "DRIVING") {
+          that.transportmethod = "Carsharing";
+        }
+        else if (Way[0].transportmethod == "TRANSIT") {
+          that.transportmethod = "Öffis";
+        }
+        else {
+          that.transportmethod  = "Fahrrad"
+        }
+        var time;
+
+        for (var i = 0;i < Way.length;i++) {
+          if (Way[i].transportmethod == "DRIVING") {
+          time = time + 240;
+          }
+          time = time + Way[i].duration
+        }
+        that.duration = (time-(time%=60))/60+(9<time?':':':0')+time + 'min';
+
+        that.start = Way[0].start;
+
+        if (Way[0].transportmethod == "DRIVING") {
+          var Zeit = new Date();
+          var Finishtime = (new Date(Zeit.setTime(Zeit.getTime() + time))).toLocaleString('de-DE').substring(11,160)
+          that.end = Finishtime;
+        }
+        else {
+          that.end = Way[0].finish;
+        }
+      },
+
+      getPrice: function(Way) {
+          var that = this;
+
+          if (Way[0].transportmethod == "TRANSIT") {
+              that.price = "2,70 €"
+          }
+          else if (Way[0].transportmethod == "BICYCLING") {
+              that.price = "Its free and healty!"
+          }
+          else {
+            var duration = 0;
+            for (var i = 0; i < Way.length; i++) {
+              duration += Way[i].duration;
+            }
+            that.price = (Math.ceil((duration + 240) / 60) * 0.25).toFixed(2) + " €";
+          }
+      }
+    },
+
+    watch: {
+        'shortWaysOutput'(shortWaysOutput){
+            this.updateShortInfo(shortWaysOutput);
+            this.getPrice(shortWaysOutput);
+        }
+    }
+
+  }
+
+</script>
+<style scoped>
+  .directionWindow {
+    margin: auto;
+    margin-top: 0px;
+    width:500px;
+    height: 300px;
+  }
+  .resultBar {
+    text-align: left;
+    margin: auto;
+    width: 80%;
+    height: 50px;
+    background-color: rgba(79,147,248,0.3);
+  }
+  .shortInfo {
+
+  }
+
+  .bus {
+
+  }
+
+  .tram {
+
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+    opacity: 0
+  }
+
+  #demo {
+    margin: auto;
+    margin-top: 5px;
+    width: 80%;
+    background-color: rgba(0,0,0,0.15);
+  }
+
+  #transport {
+    margin-left: 2%;
+    width: 100px;
+  }
+
+  #Start {
+    margin-left: 5%;
+  }
+  #duration {
+    margin-right: 100px;
+  }
+</style>

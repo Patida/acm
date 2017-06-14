@@ -1,24 +1,23 @@
 <template>
-  <resultComponent   class="resultsField"
-                    :shortRoute="shortWaysOutput"
-                    :completeRoute="directionRouteDescription"
-                    :showDrive="false"
-                    :walkRoute="null"
-                    :shortRouteCar="null"
+  <ResultView   class="resultsField"
+                    :shortWaysOutput="shortWaysOutput"
+                    :directionRouteMap="directionRouteMap"
+                    :directionRouteDescription="directionRouteDescription"
+                     :showDrive="false"
   >
-  </resultComponent>
+  </ResultView>
 </template>
 <script>
-  import resultComponent from './resultComponent.vue';
-  import DirectionService from './DirectionService.vue';
+  import ResultView from './ResultView.vue';
+  import DirectionService from './SubResultMap.vue';
 
   export default {
-      name: 'RouteGeneral',
+      name: 'GetRoutes',
       props: {
         options: '',
       },
     components: {
-      resultComponent
+      ResultView
     },
     data () {
           return {
@@ -47,8 +46,12 @@
         directionsService.route(options, function (result, status) {
           if (status == 'OK') {
             var resultarray;
-            that.directionRouteMap=result;
-            that.directionRouteDescription.push(result);
+            if (options.travelMode != "WALKING") {
+              if ((options.travelMode == "DRIVING" && options.waypoints)|| options.travelMode == "BICYCLING" || options.travelMode == "TRANSIT") {
+                that.directionRouteMap = result;
+
+              }
+            }
             if (result.routes[0].legs[0].departure_time) {
               resultarray = {
                 transportmethod: options.travelMode,
@@ -59,10 +62,11 @@
               };
             }
             else {
+
               var Zeit = new Date();
-              var Startzeit = Zeit.getHours() + ":" + Zeit.getMinutes();
+              var Startzeit = Zeit.toLocaleString('de-DE').substring(11,16);
               var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + result.routes[0].legs[0].duration.value * 1000));
-              Ankuftszeit = Ankuftszeit.getHours() + ":" + Ankuftszeit.getMinutes();
+              Ankuftszeit = Ankuftszeit.toLocaleString('de-DE').substring(11,160);
               resultarray = {
                 transportmethod: options.travelMode,
                 distance: result.routes[0].legs[0].distance.value,
@@ -71,7 +75,10 @@
                 finish: Ankuftszeit,
               };
             }
-            that.shortWaysOutput.push(resultarray);
+            if ((options.travelMode == "DRIVING" && !options.waypoints) || options.travelMode != "DRIVING")  {
+              that.directionRouteDescription.push(result);
+              that.shortWaysOutput.push(resultarray);
+            }
           }
         });
       }

@@ -41,20 +41,8 @@
         </div>
 
         <p></p>
-        <!-- Show all availabe data in returned object
-
-        <resultComponent v-if="showResults"
-                          class="resultsField"
-                          :shortRoute="shortWayOutput"
-                          :completeRoute="directionRouteCompleteCar"
-                          :walkRoute="directionRouteCompleteWalking"
-                          :showDrive="false"
-                          :shortRouteCar="directionRouteShortCar"
-        >
-
-        </resultComponent>
--->
-        <RouteGeneral v-if="showResults"
+        <!-- Show all availabe data in returned object-->
+        <GetRoutes v-if="showResults"
                       class="resultsField"
                       :options=' [{
                           origin: {lat: car2go.coordinates.latitude, lng: car2go.coordinates.longitude},
@@ -78,9 +66,9 @@
                           provideRouteAlternatives: false
                       }]'
 
-        ></RouteGeneral>
+        ></GetRoutes>
 
-        <RouteGeneral v-if="showResults"
+        <GetRoutes v-if="showResults"
                       class="resultsField"
                       :options=' [{
                           origin: {lat: origin.latitude, lng: origin.longitude},
@@ -89,9 +77,9 @@
                           provideRouteAlternatives: false
                       }]'
 
-        ></RouteGeneral>
+        ></GetRoutes>
 
-        <RouteGeneral v-if="showResults"
+        <GetRoutes v-if="showResults"
                       class="resultsField"
                       :options=' [{
                           origin: {lat: origin.latitude, lng: origin.longitude},
@@ -100,7 +88,7 @@
                           provideRouteAlternatives: false
                       }]'
 
-        ></RouteGeneral>
+        ></GetRoutes>
 
       </div>
     </div>
@@ -109,16 +97,12 @@
 <script>
   import VueGoogleAutocomplete from 'vue-google-autocomplete';
   import vueResource from 'vue-resource';
-  import resultComponent from './resultComponent.vue';
-  import DirectionService from './DirectionService.vue';
-  import RouteGeneral from './RouteGeneral.vue';
+  import GetRoutes from './GetRoutes.vue';
 
   export default {
     components: {
       VueGoogleAutocomplete,
-      resultComponent,
-      DirectionService,
-      RouteGeneral,
+      GetRoutes,
     },
     name: 'Appcimo',
     data () {
@@ -129,12 +113,6 @@
         origin: '',
         destination: '',
         car2go: '',
-        shortWayOutput: [],
-        OutputDRIVING: '',
-        OutputWALKING: '',
-        directionRouteCompleteCar: '',
-        directionRouteShortCar: '',
-        directionRouteCompleteWalking: '',
         showResults: false,
       }
 
@@ -152,10 +130,6 @@
       },
 
       getRoutes: function () {
-        this.shortWayOutput = [];
-        this.getRoute(this.car2go.coordinates, this.destination, null, "DRIVING");
-        this.getRoute(this.origin, this.car2go.coordinates, null, "WALKING");
-        this.getRoute(this.origin, this.destination, this.car2go.coordinates, "DRIVING");
         this.showResults = true;
         //this.showResults = true; // results einblenden
       },
@@ -188,74 +162,6 @@
         this.car2go = car;
       },
 
-      //Funktion zur Ermittlung der Routen über Google Javascript API Directions
-      getRoute: function (origin1, dest1, waypoint, transport) {
-        var that = this;
-        var directionsService = new google.maps.DirectionsService();
-
-        if (waypoint != null) {
-          var request = {
-            origin: {lat: origin1.latitude, lng: origin1.longitude},
-            destination: {lat: dest1.latitude, lng: dest1.longitude},
-            travelMode: transport,
-            provideRouteAlternatives: false,
-            waypoints: [{
-              location: {lat: waypoint.latitude, lng: waypoint.longitude},
-              stopover: true
-            }]
-          };
-        }
-        else {
-          var request = {
-            origin: {lat: origin1.latitude, lng: origin1.longitude},
-            destination: {lat: dest1.latitude, lng: dest1.longitude},
-            travelMode: transport,
-            provideRouteAlternatives: false
-          };
-        }
-        directionsService.route(request, function (result, status) {
-          var resultarray;
-          if (status == 'OK') {
-            if (transport == "WALKING") {
-              that.directionRouteCompleteWalking = result;
-              var Zeit = new Date();
-              var Startzeit = Zeit.getHours() + ":" + Zeit.getMinutes();
-              var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + result.routes[0].legs[0].duration.value * 1000));
-              Ankuftszeit = Ankuftszeit.getHours() + ":" + Ankuftszeit.getMinutes();
-              resultarray = {
-                transportmethod: transport,
-                distance: result.routes[0].legs[0].distance.value,
-                duration: result.routes[0].legs[0].duration.value,
-                start: Startzeit,
-                finish: Ankuftszeit,
-              };
-              that.shortWayOutput.push(resultarray);
-            }
-            else {
-              var Zeit = new Date();
-              var Startzeit = Zeit.getHours() + ":" + Zeit.getMinutes();
-              var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + result.routes[0].legs[0].duration.value * 1000));
-              Ankuftszeit = Ankuftszeit.getHours() + ":" + Ankuftszeit.getMinutes();
-
-              if (waypoint == null) {
-                that.directionRouteShortCar = result;
-                resultarray = {
-                  transportmethod: transport,
-                  distance: result.routes[0].legs[0].distance.value,
-                  duration: result.routes[0].legs[0].duration.value,
-                  start: Startzeit,
-                  finish: Ankuftszeit,
-                };
-                that.shortWayOutput.push(resultarray);
-              }
-              else {
-                that.directionRouteCompleteCar = result;
-              }
-            }
-
-          }
-        });
-      }
     }
   }
 

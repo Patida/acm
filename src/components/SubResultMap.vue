@@ -13,9 +13,9 @@
 
 <script>
   export default {
-    name: "DirectionService",
+    name: "SubResultMap",
     props: {
-      shortRoute: '',
+      directionRouteMap: '',
     },
 
     data() {
@@ -35,7 +35,7 @@
 
       initMap: function() {
         var that = this;
-        if (that.shortRoute.request.travelMode == "DRIVING") {
+        if (that.directionRouteMap.request.travelMode == "DRIVING") {
             that.isCarSearch = true;
         }
         else {
@@ -50,7 +50,7 @@
           draggable: true,
           map: map
         });
-        directionsDisplay.setDirections(that.shortRoute);
+        directionsDisplay.setDirections(that.directionRouteMap);
 
       },
     }
@@ -89,7 +89,6 @@
   }
   .right-panels {
     float: left;
-    width: 34%;
     height: 100%;
   }
   .panel {

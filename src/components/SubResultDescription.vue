@@ -1,30 +1,24 @@
 <template>
   <div>
     <div class="left-panel" ref="leftpanel">
-      <p class="descriptionMethod">{{ primaryWayDescriptor }}</p>
+      <p class="descriptionMethod">{{ WayDescriptor }}</p>
     </div>
 
-    <div class="right-panel" ref="rightpanel">
-      <p class="descriptionMethod">{{ secondaryWayDescriptor }}</p>
-    </div>
 
   </div>
 </template>
 
 <script>
   export default {
-    name: "DirectionService",
+    name: "SubResultDescription",
     props: {
       description: false,
-      descriptionCar: null,
-      descriptionWalk: null
     },
 
     data() {
       return {
         total: '',
-        primaryWayDescriptor:'',
-        secondaryWayDescriptor:''
+        WayDescriptor:'',
       }
     },
 
@@ -37,27 +31,14 @@
 
       updateDescription: function() {
         var that = this;
-
         var directionsService = new google.maps.DirectionsService();
-        if (that.descriptionWalk != null && that.descriptionCar != null) {
-          var directionsDisplayWalk = new google.maps.DirectionsRenderer({
-            panel: that.$refs.leftpanel
-          });
-          that.primaryWayDescriptor = "Wegbeschreibung zum Auto";
-          directionsDisplayWalk.setDirections(that.descriptionWalk);
+        that.WayDescriptor = "Wegbeschreibung zum Ziel"
 
-          var directionsDisplay = new google.maps.DirectionsRenderer({
-            panel: that.$refs.rightpanel
-          });
-          that.secondaryWayDescriptor = "Wegbeschreibung mit dem Auto zum Ziel";
-          directionsDisplay.setDirections(that.descriptionCar);
-        }
-        else {
+        for (var i = that.description.length ;i >= 0;i--) {
           var directionsDisplay = new google.maps.DirectionsRenderer({
             panel: that.$refs.leftpanel
           });
-          that.primaryWayDescriptor = "Wegbeschreibung zum Ziel"
-          directionsDisplay.setDirections(that.description);
+          directionsDisplay.setDirections(that.description[i]);
         }
       },
     }
@@ -95,14 +76,9 @@
 
   }
   .left-panel {
-    float: left;
-    width: 47%;
+    margin-left: 10%;
     height: 100%;
-  }
-  .right-panel {
-    float: right;
-    width: 47%;
-    height: 100%;
+    width: 80%;
   }
 
   .panel {
