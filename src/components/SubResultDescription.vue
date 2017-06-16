@@ -33,12 +33,21 @@
         var that = this;
         var directionsService = new google.maps.DirectionsService();
         that.WayDescriptor = "Wegbeschreibung zum Ziel"
-
-        for (var i = that.description.length ;i >= 0;i--) {
-          var directionsDisplay = new google.maps.DirectionsRenderer({
-            panel: that.$refs.leftpanel
-          });
-          directionsDisplay.setDirections(that.description[i]);
+        if (that.description[0].request.travelMode == "DRIVING") {
+          for (var i = that.description.length; i >= 0; i--) {
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+              panel: that.$refs.leftpanel
+            });
+            directionsDisplay.setDirections(that.description[i]);
+          }
+        }
+        else {
+          for (var i = 0; i < that.description.length; i++) {
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+              panel: that.$refs.leftpanel
+            });
+            directionsDisplay.setDirections(that.description[i]);
+          }
         }
       },
     }

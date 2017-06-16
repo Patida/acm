@@ -24,5 +24,6 @@ export default {
    border-radius: 5px;
    border-style: groove;
    padding-left: 10px;
+   background-color: white;
  }
 </style>

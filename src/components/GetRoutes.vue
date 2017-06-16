@@ -1,9 +1,9 @@
 <template>
-  <ResultView   class="resultsField"
-                    :shortWaysOutput="shortWaysOutput"
-                    :directionRouteMap="directionRouteMap"
-                    :directionRouteDescription="directionRouteDescription"
-                     :showDrive="false"
+  <ResultView
+    :shortWaysOutput="shortWaysOutput"
+    :directionRouteMap="directionRouteMap"
+    :directionRouteDescription="directionRouteDescription"
+    :showDrive="false"
   >
   </ResultView>
 </template>
@@ -21,9 +21,9 @@
     },
     data () {
           return {
-              directionRouteDescription: '',
+              directionRouteDescription: [],
               directionRouteMap: '',
-              shortWaysOutput: '',
+              shortWaysOutput: [],
           }
     },
     mounted: function() {
@@ -91,9 +91,3 @@
     }
   }
 </script>
-<style>
-  .resultsField {
-    margin: auto;
-    width: 100%;
-  }
-</style>

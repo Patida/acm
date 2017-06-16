@@ -2,49 +2,52 @@
   <div>
     <div class ='bg'>
       <div id="menubar">
-        <span id="title">{{ headline }}</span>
-        <span class="submenu">Contact us</span>
+        <span id="title">{{ headline }} </span>
+        <span class="submenufirst">Contact us</span>
         <span class="submenu">About</span>
         <span class="submenu">Home</span>
       </div>
+
       <div class = 'standard'>
-        <p class='subline'> {{ subline }} </p>
-        <p> {{ msg }} </p>
+        <div class="backgroundpic"></div>
+          <div id="input">
+          <p class='subline'></p>
 
-        <!-- Autocomplete https://www.npmjs.com/package/vue-google-autocomplete -->
 
-        <!-- InputFrom: own location-->
-        <div class="autocompleteInput">
-        <VueGoogleAutocomplete id="InputA" classname="form-control"
-                                 placeholder="Your Position"
-                                 v-on:placechanged="getOrigin"
-                                 country="de"
-                                 enable-geolocation: true
-        >
-        </VueGoogleAutocomplete>
-        <!-- InputTo: Destination-->
-        <VueGoogleAutocomplete id="InputB" classname="form-control"
-                                 placeholder="Your Destination"
-                                 v-on:placechanged="getDestination"
-                                 country="de"
-                                 enable-geolocation: true
-        >
-        </VueGoogleAutocomplete>
+          <!-- Autocomplete https://www.npmjs.com/package/vue-google-autocomplete -->
 
-        <button id="buttonFind" @click="getRoutes()">Finde meinen Weg!</button>
-      </div>
+          <!-- InputFrom: own location-->
+          <div class="autocompleteInput">
+          <VueGoogleAutocomplete id="InputA" classname="form-control"
+                                   placeholder="Your Position"
+                                   v-on:placechanged="getOrigin"
+                                   country="de"
+                                   enable-geolocation: true
+          >
+          </VueGoogleAutocomplete>
+          <!-- InputTo: Destination-->
+          <VueGoogleAutocomplete id="InputB" classname="form-control"
+                                   placeholder="Your Destination"
+                                   v-on:placechanged="getDestination"
+                                   country="de"
+                                   enable-geolocation: true
+          >
+          </VueGoogleAutocomplete>
+
+          <button id="buttonFind" @click="getRoutes()">Finde meinen Weg!</button>
+          </div>
+
 
         <div v-if="showResults" id="resultsFieldDescriptor">
           <span class="resultFieldMenue" id="transport">Transportmittel</span>
-          <span class="resultFieldMenue" id="Start">Startzeit</span>
+          <span class="resultFieldMenue" id="Start" >Startzeit</span>
           <span class="resultFieldMenue" id="End">Ankunftszeit</span>
           <span class="resultFieldMenue" id="duration">Dauer</span>
-          <span class="resultFieldMenue"></span>
           <span class="resultFieldMenue">Kurzansicht</span>
-          <span class="resultFieldMenue">Preis</span>
+          <span class="resultFieldMenue" id="price">Preis</span>
         </div>
 
-        <p></p>
+
         <!-- Show all availabe data in returned object-->
         <GetRoutes v-if="showResults"
                       class="resultsField"
@@ -93,7 +96,7 @@
                       }]'
 
         ></GetRoutes>
-
+      </div>
       </div>
     </div>
   </div>
@@ -111,7 +114,7 @@
     name: 'Appcimo',
     data () {
       return {
-        headline: 'app-ci-mo',
+        headline: 'AppCiMo',
         subline: 'Application for City Movement',
         msg: 'Please enter your location and destination.',
         origin: '',
@@ -140,7 +143,7 @@
 
       // Simulieren des Autostandortes, da noch kein Zugang zur Car2Go API gewährt wurde
       getCarLocation: function (originCar) {
-        var carAddress = originCar.route + " 5"
+        var carAddress = originCar.route + " 5, Berlin"
         var car = {
           address: carAddress,
           coordinates: '',
@@ -192,7 +195,7 @@
   .subline {
     font-family: "Impact", Charcoal, sans-serif;
     font-size: 2em;
-    margin: 120px 0px 30px 0px;
+    margin: 50px 0px 30px 0px;
     color: #4d4d4d;
   }
 
@@ -204,6 +207,8 @@
     height: 100%;
     border: solid;
     border-color: white;
+    position: relative;
+
   }
 
   #InputA {
@@ -228,10 +233,14 @@
   }
 
   .resultFieldMenue  {
-    left: 100px;
-    margin-right: 0px;
-    width: 20px;
+    width: 120px;
+    height: 30px;
     background-color: lightgrey;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 5px;
+    padding-top: 3px;
+
   }
 
   #transport {
@@ -245,31 +254,64 @@
     margin-right: 100px;
   }
 
+  #price {
+    float: right;
+    margin-right: 10%;
+  }
+
   #menubar {
     height: 100px;
     background-color: rgba(0,81,187,0.5);
+    width: 100%;
+  }
+
+  .menubar {
+    height: 100px;
     width: 80%;
     margin-left: 10%;
-    position: fixed;
   }
 
   #title {
     float: left;
-    margin-left: 10px;
+    margin-left: 18%;
     margin-top: 40px;
     font-size: 4em;
   }
 
+  .submenufirst {
+    float: right;
+    margin-right: 15%;
+    margin-top: 40px;
+    font-size: 2em;
+  }
   .submenu {
     float: right;
-    margin-left: 20px;
+    margin-right: 20px;
     margin-top: 40px;
     font-size: 2em;
   }
 
   .autocompleteInput {
     height: 50px;
+    text-align: left;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 20px;
   }
 
+  .backgroundpic {
+    height: 400px;
+    background-image: url("../assets/appcimo-background-pic.png");
+    background-size: cover;
+    opacity: 0.3;
+    width: 100%;
+    position: absolute;
+  }
+
+  #input {
+    position: absolute;
+    margin-top: 200px;
+    width: 100%;
+  }
 
 </style>

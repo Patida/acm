@@ -7,11 +7,10 @@
         <img src="../assets/downarrow.png" height="20" width="15">
       </button>
       <span class="shortinfo" id="transport"> {{ transportmethod }}</span>
-     <span class="shortInfo" id="Start">{{ start }}</span>
-      <span class="shortInfo">{{ end }}</span>
-      <span class="shortInfo" id="duration">{{ duration }}</span>
-      <span class="shortInfo">{{ price }}</span>
-
+      <span class="shortinfo" id="start">{{ start }}</span>
+      <span class="shortinfo">{{ end }}</span>
+      <span class="shortinfo" id="duration">{{ duration }}</span>
+      <span class="shortinfo" id="price">{{ price }}</span>
       </div>
 
     <!-- TRANSITION TABS-->
@@ -20,7 +19,7 @@
         <div v-if="showDrive">
 
           <md-tabs md-fixed class="tabs">
-            <md-tab id="Zusammenfgassung" md-label="Zusammenfassung">
+            <md-tab id="Zusammenfassung" md-label="Zusammenfassung">
               <SubResultDescription
                 :description="directionRouteDescription"
               ></SubResultDescription>
@@ -50,9 +49,17 @@
     },
     name: "ResultView",
     props: {
-      shortWaysOutput: '',
-      directionRouteMap: '',
-      directionRouteDescription: '',
+      shortWaysOutput: {
+          type: Array,
+          required: true
+      },
+      directionRouteMap: {
+          required: true
+      },
+      directionRouteDescription: {
+          type: Array,
+          required: true
+      },
     },
     data() {
         return {
@@ -66,6 +73,9 @@
     },
     methods: {
       updateShortInfo: function(Way) {
+          if(Way[0].transportmethod == undefined) {
+              alert("Wieder ist es leer")
+          }
         var that = this;
         var time = 0;
 
@@ -75,8 +85,11 @@
         else if (Way[0].transportmethod == "TRANSIT") {
           that.transportmethod = "Öffis";
         }
+        else if (Way[0].transportmethod == "BICYCLING") {
+          that.transportmethod = "Fahrrad"
+        }
         else {
-          that.transportmethod  = "Fahrrad"
+              that.transportmethod = "Carsharing"
         }
         var time;
 
@@ -123,6 +136,7 @@
         'shortWaysOutput'(shortWaysOutput){
             this.updateShortInfo(shortWaysOutput);
             this.getPrice(shortWaysOutput);
+            this.showDrive = false;
         }
     }
 
@@ -130,6 +144,7 @@
 
 </script>
 <style scoped>
+
   .directionWindow {
     margin: auto;
     margin-top: 0px;
@@ -138,22 +153,13 @@
   }
   .resultBar {
     text-align: left;
-    margin: auto;
+    margin-left: 10%;
     width: 80%;
     height: 50px;
     background-color: rgba(79,147,248,0.3);
-  }
-  .shortInfo {
-
+    border-radius: 10px;
   }
 
-  .bus {
-
-  }
-
-  .tram {
-
-  }
   .fade-enter-active, .fade-leave-active {
     transition: opacity .5s
   }
@@ -164,19 +170,32 @@
   #demo {
     margin: auto;
     margin-top: 5px;
+    margin-bottom: 5px;
     width: 80%;
     background-color: rgba(0,0,0,0.15);
+    border-radius: 10px;
   }
 
   #transport {
-    margin-left: 2%;
-    width: 100px;
+    margin-left: 5px;
   }
 
-  #Start {
-    margin-left: 5%;
+  #start {
+    margin-left: 39px;
   }
   #duration {
     margin-right: 100px;
+  }
+
+  #price {
+  }
+
+  .shortinfo {
+    width: 120px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    background-color: lightgrey;
+    padding-top: 5px
   }
 </style>
