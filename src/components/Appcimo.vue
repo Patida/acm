@@ -2,7 +2,7 @@
   <div>
     <div class ='bg'>
       <div id="menubar">
-        <span id="title">{{ headline }} </span>
+        <span id="title">{{ headline }}  </span>
         <span class="submenufirst">Contact us</span>
         <span class="submenu">About</span>
         <span class="submenu">Home</span>
