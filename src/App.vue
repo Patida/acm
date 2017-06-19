@@ -6,24 +6,24 @@
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  export default {
+    name: 'app'
+  }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
- .form-control {
-   height: 40px;
-   border-radius: 5px;
-   border-style: groove;
-   padding-left: 10px;
-   background-color: white;
- }
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+  }
+  .form-control {
+    height: 40px;
+    border-radius: 5px;
+    border-style: groove;
+    padding-left: 10px;
+    background-color: white;
+  }
 </style>
