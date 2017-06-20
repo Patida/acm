@@ -105,6 +105,9 @@
   import VueGoogleAutocomplete from 'vue-google-autocomplete';
   import vueResource from 'vue-resource';
   import GetRoutes from './GetRoutes.vue';
+  const RouteOptions = require('../business/RouteOptions.js');
+  const RouteOperations = require('../business/RouteOperations.js');
+  const CarLocation = require('../business/Car2go.js');
 
   export default {
     components: {
@@ -132,7 +135,12 @@
 
       getOrigin: function (addressData, placeResultData) {
         this.origin = addressData;
-        this.getCarLocation(addressData); // Ist eine Startadresse angegeben soll relativ zu dieser der Autostandort ermittelt werden.
+
+        var carStreet = CarLocation.mockCarAddress(addressData);
+        var carLocation = CarLocation.getCarLocation(carStreet);
+        this.car2go = CarLocation.createCar(carLocation, carStreet); // Ist eine Startadresse angegeben soll relativ zu dieser der Autostandort ermittelt werden.
+        console.log(this.car2go)
+        //this.getCarLocation(addressData);
       },
 
       getDestination: function (addressData, placeResultData) {
