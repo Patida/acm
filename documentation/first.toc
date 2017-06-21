@@ -1,0 +1,40 @@
+\contentsline {chapter}{\numberline {1}Einleitung}{3}
+\contentsline {section}{\numberline {1.1}Ausgangssituation}{3}
+\contentsline {section}{\numberline {1.2}Zielsetzung}{3}
+\contentsline {chapter}{\numberline {2}Projektvorbereitung}{4}
+\contentsline {section}{\numberline {2.1}Projektmanagementsoftware Taiga.io}{4}
+\contentsline {subsection}{\numberline {2.1.1}Vorgehensmodell}{4}
+\contentsline {subsection}{\numberline {2.1.2}Einrichtung Taiga.io}{4}
+\contentsline {subsection}{\numberline {2.1.3}Definition von User-Stories}{4}
+\contentsline {subsection}{\numberline {2.1.4}Definition von Tasks}{4}
+\contentsline {subsection}{\numberline {2.1.5}Integration HipChat}{4}
+\contentsline {section}{\numberline {2.2}Projektdurchführung}{4}
+\contentsline {subsection}{\numberline {2.2.1}Sprintplanung}{4}
+\contentsline {subsection}{\numberline {2.2.2}Retrospektive}{4}
+\contentsline {chapter}{\numberline {3}Pflichtenheft}{5}
+\contentsline {section}{\numberline {3.1}Produktanforderungen}{5}
+\contentsline {subsection}{\numberline {3.1.1}funktionale Anforderungen}{5}
+\contentsline {subsection}{\numberline {3.1.2}Nicht-funktionale Anforderungen}{6}
+\contentsline {subsection}{\numberline {3.1.3}Projektanforderungen}{6}
+\contentsline {subsection}{\numberline {3.1.4}Abnahmekriterien}{6}
+\contentsline {section}{\numberline {3.2}Konfiguration und Einrichtung zur Softwareentwicklung}{6}
+\contentsline {subsection}{\numberline {3.2.1}Entwicklungsumgebung}{6}
+\contentsline {subsection}{\numberline {3.2.2}VueJS}{6}
+\contentsline {subsection}{\numberline {3.2.3}Node.js und NPM}{6}
+\contentsline {subsection}{\numberline {3.2.4}Github}{6}
+\contentsline {subsection}{\numberline {3.2.5}TravisCI}{6}
+\contentsline {chapter}{\numberline {4}Systementwurf und Umsetzung}{7}
+\contentsline {section}{\numberline {4.1}Systemkomponenten}{7}
+\contentsline {subsection}{\numberline {4.1.1}Komponentendiagramm}{7}
+\contentsline {subsection}{\numberline {4.1.2}Komponentenbeschreibung}{7}
+\contentsline {section}{\numberline {4.2}Google API}{7}
+\contentsline {subsection}{\numberline {4.2.1}Google Services}{7}
+\contentsline {subsection}{\numberline {4.2.2}Verarbeitung JSON-Objekte}{7}
+\contentsline {subsection}{\numberline {4.2.3}Methoden}{7}
+\contentsline {subsection}{\numberline {4.2.4}Refactoring und Tests}{7}
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{8}
+\contentsline {section}{\numberline {5.1}Zusammenfassung}{8}
+\contentsline {section}{\numberline {5.2}Ausblick}{8}
+\contentsline {chapter}{\numberline {6}Anhänge}{9}
+\contentsline {section}{\numberline {6.1}Glossar}{9}
+\contentsline {section}{\numberline {6.2}verwendete Software}{9}
