@@ -72,7 +72,9 @@
     "webpack-merge": "^4.1.0",
     "babel-preset-es2015": "^6.24.1",
     "chromedriver": "^2.27.2",
-    "cross-spawn": "^5.0.1"
+    "cross-spawn": "^5.0.1",
+    "promise": "^8.0.0",
+    "asap": "^2.0.5"
   },
   "engines": {
     "node": ">= 4.0.0",
