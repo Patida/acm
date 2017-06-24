@@ -105,9 +105,12 @@
   import VueGoogleAutocomplete from 'vue-google-autocomplete';
   import vueResource from 'vue-resource';
   import GetRoutes from './GetRoutes.vue';
+  var Promise = require('promise');
   const RouteOptions = require('../business/RouteOptions.js');
   const RouteOperations = require('../business/RouteOperations.js');
   const CarLocation = require('../business/Car2go.js');
+
+
 
   export default {
     components: {
@@ -135,12 +138,12 @@
 
       getOrigin: function (addressData, placeResultData) {
         this.origin = addressData;
-
-        var carStreet = CarLocation.mockCarAddress(addressData);
-        var carLocation = CarLocation.getCarLocation(carStreet);
-        this.car2go = CarLocation.createCar(carLocation, carStreet); // Ist eine Startadresse angegeben soll relativ zu dieser der Autostandort ermittelt werden.
-        console.log(this.car2go)
         //this.getCarLocation(addressData);
+        var that = this;
+        var location = CarLocation.mockCarAddress(addressData);
+        CarLocation.getCarLocation(location).then(function(result) {
+          that.car2go = CarLocation.createCar(result, location);
+        });
       },
 
       getDestination: function (addressData, placeResultData) {
@@ -151,35 +154,6 @@
         this.showResults = true;
         //this.showResults = true; // results einblenden
       },
-
-      // Simulieren des Autostandortes, da noch kein Zugang zur Car2Go API gewährt wurde
-      getCarLocation: function (originCar) {
-        var carAddress = originCar.route + " 5, Berlin"
-        var car = {
-          address: carAddress,
-          coordinates: '',
-          engineType: 'CE',
-          exterior: 'GOOD',
-          fuel: 100,
-          interior: 'GOOD',
-          name: '123456',
-          vin: 'WMEEJ3BA8DK643640'
-        }
-        var geocoder = new google.maps.Geocoder();
-        var loc = {
-          latitude: '',
-          longitude: ''
-        };
-        geocoder.geocode({'address': carAddress}, function (results, status) {
-          if (status == 'OK') {
-            loc.latitude = results[0].geometry.location.lat();
-            loc.longitude = results[0].geometry.location.lng();
-          }
-        });
-        car.coordinates = loc;
-        this.car2go = car;
-      },
-
     }
   }
 
