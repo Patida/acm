@@ -9,7 +9,7 @@
 </template>
 <script>
   import ResultView from './ResultView.vue';
-  import DirectionService from './SubResultMap.vue';
+  const RouteOperations = require('../business/RouteOperations.js');
 
   export default {
       name: 'GetRoutes',
@@ -27,10 +27,26 @@
           }
     },
     mounted: function() {
-      this.getRoutes(this.options);
+      this.getRoutes();
     },
     methods: {
-      getRoutes: function(options) {
+
+    getRoutes: function() {
+      var that = this;
+      that.directionRouteDescription = [];
+      that.shortWaysOutput = [];
+      for (var i = 0; i < that.options.length; i++) {
+        RouteOperations.GoogleRouteQuery(that.options[i]).then(function (result) {
+          that.shortWaysOutput.push(RouteOperations.getShortinfo(result, that.options[i]));
+          console.log(that.shortWaysOutput);
+          that.directionRouteDescription.push(RouteOperations.directionRouteDescription(result, that.options[i]));
+          that.directionRouteMap = RouteOperations.directionRouteMap(result, that.options[i]);
+        });
+      }
+    }
+
+
+      /* getRoutes: function(options) {
         this.shortWaysOutput = null;
         this.directionRouteDescription = null;
         this.shortWaysOutput = [];
@@ -82,11 +98,11 @@
           }
         });
       }
-
+       */
     },
     watch: {
          'options'(options) {
-            this.getRoutes(this.options);
+            this.getRoutes();
          }
     }
   }

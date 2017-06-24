@@ -107,7 +107,6 @@
   import GetRoutes from './GetRoutes.vue';
   var Promise = require('promise');
   const RouteOptions = require('../business/RouteOptions.js');
-  const RouteOperations = require('../business/RouteOperations.js');
   const CarLocation = require('../business/Car2go.js');
 
 

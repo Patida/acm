@@ -6,12 +6,12 @@
       <button v-on:click="showDrive = !showDrive">
         <img src="../assets/downarrow.png" height="20" width="15">
       </button>
-      <span class="shortinfo" id="transport"> {{ transportmethod }}</span>
-      <span class="shortinfo" id="start">{{ start }}</span>
-      <span class="shortinfo">{{ end }}</span>
-      <span class="shortinfo" id="duration">{{ duration }}</span>
-      <span class="shortinfo" id="price">{{ price }}</span>
-      </div>
+      <span class="shortinfo" id="transport"> {{ transportmethod(shortWaysOutput) }}</span>
+      <span class="shortinfo" id="start">{{ start(shortWaysOutput) }}</span>
+      <span class="shortinfo">{{ end(shortWaysOutput) }}</span>
+      <span class="shortinfo" id="duration">{{ duration(shortWaysOutput) }}</span>
+      <span class="shortinfo" id="price">{{ price(shortWaysOutput) }}</span>
+    </div>
 
     <!-- TRANSITION TABS-->
     <div id="demo">
@@ -63,53 +63,48 @@
     },
     data() {
         return {
-          transportmethod: '',
-          duration: '',
-          start: '',
-          end: '',
-          price: '',
           showDrive: '',
         }
     },
-    methods: {
-      updateShortInfo: function(Way) {
-          if(Way[0].transportmethod == undefined) {
-              alert("Wieder ist es leer")
-          }
+    computed: {
+      transportmethod: function(Way) {
+        var that = this;
+        if (Way[0].transportmethod == "DRIVING") {
+          return "Carsharing";
+        }
+        else if (Way[0].transportmethod == "TRANSIT") {
+          return "Öffis";
+        }
+        else if (Way[0].transportmethod == "BICYCLING") {
+          return "Fahrrad"
+        }
+        else {
+          return "Carsharing"
+        }
+      },
+      duration: function(Way) {
         var that = this;
         var time = 0;
 
-        if (Way[0].transportmethod == "DRIVING") {
-          that.transportmethod = "Carsharing";
-        }
-        else if (Way[0].transportmethod == "TRANSIT") {
-          that.transportmethod = "Öffis";
-        }
-        else if (Way[0].transportmethod == "BICYCLING") {
-          that.transportmethod = "Fahrrad"
-        }
-        else {
-              that.transportmethod = "Carsharing"
-        }
-        var time;
-
         for (var i = 0;i < Way.length;i++) {
           if (Way[i].transportmethod == "DRIVING") {
-          time = time + 240;
+            time = time + 240;
           }
           time = time + Way[i].duration
         }
-        that.duration = (time-(time%=60))/60+(9<time?':':':0')+time + 'min';
-
-        that.start = Way[0].start;
-
+        return (time-(time%=60))/60+(9<time?':':':0')+time + 'min';
+      },
+      start: function(Way) {
+         return Way[0].start;
+      },
+      end: function(Way) {
         if (Way[0].transportmethod == "DRIVING") {
           var Zeit = new Date();
           var Finishtime = (new Date(Zeit.setTime(Zeit.getTime() + time))).toLocaleString('de-DE').substring(11,160)
-          that.end = Finishtime;
+          return Finishtime;
         }
         else {
-          that.end = Way[0].finish;
+          return Way[0].finish;
         }
       },
 
@@ -130,16 +125,7 @@
             that.price = (Math.ceil((duration + 240) / 60) * 0.25).toFixed(2) + " €";
           }
       }
-    },
-
-    watch: {
-        'shortWaysOutput'(shortWaysOutput){
-            this.updateShortInfo(shortWaysOutput);
-            this.getPrice(shortWaysOutput);
-            this.showDrive = false;
-        }
     }
-
   }
 
 </script>
