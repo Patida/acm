@@ -24,14 +24,14 @@ module.exports = {
       var Ankuftszeit;
       var Startzeit;
 
-      if (result.routes[0].legs[0].departure_time) {
-        Startzeit = result.routes[0].legs[0].departure_time.text;
-        Ankuftszeit = result.routes[0].legs[0].arrival_time.text;
+      if (googleResult.routes[0].legs[0].departure_time) {
+        Startzeit = googleResult.routes[0].legs[0].departure_time.text;
+        Ankuftszeit = googleResult.routes[0].legs[0].arrival_time.text;
       }
       else {
         var Zeit = new Date();
         Startzeit = Zeit.toLocaleString('de-DE').substring(11, 16);
-        Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + result.routes[0].legs[0].duration.value * 1000));
+        Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + googleResult.routes[0].legs[0].duration.value * 1000));
         Ankuftszeit = Ankuftszeit.toLocaleString('de-DE').substring(11, 160);
       }
 

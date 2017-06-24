@@ -6,7 +6,7 @@
       <button v-on:click="showDrive = !showDrive">
         <img src="../assets/downarrow.png" height="20" width="15">
       </button>
-      <span class="shortinfo" id="transport"> {{ transportmethod(shortWaysOutput) }}</span>
+      <span class="shortinfo" id="transport"> {{ trans1 }}</span>
       <span class="shortinfo" id="start">{{ start(shortWaysOutput) }}</span>
       <span class="shortinfo">{{ end(shortWaysOutput) }}</span>
       <span class="shortinfo" id="duration">{{ duration(shortWaysOutput) }}</span>
@@ -64,9 +64,18 @@
     data() {
         return {
           showDrive: '',
+          trans1:''
         }
     },
-    computed: {
+
+    mounted: function() {
+      this.updateall();
+    },
+    methods: {
+      updateall: function() {
+          this.trans1 = this.transportmethod(this.shortWaysOutput);
+      },
+
       transportmethod: function(Way) {
         var that = this;
         if (Way[0].transportmethod == "DRIVING") {

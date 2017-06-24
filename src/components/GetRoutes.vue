@@ -12,98 +12,41 @@
   const RouteOperations = require('../business/RouteOperations.js');
 
   export default {
-      name: 'GetRoutes',
-      props: {
-        options: '',
-      },
+    name: 'GetRoutes',
+    props: {
+      options: '',
+    },
     components: {
       ResultView
     },
     data () {
-          return {
-              directionRouteDescription: [],
-              directionRouteMap: '',
-              shortWaysOutput: [],
-          }
+      return {
+        directionRouteDescription: [],
+        directionRouteMap: '',
+        shortWaysOutput: [],
+        RouteCalcOperation: false
+
+      }
     },
-    mounted: function() {
+    mounted: function () {
       this.getRoutes();
     },
     methods: {
 
-    getRoutes: function() {
-      var that = this;
-      that.directionRouteDescription = [];
-      that.shortWaysOutput = [];
-      for (var i = 0; i < that.options.length; i++) {
-        RouteOperations.GoogleRouteQuery(that.options[i]).then(function (result) {
-          that.shortWaysOutput.push(RouteOperations.getShortinfo(result, that.options[i]));
-          console.log(that.shortWaysOutput);
-          that.directionRouteDescription.push(RouteOperations.directionRouteDescription(result, that.options[i]));
-          that.directionRouteMap = RouteOperations.directionRouteMap(result, that.options[i]);
-        });
-      }
-    }
-
-
-      /* getRoutes: function(options) {
-        this.shortWaysOutput = null;
-        this.directionRouteDescription = null;
-        this.shortWaysOutput = [];
-        this.directionRouteDescription = [];
-        for (var i = 0; i < this.options.length; i++) {
-          this.getRoute(options[i]);
-        }
-      },
-
-      getRoute: function (options) {
+      getRoutes: function () {
         var that = this;
-        var directionsService = new google.maps.DirectionsService();
-        directionsService.route(options, function (result, status) {
-          if (status == 'OK') {
-            var resultarray;
-            if (options.travelMode != "WALKING") {
-              if ((options.travelMode == "DRIVING" && options.waypoints)|| options.travelMode == "BICYCLING" || options.travelMode == "TRANSIT") {
-                that.directionRouteMap = result;
-
-              }
-            }
-            if (result.routes[0].legs[0].departure_time) {
-              resultarray = {
-                transportmethod: options.travelMode,
-                distance: result.routes[0].legs[0].distance.value,
-                duration: result.routes[0].legs[0].duration.value,
-                start: result.routes[0].legs[0].departure_time.text,
-                finish: result.routes[0].legs[0].arrival_time.text,
-              };
-            }
-            else {
-
-              var Zeit = new Date();
-              var Startzeit = Zeit.toLocaleString('de-DE').substring(11,16);
-              var Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + result.routes[0].legs[0].duration.value * 1000));
-              Ankuftszeit = Ankuftszeit.toLocaleString('de-DE').substring(11,160);
-              resultarray = {
-                transportmethod: options.travelMode,
-                distance: result.routes[0].legs[0].distance.value,
-                duration: result.routes[0].legs[0].duration.value,
-                start: Startzeit,
-                finish: Ankuftszeit,
-              };
-            }
-            if ((options.travelMode == "DRIVING" && !options.waypoints) || options.travelMode != "DRIVING")  {
-              that.directionRouteDescription.push(result);
-              that.shortWaysOutput.push(resultarray);
-            }
-          }
-        });
+        var i = 0;
+          RouteOperations.GoogleRouteQuery(that.options[i]).then(function (result) {
+            that.shortWaysOutput.push(RouteOperations.getShortinfo(result, that.options[i]));
+            that.directionRouteDescription.push(RouteOperations.directionRouteDescription(result, that.options[i]));
+            that.directionRouteMap = RouteOperations.directionRouteMap(result, that.options[i]);
+          });
+      },
+      watch: {
+        'options'(options) {
+          this.getRoutes();
+        }
       }
-       */
-    },
-    watch: {
-         'options'(options) {
-            this.getRoutes();
-         }
     }
   }
 </script>
