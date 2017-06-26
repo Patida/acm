@@ -28,15 +28,90 @@
 
 \chapter{Einleitung}
 
+
+
+
+
 \section{Ausgangssituation}
+In deutschen Großst"adten gibt es eine Vielzahl von M"oglichkeiten schnell von A nach B zu kommen. Dies ist vor allem der außerordentlichen Verkehrsinfrastruktur zu verdanken. Jedem B"urger ist die Wahl selbst überlassen, ob er mittels eines Privat-PKW’s, mit den "offentlichen Verkehrsmitteln oder zum Beispiel mit dem Fahrrad seinen Bestimmungsort erreichen möchte. Doch in Großst"adten, wie zum Beispiel Berlin, kann dieses "Uberangebot an Transportm"oglichkeiten oft auf Situationen stoßen, in denen sich der/die Zielsuchende nicht sicher ist, welche Transportm"oglichkeit die beste für ihn oder sie ist. Hier spielen Faktoren wie die innerstädtische Verkehrssituation, Verfügbarkeit von Car-Sharing Autos in der Nähe, Straßensperrungen oder Preise für die "offentlichen Verkehrsmittel eine Rolle. All diese Möglichkeiten abzuwägen, um möglichst schnell und günstig einen Zielort zu erreichen kann unter Umständen ein zu großer Aufwand sein. \\
+
+Das Team AppCiMo m"ochte gerne etwas Licht in diesen Großstadtdschungel bringen und verschiedene M"oglichkeiten für den eigenen Personentransport in (Groß-)St"adten "ubersichtlich und ansprechend aufzeigen.
+
+
 
 \section{Zielsetzung}
+Ziel des Projektes ist die Planung und Entwicklung eines City-Movement-Prototypen in Form einer One-Page Webapplikation. Diese Webapplikation soll Nutzern als Entscheidungshilfe f"ur ihre Weg-Zielerreichung in deutschen Großst"adten dienen. \\
+
+Den Nutzern sollen ausgehend von Start- und Bestimmungsort, drei unterschiedliche Transportm"oglichkeiten f"ur ihre Zielerreichung aufgezeigt werden. Diese M"oglichkeiten umfassen Carsharing-Angebote in der N"ahe, "offentliche Verkehrsmittel und das eigene Fahrrad. Zus"atzlich sollen für eine sofortige Einsch"atzung der ermittelten Transportm"oglichkeiten jeweils die Distanz, die voraussichtlich ben"otigte Zeit und die Kosten dargestellt werden. \\
+
+Bei Appcimo handelt es sich um eine browserbasierte Webapplikation, d.h. für die Nutzung ist eine Internetverbindung notwendig. Außerdem ist eine automatische Standorterfassung von Vorteil.
+Diese Webapplikation soll auf den gängigen Browsern stabil laufen.
+
 
 \chapter{Projektvorbereitung}
+Für die Planung, Organisation, Aufteilung und Verfolgung des Projekts wird die Projekt Management Plattform \textbf{Taiga.io} verwendet. Taiga.io ist ein webbasiertes open-source Projekt-Management-Tool für agile Entwickler, Designer und Projektmanager. Die St"arken liegen vor allem in den individuellen Anpassungsm"oglichkeiten, sowie in der einfachen und intuitiven Bedienung. Es wird von Start-Ups bevorzugt verwendet.
+
 
 \section{Projektmanagementsoftware Taiga.io}
 
 \subsection{Vorgehensmodell}
+Das Projekt Appcimo wird anhand des Scrum Vorgehensmodells bearbeitet. 
+
+\begin{figure} [h]
+\begin{center}
+
+
+\includegraphics[width=12cm]{Scrum.png}
+\caption{Scrum Infografik}
+\label{Scrum_logo}
+
+\end{center}
+\end{figure}
+
+Dabei werden vor allem folgende Vorzüge von Scrum in dem Projekt genutzt:
+
+\begin{itemize}
+\item{wenige, leicht verst"andliche Regeln}
+\item{Kurze Kommunikationswege}
+\item{Hohe Flexibilit"at/Agilit"at durch adaptives Planen}
+\item{Hohe Effektivität durch Selbstorganisation}
+\item{Hohe Transparenz durch regelm"aßige Meetings und Backlogs}
+\item{Zeitnahe Realisation neuer Produkteigenschaften bzw. Inkremente}
+\item{Kontinuierlicher Verbesserungsprozess}
+\item{Kurzfristige Problem-Identifikation}
+\item{Geringer Administrations- und Dokumentationsaufwand}
+\end{itemize}
+
+
+\textbf{Die Scrum-Rollen} 
+
+Die Umst"ande in denen die Webapplikation Appcimo entwickelt wird, f"uhren im Projektteam zu einer abgewandelten Form der klassischen Scrum-Vorgehensweise. \\
+
+Somit gibt es im Projektteam keine festen Rollen wie Product Owner, Entwickler und Scrum Master. Jedes Projektmitglied ist Product owner und Scrum master. Pers"onliche Pr"aferenzen lassen jedoch eine Spezialisierung wie Entwicklung, Dokumentation oder das Schaffen von wichtigen Voraussetzungen zu. Das Ziel ist hier eine ausbalancierte und effiziente Projektumgebung zu schaffen, in dem jedes Projektmitglied seine St"arken ausspielen kann und seine W"unsche ber"ucksichtigt werden. \\
+
+
+\textbf{Die Scrum-Artefakte} \\
+
+Product Backlog: Darin sind die Anforderungen an die Webapplikation in Form eines vorl"aufigen Plans erfasst - dieser ist dynamisch und wird kontinuierlich weiterentwickelt. \\
+
+Sprint Backlog: Basierend auf dem Product Backlog werden hier die im jeweiligen Sprint zu erledigenden Aufgaben für alle Projektbeteiligten einsehbar hinterlegt.\\
+
+Product Increment: Das Produkt-Inkrement ist das erledigte Arbeitspaket, welches nach Ende eines Sprints als fertiges Teilprodukt geliefert wird.\\
+
+
+
+\textbf{Die Scrum-Aktivitäten}\\
+
+Sprint Planning: F"ur jeden Sprint muss geplant werden, welches neue Feature während eines Sprints realisiert werden kann.\\
+
+Daily Scrum: Der ‘Daily Scrum‘ wird in einer abgewandelten Variante in Form eines ‘Weekly Scrum’ realisiert. Das Ziel hier ist prim"ar der Austausch untereinander im Projektteam bzgl. Probleme, Ideen, Lösungen und Entscheidungen.\\
+
+Sprint Review: Eine nachtr"agliche Bewertung der zu umsetzenden Features, ob  das im Sprint Backlog formulierte Entwicklungsziel aus Sicht des Projektteams zu 100 Prozent erreicht wurde.\\
+
+Sprint-Retrospektive: Ein Kontrollmechanismus, ob die bisherige Arbeitsweise verbessert werden kann.\\
+
+Product Backlog Refinement: Im Projektteam wird untersucht, inwieweit der im Product Backlog erfasste Plan bzw. die Produkt-Vision auf Basis neuen Wissens verbessert werden kann.
+
 
 \subsection{Einrichtung Taiga.io}
 
