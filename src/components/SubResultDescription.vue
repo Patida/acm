@@ -12,7 +12,7 @@
   export default {
     name: "SubResultDescription",
     props: {
-      description: false,
+      description: '',
     },
 
     data() {

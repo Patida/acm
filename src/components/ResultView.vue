@@ -1,16 +1,14 @@
 <template>
   <div>
-
-
     <div class="resultBar">
       <button v-on:click="showDrive = !showDrive">
         <img src="../assets/downarrow.png" height="20" width="15">
       </button>
-      <span class="shortinfo" id="transport"> {{ trans1 }}</span>
-      <span class="shortinfo" id="start">{{ start(shortWaysOutput) }}</span>
-      <span class="shortinfo">{{ end(shortWaysOutput) }}</span>
-      <span class="shortinfo" id="duration">{{ duration(shortWaysOutput) }}</span>
-      <span class="shortinfo" id="price">{{ price(shortWaysOutput) }}</span>
+      <span class="shortinfo" id="transport"> {{ shortView.transport }}</span>
+      <span class="shortinfo" id="start">{{ shortView.start }}</span>
+      <span class="shortinfo">{{ shortView.end }}</span>
+      <span class="shortinfo" id="duration">{{ shortView.duration }}</span>
+      <span class="shortinfo" id="price">{{ shortView.price }}</span>
     </div>
 
     <!-- TRANSITION TABS-->
@@ -49,91 +47,14 @@
     },
     name: "ResultView",
     props: {
-      shortWaysOutput: {
-          type: Array,
-          required: true
-      },
-      directionRouteMap: {
-          required: true
-      },
-      directionRouteDescription: {
-          type: Array,
-          required: true
-      },
+      shortView: '',
+      directionRouteMap: '',
+      directionRouteDescription: ''
     },
     data() {
         return {
           showDrive: '',
-          trans1:''
         }
-    },
-
-    mounted: function() {
-      this.updateall();
-    },
-    methods: {
-      updateall: function() {
-          this.trans1 = this.transportmethod(this.shortWaysOutput);
-      },
-
-      transportmethod: function(Way) {
-        var that = this;
-        if (Way[0].transportmethod == "DRIVING") {
-          return "Carsharing";
-        }
-        else if (Way[0].transportmethod == "TRANSIT") {
-          return "Öffis";
-        }
-        else if (Way[0].transportmethod == "BICYCLING") {
-          return "Fahrrad"
-        }
-        else {
-          return "Carsharing"
-        }
-      },
-      duration: function(Way) {
-        var that = this;
-        var time = 0;
-
-        for (var i = 0;i < Way.length;i++) {
-          if (Way[i].transportmethod == "DRIVING") {
-            time = time + 240;
-          }
-          time = time + Way[i].duration
-        }
-        return (time-(time%=60))/60+(9<time?':':':0')+time + 'min';
-      },
-      start: function(Way) {
-         return Way[0].start;
-      },
-      end: function(Way) {
-        if (Way[0].transportmethod == "DRIVING") {
-          var Zeit = new Date();
-          var Finishtime = (new Date(Zeit.setTime(Zeit.getTime() + time))).toLocaleString('de-DE').substring(11,160)
-          return Finishtime;
-        }
-        else {
-          return Way[0].finish;
-        }
-      },
-
-      getPrice: function(Way) {
-          var that = this;
-
-          if (Way[0].transportmethod == "TRANSIT") {
-              that.price = "2,70 €"
-          }
-          else if (Way[0].transportmethod == "BICYCLING") {
-              that.price = "Its free and healty!"
-          }
-          else {
-            var duration = 0;
-            for (var i = 0; i < Way.length; i++) {
-              duration += Way[i].duration;
-            }
-            that.price = (Math.ceil((duration + 240) / 60) * 0.25).toFixed(2) + " €";
-          }
-      }
     }
   }
 

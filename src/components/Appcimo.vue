@@ -56,8 +56,7 @@
                           destination: {lat: destination.latitude, lng: destination.longitude},
                           travelMode: "DRIVING",
                           provideRouteAlternatives: false
-                      },
-                      {
+                      },{
                       origin: {lat: origin.latitude, lng: origin.longitude},
                       destination: {lat: destination.latitude, lng: destination.longitude},
                       travelMode: "DRIVING",
@@ -66,7 +65,8 @@
                           location: {lat: car2go.coordinates.latitude, lng: car2go.coordinates.longitude},
                           stopover: true
                           }]
-                      },{
+                      },
+                      {
                           origin: {lat: origin.latitude, lng: origin.longitude},
                           destination: {lat: car2go.coordinates.latitude, lng: car2go.coordinates.longitude},
                           travelMode: "WALKING",
@@ -104,10 +104,9 @@
 <script>
   import VueGoogleAutocomplete from 'vue-google-autocomplete';
   import vueResource from 'vue-resource';
-  import GetRoutes from './GetRoutes.vue';
+  import GetRoutes from '../business/GetRoutes.vue';
   var Promise = require('promise');
   const RouteOptions = require('../business/RouteOptions.js');
-  const CarLocation = require('../business/Car2go.js');
 
 
 
@@ -127,7 +126,16 @@
         msg: 'Please enter your location and destination.',
         origin: '',
         destination: '',
-        car2go: '',
+        car2go: {
+            address: '',
+            coordinates: {latitude: '', longitude: ''},
+            engineType: 'CE',
+            exterior: 'GOOD',
+            fuel: 100,
+            interior: 'GOOD',
+            name: '123456',
+            vin: 'WMEEJ3BA8DK643640'
+        },
         showResults: false,
       }
 
@@ -137,11 +145,13 @@
 
       getOrigin: function (addressData, placeResultData) {
         this.origin = addressData;
-        //this.getCarLocation(addressData);
+        console.log(addressData)
         var that = this;
-        var location = CarLocation.mockCarAddress(addressData);
-        CarLocation.getCarLocation(location).then(function(result) {
-          that.car2go = CarLocation.createCar(result, location);
+        that.showResults = false
+        that.mockCarAddress(addressData);
+        that.getCarLocation(that.car2go.address).then(function(result) {
+          that.car2go.coordinates.latitude = result[0].geometry.location.lat();
+          that.car2go.coordinates.longitude = result[0].geometry.location.lng();
         });
       },
 
@@ -153,6 +163,26 @@
         this.showResults = true;
         //this.showResults = true; // results einblenden
       },
+
+      mockCarAddress: function (originCar) {
+        this.car2go.address = originCar.route + " 5, Berlin";
+      },
+
+
+      getCarLocation: function (Street) {
+        var geocoder = new google.maps.Geocoder();
+        return new Promise(function (resolve, reject) {
+          geocoder.geocode({'address': Street}, function (result, status) { // called asynchronously
+            if (status == google.maps.GeocoderStatus.OK) {
+                resolve(result);
+
+            } else {
+              reject(status);
+            }
+          });
+        });
+      }
+
     }
   }
 

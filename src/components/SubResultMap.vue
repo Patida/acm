@@ -35,11 +35,11 @@
 
       initMap: function() {
         var that = this;
-        if (that.directionRouteMap.request.travelMode == "DRIVING") {
-            that.isCarSearch = true;
+        if (that.directionRouteMap.request.travelMode != "DRIVING") {
+          that.isTrainSearch = true;
         }
         else {
-            that.isTrainSearch = true;
+            that.isCarSearch = true;
         }
         var map = new google.maps.Map(that.$refs.map, {
           zoom: 11,
