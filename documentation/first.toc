@@ -19,22 +19,22 @@
 \contentsline {subsection}{\numberline {3.1.4}Abnahmekriterien}{8}
 \contentsline {section}{\numberline {3.2}Konfiguration und Einrichtung zur Softwareentwicklung}{8}
 \contentsline {subsection}{\numberline {3.2.1}Entwicklungsumgebung}{8}
-\contentsline {subsection}{\numberline {3.2.2}VueJS}{8}
-\contentsline {subsection}{\numberline {3.2.3}Node.js und NPM}{8}
-\contentsline {subsection}{\numberline {3.2.4}Github}{8}
-\contentsline {subsection}{\numberline {3.2.5}TravisCI}{8}
-\contentsline {chapter}{\numberline {4}Systementwurf und Umsetzung}{9}
-\contentsline {section}{\numberline {4.1}Systemkomponenten}{9}
-\contentsline {subsection}{\numberline {4.1.1}Komponentendiagramm}{9}
-\contentsline {subsection}{\numberline {4.1.2}Komponentenbeschreibung}{9}
-\contentsline {section}{\numberline {4.2}Google API}{9}
-\contentsline {subsection}{\numberline {4.2.1}Google Services}{9}
-\contentsline {subsection}{\numberline {4.2.2}Verarbeitung JSON-Objekte}{9}
-\contentsline {subsection}{\numberline {4.2.3}Methoden}{9}
-\contentsline {subsection}{\numberline {4.2.4}Refactoring und Tests}{9}
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{10}
-\contentsline {section}{\numberline {5.1}Zusammenfassung}{10}
-\contentsline {section}{\numberline {5.2}Ausblick}{10}
-\contentsline {chapter}{\numberline {6}Anhänge}{11}
-\contentsline {section}{\numberline {6.1}Glossar}{11}
-\contentsline {section}{\numberline {6.2}verwendete Software}{11}
+\contentsline {subsection}{\numberline {3.2.2}VueJS}{9}
+\contentsline {subsection}{\numberline {3.2.3}Node.js und NPM}{10}
+\contentsline {subsection}{\numberline {3.2.4}Github}{10}
+\contentsline {subsection}{\numberline {3.2.5}TravisCI}{10}
+\contentsline {chapter}{\numberline {4}Systementwurf und Umsetzung}{11}
+\contentsline {section}{\numberline {4.1}Systemkomponenten}{11}
+\contentsline {subsection}{\numberline {4.1.1}Komponentendiagramm}{11}
+\contentsline {subsection}{\numberline {4.1.2}Komponentenbeschreibung}{11}
+\contentsline {section}{\numberline {4.2}Google API}{11}
+\contentsline {subsection}{\numberline {4.2.1}Google Services}{11}
+\contentsline {subsection}{\numberline {4.2.2}Verarbeitung JSON-Objekte}{11}
+\contentsline {subsection}{\numberline {4.2.3}Methoden}{11}
+\contentsline {subsection}{\numberline {4.2.4}Refactoring und Tests}{11}
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{12}
+\contentsline {section}{\numberline {5.1}Zusammenfassung}{12}
+\contentsline {section}{\numberline {5.2}Ausblick}{12}
+\contentsline {chapter}{\numberline {6}Anhänge}{13}
+\contentsline {section}{\numberline {6.1}Glossar}{13}
+\contentsline {section}{\numberline {6.2}verwendete Software}{13}

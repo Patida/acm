@@ -33,14 +33,14 @@
 
 
 \section{Ausgangssituation}
-In deutschen Großst"adten gibt es eine Vielzahl von M"oglichkeiten schnell von A nach B zu kommen. Dies ist vor allem der außerordentlichen Verkehrsinfrastruktur zu verdanken. Jedem B"urger ist die Wahl selbst überlassen, ob er mittels eines Privat-PKW’s, mit den "offentlichen Verkehrsmitteln oder zum Beispiel mit dem Fahrrad seinen Bestimmungsort erreichen möchte. Doch in Großst"adten, wie zum Beispiel Berlin, kann dieses "Uberangebot an Transportm"oglichkeiten oft auf Situationen stoßen, in denen sich der/die Zielsuchende nicht sicher ist, welche Transportm"oglichkeit die beste für ihn oder sie ist. Hier spielen Faktoren wie die innerstädtische Verkehrssituation, Verfügbarkeit von Car-Sharing Autos in der Nähe, Straßensperrungen oder Preise für die "offentlichen Verkehrsmittel eine Rolle. All diese Möglichkeiten abzuwägen, um möglichst schnell und günstig einen Zielort zu erreichen kann unter Umständen ein zu großer Aufwand sein. \\
+In deutschen Großst"adten gibt es eine Vielzahl von M"oglichkeiten schnell von A nach B zu kommen. Dies ist vor allem der außerordentlichen Verkehrsinfrastruktur zu verdanken. Jedem B"urger ist die Wahl selbst "uberlassen, ob er mittels eines Privat-PKW’s, mit den "offentlichen Verkehrsmitteln oder zum Beispiel mit dem Fahrrad seinen Bestimmungsort erreichen m"ochte. Doch in Großst"adten, wie zum Beispiel Berlin, kann dieses "Uberangebot an Transportm"oglichkeiten oft auf Situationen stoßen, in denen sich der/die Zielsuchende nicht sicher ist, welche Transportm"oglichkeit die beste für ihn oder sie ist. Hier spielen Faktoren wie die innerstädtische Verkehrssituation, Verfügbarkeit von Car-Sharing Autos in der Nähe, Straßensperrungen oder Preise für die "offentlichen Verkehrsmittel eine Rolle. All diese Möglichkeiten abzuwägen, um m"oglichst schnell und günstig einen Zielort zu erreichen kann unter Umständen ein zu großer Aufwand sein. \\
 
-Das Team AppCiMo m"ochte gerne etwas Licht in diesen Großstadtdschungel bringen und verschiedene M"oglichkeiten für den eigenen Personentransport in (Groß-)St"adten "ubersichtlich und ansprechend aufzeigen.
+Das Team AppCiMo m"ochte gerne etwas Licht in diesen Gro"sstadtdschungel bringen und verschiedene M"oglichkeiten f"ur den eigenen Personentransport in (Groß-)St"adten "ubersichtlich und ansprechend aufzeigen.
 
 
 
 \section{Zielsetzung}
-Ziel des Projektes ist die Planung und Entwicklung eines City-Movement-Prototypen in Form einer One-Page Webapplikation. Diese Webapplikation soll Nutzern als Entscheidungshilfe f"ur ihre Weg-Zielerreichung in deutschen Großst"adten dienen. \\
+Ziel des Projektes ist die Planung und Entwicklung eines City-Movement-Prototypen in Form einer One-Page Webapplikation. Diese Webapplikation soll Nutzern als Entscheidungshilfe f"ur ihre Weg-Zielerreichung in deutschen Gro"sst"adten dienen. \\
 
 Den Nutzern sollen ausgehend von Start- und Bestimmungsort, drei unterschiedliche Transportm"oglichkeiten f"ur ihre Zielerreichung aufgezeigt werden. Diese M"oglichkeiten umfassen Carsharing-Angebote in der N"ahe, "offentliche Verkehrsmittel und das eigene Fahrrad. Zus"atzlich sollen für eine sofortige Einsch"atzung der ermittelten Transportm"oglichkeiten jeweils die Distanz, die voraussichtlich ben"otigte Zeit und die Kosten dargestellt werden. \\
 
@@ -68,14 +68,14 @@ Das Projekt Appcimo wird anhand des Scrum Vorgehensmodells bearbeitet.
 \end{center}
 \end{figure}
 
-Dabei werden vor allem folgende Vorzüge von Scrum in dem Projekt genutzt:
+Dabei werden vor allem folgende Vorz"uge von Scrum in dem Projekt genutzt:
 
 \begin{itemize}
 \item{wenige, leicht verst"andliche Regeln}
 \item{Kurze Kommunikationswege}
 \item{Hohe Flexibilit"at/Agilit"at durch adaptives Planen}
 \item{Hohe Effektivität durch Selbstorganisation}
-\item{Hohe Transparenz durch regelm"aßige Meetings und Backlogs}
+\item{Hohe Transparenz durch regelm"a"sige Meetings und Backlogs}
 \item{Zeitnahe Realisation neuer Produkteigenschaften bzw. Inkremente}
 \item{Kontinuierlicher Verbesserungsprozess}
 \item{Kurzfristige Problem-Identifikation}
@@ -291,8 +291,69 @@ PRJ04 &	Für das Software-Projekt muss eine Projektdokumentation erstellt werden
 \section{Konfiguration und Einrichtung zur Softwareentwicklung}
 
 \subsection{Entwicklungsumgebung}
+Webbasierte Javaanwendungen lassen sich mit Hilfe einer Vielzahl von Entwicklungsumgebungen (IDEs) programmieren.
+Das Entwicklungsteam hat sich, nach Abw"agung der jeweiligen Vor- und Nachteile, f"ur die Verwendung von zwei unterschiedlichen IDEs entschlossen.\\
+
+Eine dieser IDEs ist \textbf{WEBSTORM}, das kostenlos von \textbf{JETBRAINS} angeboten wird. \\
+
+\begin{figure} [h]
+\begin{center}
+
+\includegraphics[scale=0.6]{Webstorm.png}
+\caption{IDE Webstorm Logo}
+\label{webstorm_logo}
+
+\end{center}
+\end{figure}
+
+In der aktuellen Version 2017.1 wird WEBSTORM mit einer Reihe an n"utzlichen Tools und Kontrollmechanismen zur Verf"ugung gestellt. Dies beinhaltet unter anderem die Unterst"utzung aktueller Javascript Frameworks wie Angular, React, Vue.js und Meteor. Code-completion, Navigations- und „Ubersichtshilfen, Error-Erkennung und eingebaute Refactoring-Funktionen. \\
+
+Dar"uber hinaus lassen sich npm-Befehle direkt in Webstorm ausf"uhren und in einer eigenen Konsole anzeigen lassen. Weitere n"utzliche Funktionen sind die Anbindung g"angiger Version Control Systems wie Github oder das Erstellen und Ausf"uhren von Testszenarien, z.B. mittels Karma, Mocha, Jest and Protractor. \\
+
+\textbf{--- Relevante Webstorm-Aktionen/Libraries/Addons zu unserem Projekt einf"ugen} \\
+
+Bei der anderen IDE, die f"ur die Webapp verwendet wurde, handelt es sich um Atom, ein moderner und anpassbarer Text-Editor. \\
+
+\begin{figure} [h]
+\begin{center}
+
+\includegraphics[scale=0.8]{atom.png}
+\caption{Texteditor Atom Logo}
+\label{webstorm_logo}
+
+\end{center}
+\end{figure}
+
+Ausgeliefert wird Atom in einem simplen Design mit wenigen Tools und Werkzeugen. Das Motto lautet hier: Weniger ist Mehr. Konzentriertes und ablenkungsfreies Programmieren soll somit erm"oglicht werden. \\"Uber den integrierten Package-Manager lassen sich jedoch noch weitere Pakete installieren, die f"ur das Softwareprojekt ben"otigt werden. Diese Pakete sind, wie Atom auch, Open-Source Pakete. Es lassen sich aus tausenden von Paketen die ben"otigten Werkzeuge und Tools installieren. Unter anderem sind das GUI-Themes, Folder-Management Tools, Overview-Tools, Error-Detection und Tools, um die Arbeit am Code visuell zu verbessern.\\
+
+F"ur die Erstellung der Applikation Appcimo wurde das community-Package \textbf{lanuage-vue} installiert, dass Error-Handling und visuelle Unterst"utzung beim Programmieren zur Verf"ugung stellt.
+
 
 \subsection{VueJS}
+\textbf{Appcimo} wird mittels des clientseitigen Javascript-Frameworks \textbf{Vue.JS 2.0} erstellt. \\
+
+Vue.js ist eine Library f"ur interaktive User-Interfaces. Technisch gesehen ist Vue.js auf den ViewModel-Layer des MVVM-Pattern fokussiert: Sie verbindet die View und das Model "uber Two-Way-Data-Bindings. Es wird bevorzugt bei der Erstellung von Single-Page-Anwendungen verwendet.
+
+\begin{figure} [h]
+\begin{center}
+
+
+\includegraphics[width=12cm]{mvvm.png}
+\caption{MVVM Schema}
+\label{mvvm}
+
+\end{center}
+\end{figure}
+
+Vue.js verbindet die sichtbaren Elemente und die Datensicht eines Systems selbstst"andig. Damit reagiert es automatisch bei "Anderung von Variablen und  stellt diese mittels DOM-Manipulationen und Output Formatting dar.\\
+
+Das Herzst"uck der Vue.js-Bibliothek sind jedoch die Komponenten, mit denen sich komplexe Strukturen abbilden lassen. Wie bei anderen Systemen k"onnen sie weitere Komponenten enthalten.\\
+Die Parent-Komponenten bestimmen dabei die Eigenschaften der Child-Komponenten. Die Kommunikation zwischen den Komponenten untereinander wird mit einem Event-System realisiert.\\
+
+Au"serdem bietet Vue.js M"oglichkeiten beim Einf“ugen von neuen Elementen, diese mit animierten Effekten oder "Uberg"angen zu versch"onern.\\
+
+Bei der Erstellung der Webapplikation Appcimo sorgen vor allem \textbf{Direktiven} f"ur "ubersichtliche und leicht-verst"andliche Code-Abschnitte. Damit lassen sich zum Beispiel Schleifen durch ein Array iterieren, HTML-Knoten optional einbinden (v-if) und ausblenden (v-show), Klickevents abfangen (v-on) und Attribute an Variablen binden (v-bind).
+
 
 \subsection{Node.js und NPM}
 

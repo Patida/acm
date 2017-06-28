@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.26)  26 JUN 2017 21:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.26)  28 JUN 2017 18:03
 entering extended mode
 **./first.tex
 (first.tex
@@ -182,6 +182,9 @@ LaTeX Warning: Label `tab:Tabelle1' multiply defined.
 
 LaTeX Warning: Label `tab:Tabelle1' multiply defined.
 
+
+LaTeX Warning: Label `webstorm_logo' multiply defined.
+
 )
 \openout1 = `first.aux'.
 
@@ -338,14 +341,10 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no Ÿ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no Ÿ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¼ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¶ in font cmr10!
-Missing character: There is no Ã in font cmr10!
 Missing character: There is no Ÿ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no Ÿ in font cmr10!
@@ -365,8 +364,6 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¶ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¶ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 Missing character: There is no Ã in font cmr10!
@@ -378,12 +375,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
 
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no Ÿ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¼ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no Ÿ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no Ÿ in font cmr10!
 
@@ -423,8 +414,6 @@ File: Scrum.png Graphic file (type png)
  <use Scrum.png>
 Package pdftex.def Info: Scrum.png used on input line 64.
 (pdftex.def)             Requested size: 341.43306pt x 251.91266pt.
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¼ in font cmr10!
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
 
 ("D:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
@@ -434,8 +423,6 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no Ÿ in font cmr10!
  [4
 
  <./Scrum.png>]
@@ -596,19 +583,105 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
-[8]
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--296
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--298
+
+ []
+
+<Webstorm.png, id=33, 155.07938pt x 150.5625pt>
+File: Webstorm.png Graphic file (type png)
+ <use Webstorm.png>
+Package pdftex.def Info: Webstorm.png used on input line 302.
+(pdftex.def)             Requested size: 93.04832pt x 90.33818pt.
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ž in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+
+ []
+
+[8 <./Webstorm.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 311--312
+
+ []
+
+
+Overfull \hbox (0.4084pt too wide) in paragraph at lines 313--314
+[]\OT1/cmr/bx/n/10.95 --- Re-le-van-te Webstorm-Aktionen/Libraries/Addons zu un
+-se-rem Pro-jekt einf[]ugen 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
+
+ []
+
+<atom.png, id=37, 136.25906pt x 136.25906pt>
+File: atom.png Graphic file (type png)
+ <use atom.png>
+Package pdftex.def Info: atom.png used on input line 320.
+(pdftex.def)             Requested size: 109.00739pt x 109.00739pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 333--334
+
+ []
+
+<mvvm.png, id=38, 350.81062pt x 102.3825pt>
+File: mvvm.png Graphic file (type png)
+ <use mvvm.png>
+Package pdftex.def Info: mvvm.png used on input line 341.
+(pdftex.def)             Requested size: 341.43306pt x 99.65303pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
+
+ []
+
+[9 <./atom.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 350--352
+
+ []
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no œ in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 353--354
+
+ []
+
+[10 <./mvvm.png>]
 chapter 4.
-[9
+[11
 
 ]
 chapter 5.
-[10
+[12
 
 ]
 chapter 6.
 Missing character: There is no Ã in font cmssbx10!
 Missing character: There is no ¤ in font cmssbx10!
-[11
+[13
 
 ] (first.aux)
 
@@ -616,10 +689,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4264 strings out of 493323
- 72180 string characters out of 3139069
- 241941 words of memory out of 3000000
- 7770 multiletter control sequences out of 15000+200000
+ 4281 strings out of 493323
+ 72398 string characters out of 3139069
+ 241962 words of memory out of 3000000
+ 7784 multiletter control sequences out of 15000+200000
  9081 words of font info for 32 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,10n,66p,8818b,270s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -628,9 +701,9 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><D:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on first.pdf (11 pages, 223308 bytes).
+Output written on first.pdf (13 pages, 330175 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
+ 72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
