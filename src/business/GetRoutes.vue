@@ -4,7 +4,7 @@
       :shortView="shortView"
       :directionRouteMap="directionRouteMap"
       :directionRouteDescription="directionRouteDescription"
-      :showDrive="false"
+      :counter = "shortView"
     >
     </ResultView>
   </div>
@@ -17,6 +17,7 @@
     name: 'GetRoutes',
     props: {
       options: '',
+      counter: '',
     },
     components: {
       ResultView
@@ -31,8 +32,8 @@
           transport: '',
           start: '',
           end: '',
-          duration: '',
-          price: ''
+          duration: 0,
+          price: 0
         }
 
       }
@@ -55,6 +56,7 @@
         that.getRoute(promises).then(function (results) {
             for (var j = 0; j < results.length; j++) {
               that.shortWaysOutput.push(that.getShortinfo(results[j],that.options[j]));
+
               if(results[j].geocoded_waypoints.length == 2) {
                 that.directionRouteDescription.push(that.getDescription(results[j], that.options[j]));
               }
@@ -89,9 +91,9 @@
       },
 
       getShortinfo: function(googleResult) {
-        if (googleResult.request.travelMode != "DRIVING" || (googleResult.request.travelMode == "DRIVING" && googleResult.request.waypoints != undefined)) {
-          var Ankuftszeit;
-          var Startzeit;
+        if (googleResult.geocoded_waypoints.length == 2) {
+          var Ankuftszeit = null;
+          var Startzeit = null;
 
           if (googleResult.routes[0].legs[0].departure_time) {
             Startzeit = googleResult.routes[0].legs[0].departure_time.text;
@@ -99,17 +101,16 @@
           }
           else {
             var Zeit = new Date();
-            Startzeit = Zeit.toLocaleString('de-DE').substring(11, 16);
+            Startzeit = Zeit.toLocaleString('de-DE').substring(10, 15);
             Ankuftszeit = new Date(Zeit.setTime(Zeit.getTime() + googleResult.routes[0].legs[0].duration.value * 1000));
-            Ankuftszeit = Ankuftszeit.toLocaleString('de-DE').substring(11, 16);
+            Ankuftszeit = Ankuftszeit.toLocaleString('de-DE').substring(10, 15);
           }
-
           return {
             transportmethod: googleResult.request.travelMode,
             distance: googleResult.routes[0].legs[0].distance.value,
             duration: googleResult.routes[0].legs[0].duration.value,
             start: Startzeit,
-            finish: Ankuftszeit,
+            finish: Ankuftszeit
           };
         }
         else {
@@ -118,25 +119,25 @@
             distance: 0,
             duration: 0,
             start:'',
-            finish: '',
+            finish: ''
           };
         }
       },
 
       getDescription: function(googleResult, options) {
-        if ((options.travelMode == "DRIVING" && googleResult.geocoded_waypoints.length == 2) || options.travelMode != "DRIVING") {
+        if (googleResult.geocoded_waypoints.length == 2) {
           return googleResult;
         }
       },
 
       getMap: function(googleResult, options) {
         if (options.travelMode != "WALKING") {
-          if ((options.travelMode == "DRIVING" && googleResult.geocoded_waypoints.length > 2) || options.travelMode == "BICYCLING" || options.travelMode == "TRANSIT") {
-              console.log(googleResult)
+          if (googleResult.geocoded_waypoints.length > 2 || options.travelMode == "BICYCLING" || options.travelMode == "TRANSIT") {
             return googleResult;
           }
         }
       },
+
       transportmethod: function() {
         var that = this;
 
@@ -151,19 +152,20 @@
         }
 
       },
+
       duration: function() {
         var that = this;
         var time = 0;
         for (var i = 0;i < that.shortWaysOutput.length;i++) {
-          if (that.shortWaysOutput[i].transportmethod == "DRIVING") {
+          if (that.shortWaysOutput[i].transportmethod == "DRIVING" && that.shortWaysOutput[i].duration != 0) {
             time = time + 240;
           }
           time = time + that.shortWaysOutput[i].duration
-
         }
 
         return (time-(time%=60))/60+(9<time?':':':0')+time + 'min';
       },
+
       start: function() {
         var that = this;
         var starttime = that.shortWaysOutput[0].start;
@@ -174,16 +176,21 @@
         }
         return starttime;
       },
+
       end: function() {
         var that = this;
-        if (that.shortWaysOutput[0].transportmethod == "DRIVING") {
-          var Zeit = new Date();
-          var Finishtime = (new Date(Zeit.setTime(Zeit.getTime() + 1))).toLocaleString('de-DE').substring(11, 160)
-          return Finishtime;
+        var Zeit = new Date();
+        if (that.shortWaysOutput[0].transportmethod == "DRIVING" || that.shortWaysOutput[0].transportmethod =="WALKING") {
+          var calcDuration = 240;
+          for (var i = 0; i < that.shortWaysOutput.length; i++) {
+            calcDuration = calcDuration + that.shortWaysOutput[i].duration;
+          }
+          var Finishtime = (new Date(Zeit.setTime(Zeit.getTime() + calcDuration*1000))).toLocaleString('de-DE').substring(10, 15);
         }
         else {
-          return that.shortWaysOutput[0].finish;
+           var Finishtime =  that.shortWaysOutput[0].finish;
         }
+        return Finishtime;
 
       },
 
@@ -207,7 +214,7 @@
 
     },
       watch: {
-        'options'(options) {
+        'counter'(counter) {
           this.getRoutes();
         }
       }

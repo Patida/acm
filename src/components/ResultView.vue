@@ -49,12 +49,23 @@
     props: {
       shortView: '',
       directionRouteMap: '',
-      directionRouteDescription: ''
+      directionRouteDescription: '',
+      counter: 0
     },
     data() {
-        return {
-          showDrive: '',
-        }
+      return {
+        showDrive: false
+      }
+    },
+    methods: {
+      resetDetails: function() {
+          this.showDrive = !this.showDrive;
+      }
+    },
+    watcher: {
+      'shortView'(shortView) {
+        this.resetDetails();
+      }
     }
   }
 

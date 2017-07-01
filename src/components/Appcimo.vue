@@ -72,7 +72,7 @@
                           travelMode: "WALKING",
                           provideRouteAlternatives: false
                       }]'
-
+                      :counter="counter"
         ></GetRoutes>
 
         <GetRoutes v-if="showResults"
@@ -83,6 +83,7 @@
                           travelMode: "TRANSIT",
                           provideRouteAlternatives: false
                       }]'
+                      :counter="counter"
 
         ></GetRoutes>
 
@@ -94,6 +95,7 @@
                           travelMode: "BICYCLING",
                           provideRouteAlternatives: false
                       }]'
+                      :counter="counter"
 
         ></GetRoutes>
       </div>
@@ -137,17 +139,21 @@
             vin: 'WMEEJ3BA8DK643640'
         },
         showResults: false,
+        counter: 0
       }
 
     },
 
     methods: {
-
+      /*1. Get the results from the first vue-google-autocomplete input component and store them in the data attribute origin
+        2. Get the next car-location based on the origin address Data
+        3. Use the function aynchronous fucntion getCarLocation to get the actual latitude and longitude values.
+           When the result was send by google, the latitude and longitude will be stored in the car2go data attribute.
+        At the moment the car address is mocked in, caused by the missing car2go API.
+      */
       getOrigin: function (addressData, placeResultData) {
         this.origin = addressData;
-        console.log(addressData)
         var that = this;
-        that.showResults = false
         that.mockCarAddress(addressData);
         that.getCarLocation(that.car2go.address).then(function(result) {
           that.car2go.coordinates.latitude = result[0].geometry.location.lat();
@@ -155,20 +161,27 @@
         });
       },
 
+      // Get the results from the second vue-google-autocomplete input component and store them in the data attribute destination
       getDestination: function (addressData, placeResultData) {
         this.destination = addressData;
       },
 
+      /* 1. Start to mount and display the component GetRoutes by setting showResults true
+         2. Increase the counter to trigger the changes and let GetRoutes know about the new data to calculate the new routes.
+      */
       getRoutes: function () {
         this.showResults = true;
+        this.counter++;
         //this.showResults = true; // results einblenden
       },
 
+      //Moch the car location address by adding the number 5, Berlin to the street name from the origin-address
       mockCarAddress: function (originCar) {
         this.car2go.address = originCar.route + " 5, Berlin";
       },
 
-
+      // Use asynchronous google geocode service to get the car-location as a google geocode object.
+      // it is needed to get the actual latitude and longitude values for the mocked in car address.
       getCarLocation: function (Street) {
         var geocoder = new google.maps.Geocoder();
         return new Promise(function (resolve, reject) {
