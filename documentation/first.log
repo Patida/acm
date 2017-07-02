@@ -1,30 +1,30 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.26)  28 JUN 2017 18:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6300 64-bit) (preloaded format=pdflatex 2017.5.24)  3 JUL 2017 00:23
 entering extended mode
 **./first.tex
 (first.tex
 LaTeX2e <2017-04-15>
-Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrreprt.cls"
+Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrreprt.cls"
 Document Class: scrreprt 2017/04/13 v3.23 KOMA-Script document class (report)
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty"
 Package: scrkbase 2017/04/13 v3.23 KOMA-Script package (KOMA-Script-dependent b
 asics and keyval usage)
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty"
 Package: scrbase 2017/04/13 v3.23 KOMA-Script package (KOMA-Script-independent 
 basics and keyval usage)
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
 Package: scrlfile 2017/04/13 v3.23 KOMA-Script package (loading files)
 
 Package scrlfile, 2017/04/13 v3.23 KOMA-Script package (loading files)
                   Copyright (C) Markus Kohm
 
-))) ("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty"
+))) ("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty"
 Package: tocbasic 2017/04/13 v3.23 KOMA-Script package (handling toc-files)
 \scr@dte@tocline@numberwidth=\skip41
 \scr@dte@tocline@numbox=\box26
@@ -49,11 +49,11 @@ Package scrreprt Info: You've used standard option `11pt'.
 Class scrreprt Info: File `scrsize11pt.clo' used to setup font sizes on input l
 ine 2272.
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize11pt.clo"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize11pt.clo"
 File: scrsize11pt.clo 2017/04/13 v3.23 KOMA-Script font size class option (11pt
 )
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty"
 Package: typearea 2017/04/13 v3.23 KOMA-Script package (type area)
 \ta@bcor=\skip42
 \ta@div=\count79
@@ -108,12 +108,11 @@ LaTeX Info: Redefining \textsubscript on input line 4841.
 Class scrreprt Info: Redefining `\numberline' on input line 5988.
 \bibindent=\dimen102
 )
-("D:\Program Files\MiKTeX 2.9\tex\generic\german\german.sty" v2.5e 1998-07-08
-Package: german 1998/07/08 v2.5e Support for writing german texts (br)
+("C:\Program Files\MiKTeX 2.9\tex\generic\german\ngerman.sty" v2.5e 1998-07-08
+Package: ngerman 1998/07/08 v2.5e Support for writing german texts (br)
 \grmnU@D=\dimen103
-german -- \language number for Austrian undefined, default 24 used.
-)
-("D:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+ngerman -- \language number for naustrian undefined, default 45 used.
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count89
 \float@exts=\toks15
@@ -121,27 +120,29 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks16
 \@floatcapt=\box29
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+\@float@every@figure=\toks17
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
 File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count90
@@ -149,17 +150,17 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("D:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count91
@@ -173,9 +174,9 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutheight=\dimen111
 \Gm@layouthoffset=\dimen112
 \Gm@layoutvoffset=\dimen113
-\Gm@dimlist=\toks17
+\Gm@dimlist=\toks18
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")) (first.aux
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")) (first.aux
 
 LaTeX Warning: Label `tab:Tabelle1' multiply defined.
 
@@ -188,36 +189,36 @@ LaTeX Warning: Label `webstorm_logo' multiply defined.
 )
 \openout1 = `first.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
-LaTeX Font Info:    ... okay on input line 19.
- ("D:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+ ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count94
 \scratchdimen=\dimen114
 \scratchbox=\box30
 \nofMPsegments=\count95
 \nofMParguments=\count96
-\everyMPshowfont=\toks18
+\everyMPshowfont=\toks19
 \MPscratchCnt=\count97
 \MPscratchDim=\dimen115
 \MPnumerator=\count98
 \makeMPintoPDFobject=\count99
-\everyMPtoPDFconversion=\toks19
-) ("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+\everyMPtoPDFconversion=\toks20
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
@@ -226,22 +227,22 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 ))
-("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -292,12 +293,12 @@ G,.JBIG2,.JB2,.eps]
 <appcimo.png, id=1, 444.91219pt x 320.69812pt>
 File: appcimo.png Graphic file (type png)
  <use appcimo.png>
-Package pdftex.def Info: appcimo.png used on input line 22.
+Package pdftex.def Info: appcimo.png used on input line 23.
 (pdftex.def)             Requested size: 318.66948pt x 229.69867pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 22.
+(Font)              <14.4> on input line 23.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 22.
+(Font)              <7> on input line 23.
  [1
 
 
@@ -310,8 +311,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 2.
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¼ in font cmr10!
 Missing character: There is no Ã in font cmssbx10!
 Missing character: There is no ¤ in font cmssbx10!
 )
@@ -371,27 +370,27 @@ Missing character: There is no ¤ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no Ÿ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--37
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
 
  []
 
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no Ÿ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--44
+Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
 
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 
-Overfull \hbox (27.49933pt too wide) in paragraph at lines 45--46
+Overfull \hbox (27.49933pt too wide) in paragraph at lines 46--47
 \OT1/cmr/m/n/10.95 portm[]oglich-kei-ten f[]ur ih-re Ziel-er-rei-chung auf-ge-z
 eigt wer-den. Die-se M[]oglich-kei-ten um-fas-sen Carsharing-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 
  []
 
@@ -407,67 +406,65 @@ Missing character: There is no ¤ in font cmr10!
 chapter 2.
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¼ in font cmr10!
 <Scrum.png, id=17, 370.38374pt x 273.27094pt>
 File: Scrum.png Graphic file (type png)
  <use Scrum.png>
-Package pdftex.def Info: Scrum.png used on input line 64.
+Package pdftex.def Info: Scrum.png used on input line 65.
 (pdftex.def)             Requested size: 341.43306pt x 251.91266pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 75.
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 75.
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
  [4
 
  <./Scrum.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--94
+Underfull \hbox (badness 10000) in paragraph at lines 94--95
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 96--97
 
  []
 
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
 
 Missing character: There is no Ã in font cmbx10!
 Missing character: There is no ¤ in font cmbx10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
+Underfull \hbox (badness 10000) in paragraph at lines 104--105
 
  []
 
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--106
+Underfull \hbox (badness 10000) in paragraph at lines 106--107
 
  []
 
@@ -486,26 +483,110 @@ Missing character: There is no ™ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¶ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 110--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
-Missing character: There is no Ã in font cmssbx10!
-Missing character: There is no ¼ in font cmssbx10!
-[5] [6]
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¤ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¶ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¶ in font cmr10!
+[5]
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¶ in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
+
+ []
+
+<dashboard.png, id=26, 938.00438pt x 366.61969pt>
+File: dashboard.png Graphic file (type png)
+ <use dashboard.png>
+Package pdftex.def Info: dashboard.png used on input line 131.
+(pdftex.def)             Requested size: 455.24408pt x 177.92781pt.
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¶ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+
+<members.png, id=27, 1408.51219pt x 274.77657pt>
+File: members.png Graphic file (type png)
+ <use members.png>
+Package pdftex.def Info: members.png used on input line 143.
+(pdftex.def)             Requested size: 455.24408pt x 88.81076pt.
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¶ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¶ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+
+<hipchat.png, id=28, 1011.02719pt x 783.67781pt>
+File: hipchat.png Graphic file (type png)
+ <use hipchat.png>
+Package pdftex.def Info: hipchat.png used on input line 158.
+(pdftex.def)             Requested size: 455.24408pt x 352.87895pt.
+ [6 <./dashboard.png> <./members.png>]
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¤ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+
+<info_taiga_github_hipchat.png, id=34, 1148.03906pt x 612.78937pt>
+File: info_taiga_github_hipchat.png Graphic file (type png)
+
+<use info_taiga_github_hipchat.png>
+Package pdftex.def Info: info_taiga_github_hipchat.png used on input line 171.
+(pdftex.def)             Requested size: 455.24408pt x 242.98886pt.
+ [7 <./hipchat.png>]
+<backlog.png, id=40, 1409.265pt x 431.36156pt>
+File: backlog.png Graphic file (type png)
+ <use backlog.png>
+Package pdftex.def Info: backlog.png used on input line 185.
+(pdftex.def)             Requested size: 455.24408pt x 139.34175pt.
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no œ in font cmr10!
+
+<sprint_tasks.png, id=41, 1381.41093pt x 513.41812pt>
+File: sprint_tasks.png Graphic file (type png)
+ <use sprint_tasks.png>
+Package pdftex.def Info: sprint_tasks.png used on input line 201.
+(pdftex.def)             Requested size: 455.24408pt x 169.19347pt.
+
+[8 <./info_taiga_github_hipchat.png> <./backlog.png>]
+<sprints.png, id=47, 167.87718pt x 642.14906pt>
+File: sprints.png Graphic file (type png)
+ <use sprints.png>
+Package pdftex.def Info: sprints.png used on input line 217.
+(pdftex.def)             Requested size: 170.71758pt x 569.07108pt.
+ [9 <./sprint_tasks.png>] [10 <./sprints.png>]
 chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
 
  []
 
@@ -556,16 +637,16 @@ Missing character: There is no ¤ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¶ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--229
+Underfull \hbox (badness 10000) in paragraph at lines 323--324
 
  []
 
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¤ in font cmr10!
-[7
+[11
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 262--263
+Underfull \hbox (badness 10000) in paragraph at lines 357--358
 
  []
 
@@ -574,8 +655,8 @@ Missing character: There is no ¼ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 
-Underfull \hbox (badness 1635) in paragraph at lines 276--277
-[]\OT1/cmr/m/n/10.95 Fr die Um-set-zung des Sy-stems soll ein mo-der-nes Entwic
+Underfull \hbox (badness 1635) in paragraph at lines 371--372
+[]\OT1/cmr/m/n/10.95 Fr die Um-set-zung des Sys-tems soll ein mo-der-nes Entwic
 klungs-
  []
 
@@ -584,80 +665,98 @@ Missing character: There is no ¼ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 294--296
+Underfull \hbox (badness 10000) in paragraph at lines 391--392
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--298
+Underfull \hbox (badness 10000) in paragraph at lines 429--430
 
  []
 
-<Webstorm.png, id=33, 155.07938pt x 150.5625pt>
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 478--479
+
+ []
+
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 540--541
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 576--578
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 579--580
+
+ []
+
+<Webstorm.png, id=66, 155.07938pt x 150.5625pt>
 File: Webstorm.png Graphic file (type png)
  <use Webstorm.png>
-Package pdftex.def Info: Webstorm.png used on input line 302.
+Package pdftex.def Info: Webstorm.png used on input line 584.
 (pdftex.def)             Requested size: 93.04832pt x 90.33818pt.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ž in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--310
-
- []
-
-[8 <./Webstorm.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 311--312
+Underfull \hbox (badness 10000) in paragraph at lines 591--592
 
  []
 
 
-Overfull \hbox (0.4084pt too wide) in paragraph at lines 313--314
+Underfull \hbox (badness 10000) in paragraph at lines 593--594
+
+ []
+
+
+Overfull \hbox (0.4084pt too wide) in paragraph at lines 595--596
 []\OT1/cmr/bx/n/10.95 --- Re-le-van-te Webstorm-Aktionen/Libraries/Addons zu un
 -se-rem Pro-jekt einf[]ugen 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 313--314
+Underfull \hbox (badness 10000) in paragraph at lines 595--596
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
+Underfull \hbox (badness 10000) in paragraph at lines 597--598
 
  []
 
-<atom.png, id=37, 136.25906pt x 136.25906pt>
+<atom.png, id=67, 136.25906pt x 136.25906pt>
 File: atom.png Graphic file (type png)
  <use atom.png>
-Package pdftex.def Info: atom.png used on input line 320.
+Package pdftex.def Info: atom.png used on input line 602.
 (pdftex.def)             Requested size: 109.00739pt x 109.00739pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--328
+Underfull \hbox (badness 10000) in paragraph at lines 609--610
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 333--334
+[14 <./Webstorm.png> <./atom.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 615--616
 
  []
 
-<mvvm.png, id=38, 350.81062pt x 102.3825pt>
+<mvvm.png, id=71, 350.81062pt x 102.3825pt>
 File: mvvm.png Graphic file (type png)
  <use mvvm.png>
-Package pdftex.def Info: mvvm.png used on input line 341.
+Package pdftex.def Info: mvvm.png used on input line 623.
 (pdftex.def)             Requested size: 341.43306pt x 99.65303pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 348--349
+Underfull \hbox (badness 10000) in paragraph at lines 630--631
 
  []
 
-[9 <./atom.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 350--352
+
+Underfull \hbox (badness 10000) in paragraph at lines 632--634
 
  []
 
@@ -665,23 +764,23 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 353--354
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
 
  []
 
-[10 <./mvvm.png>]
+[15 <./mvvm.png>]
 chapter 4.
-[11
+[16
 
 ]
 chapter 5.
-[12
+[17
 
 ]
 chapter 6.
 Missing character: There is no Ã in font cmssbx10!
 Missing character: There is no ¤ in font cmssbx10!
-[13
+[18
 
 ] (first.aux)
 
@@ -689,21 +788,21 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4281 strings out of 493323
- 72398 string characters out of 3139069
- 241962 words of memory out of 3000000
- 7784 multiletter control sequences out of 15000+200000
+ 4321 strings out of 493328
+ 73153 string characters out of 3139124
+ 241782 words of memory out of 3000000
+ 7812 multiletter control sequences out of 15000+200000
  9081 words of font info for 32 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  48i,10n,66p,8818b,270s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><D:/Program Files/MiKTeX 2.9/f
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on first.pdf (13 pages, 330175 bytes).
+Output written on first.pdf (18 pages, 672793 bytes).
 PDF statistics:
- 72 PDF objects out of 1000 (max. 8388607)
+ 101 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

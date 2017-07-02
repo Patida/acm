@@ -1,7 +1,8 @@
 \documentclass[a4paper, 11pt]{scrreprt}
 
-\usepackage{german}
+\usepackage{ngerman}
 \usepackage{float}
+\restylefloat{figure}
 \usepackage{graphicx} 
 
 \usepackage[margin=25mm,right=25mm, left=25mm]{geometry}
@@ -49,7 +50,7 @@ Diese Webapplikation soll auf den gängigen Browsern stabil laufen.
 
 
 \chapter{Projektvorbereitung}
-Für die Planung, Organisation, Aufteilung und Verfolgung des Projekts wird die Projekt Management Plattform \textbf{Taiga.io} verwendet. Taiga.io ist ein webbasiertes open-source Projekt-Management-Tool für agile Entwickler, Designer und Projektmanager. Die St"arken liegen vor allem in den individuellen Anpassungsm"oglichkeiten, sowie in der einfachen und intuitiven Bedienung. Es wird von Start-Ups bevorzugt verwendet.
+F"ur die Planung, Organisation, Aufteilung und Verfolgung des Projekts wird die Projekt Management Plattform \textbf{Taiga.io} verwendet. Taiga.io ist ein webbasiertes open-source Projekt-Management-Tool für agile Entwickler, Designer und Projektmanager. Die St"arken liegen vor allem in den individuellen Anpassungsm"oglichkeiten, sowie in der einfachen und intuitiven Bedienung. Es wird von Start-Ups bevorzugt verwendet.
 
 
 \section{Projektmanagementsoftware Taiga.io}
@@ -57,7 +58,7 @@ Für die Planung, Organisation, Aufteilung und Verfolgung des Projekts wird die 
 \subsection{Vorgehensmodell}
 Das Projekt Appcimo wird anhand des Scrum Vorgehensmodells bearbeitet. 
 
-\begin{figure} [h]
+\begin{figure} [H]
 \begin{center}
 
 
@@ -113,17 +114,111 @@ Sprint-Retrospektive: Ein Kontrollmechanismus, ob die bisherige Arbeitsweise ver
 Product Backlog Refinement: Im Projektteam wird untersucht, inwieweit der im Product Backlog erfasste Plan bzw. die Produkt-Vision auf Basis neuen Wissens verbessert werden kann.
 
 
-\subsection{Einrichtung Taiga.io}
+\subsection{Auswahl Taiga.io}
 
-\subsection{Definition von User-Stories}
+F"ur das Projektmanagement ist es wichtig eine geeignete Projektmanagementsoftware zu finden, die sich an die Bedürfnisse
+des Softwareprojektes anpassen lässt. Nach Recherchen und Austausch zwischen Kommolitonen und Arbeitskollegen wurde uns Taiga.io empfohlen. Taiga.io ist eine webbasierte Projektmanagement-Software mit der eine Projektdurchführung mit Scrum
+ermöglicht. Integration mit Github ist ebenso möglich, wie die Einrichtung von Plugins, z.B. Chat-Programmen, wie HipChat und Slack.
 
-\subsection{Definition von Tasks}
+\subsection{Einrichtung des Projektteams}
+
+Sobald die Registrierung in Taiga.io erfolgt ist gelangt man auf das allgemeine Dashboard, worüber die Projekte verwalten werden und die aktuellen Information eingesehen werden können.\newline
+
+\begin{figure} [H]
+\begin{center}
+
+
+\includegraphics[width=16cm]{dashboard.png}
+\caption{Taiga.io Dashboard}
+
+\end{center}
+\end{figure}
+
+"Uber das Men"u "`MANAGE PROJECTS"' ist es m"oglich, alle Projekte zu verwalten und neue zu erstellen. Zur kostenlosen Nutzung ist die Erstellung eines privaten Projekts mit maximal vier Usern m"oglich oder beliebig viele "offentliche Projekte. Sobald das Projekt erstellt ist, können im Admin-Menü User hinzugefügt und die entsprechenden Rollen im Scrum-Vorgehensmodell zugewiesen werden.
+
+\begin{figure} [H]
+\begin{center}
+
+
+\includegraphics[width=16cm]{members.png}
+\caption{Taiga.io Admin-Members}
+
+\end{center}
+\end{figure}
+
+Wir haben uns entschieden, dass alle Projektbeteiligten die Rolle Product Owner zugewiesen bekommen, da eine strikte Durchführung von Scrum nicht möglich war.
 
 \subsection{Integration HipChat}
 
-\section{Projektdurchführung}
+Um eine schnelle Kommunikation innerhalb des Projekts entschieden wir uns für eine Chat-Lösung die einerseits als Windows-Applikation und Smartphone-App verfügbar ist. F"ur die Durchf"uhrung des Projektes nutzten wir HipChat von Altlassian. Die Integration in Taiga.io funktioniert mit Hilfe eines Webhooks, der mit HipChat erzeugt wird und in Taiga.io integriert wird. Somit wird "uber s"amtliche Aktiviat"aten im HipChat benachrichtigt.
+
+\begin{figure} [H]
+\begin{center}
+
+\includegraphics[width=16cm]{hipchat.png}
+\caption{Taiga.io HipChat-Integration}
+
+\end{center}
+\end{figure}
+
+Zus"atzlich integrierten wir Github in den HipChat, um Aktivitäten im GitHub als Information in den HipChat zu bringen.
+Dies ist nützlich, um "uber Commits oder Pushes im GitHub und "uber den aktualisierten Head benachrichtigt zu werden.
+
+\begin{figure} [H]
+\begin{center}
+
+
+\includegraphics[width=16cm]{info_taiga_github_hipchat.png}
+\caption{Taiga.io HipChat-Integration}
+
+\end{center}
+\end{figure}
+
+
+\subsection{Definition von User-Stories}
+
+User-Stories werden mit taiga.io im Backlog "uber "`NEW USER STORY"' erstellt. Nachdem die User-Story erstellt ist, kann die User-Story einem geplanten Sprint zugeordnet werden.
+
+\begin{figure} [H]
+\begin{center}
+
+\includegraphics[width=16cm]{backlog.png}
+\caption{Taiga.io Backlog}
+
+\end{center}
+\end{figure}
+
+Die definierten User-Stories f"uer das Projekt sind unter dem Punkt 3.1.4 als Story-Cards aufgef"uhrt.
+
+
+\subsection{Definition von Tasks}
+
+Die Tasks zu den User-Story werden im Sprinttaskboard erstellt und k"onnen via Drag \& Drop den Spalten "`New"', "`In Progress"', "`Ready for Test"', "`Closed"' oder "`Need Information"' zugewiesen werden. Somit ist eine Übersicht des Sprint im allgemeinen und des Fortschritt der Tasks ersichtlich.
+
+\begin{figure} [H]
+\begin{center}
+
+\includegraphics[width=16cm]{sprint_tasks.png}
+\caption{Taiga.io Sprinttasks}
+
+\end{center}
+\end{figure}
+
+\section{Projektdurchf"uhrung}
 
 \subsection{Sprintplanung}
+
+Zur Planung des Projektes haben wir sechs Sprint den Gesamtzeitraum des Projekts definiert. Jeder Sprint dauert zwei
+Wochen, dadurch soll gew"ahrleistet werden, dass der Sprint mit allen Vorgehensweisen des Scrum durchgef"uhrt werden kann. 
+
+\begin{figure} [H]
+\begin{center}
+
+\includegraphics[width=6cm, height=20cm]{sprints.png}
+\caption{Taiga.io Sprints}
+
+\end{center}
+\end{figure}
 
 \subsection{Retrospektive}
 
@@ -133,7 +228,7 @@ Product Backlog Refinement: Im Projektteam wird untersucht, inwieweit der im Pro
 
 \subsection{funktionale Anforderungen}
 
-\begin{table}[h]
+\begin{table}[H]
 
 \caption{funktionale Anforderungen}
 
@@ -221,7 +316,7 @@ FU07.03&	In der Ergebnisliste muss die Distanz angezeigt werden.\\
 
 \subsection{Nicht-funktionale Anforderungen}
 
-\begin{table}[h]
+\begin{table}[H]
 
 \caption{Projektanforderungen}
 
@@ -255,7 +350,7 @@ NFU03 &	Das System soll als Single-Page Anwendung umgesetzt werden.\\
 
 \subsection{Projektanforderungen}
 
-\begin{table}[h]
+\begin{table}[H]
 
 \caption{Nicht-funktionale Anforderungen}
 
@@ -286,7 +381,194 @@ PRJ04 &	Für das Software-Projekt muss eine Projektdokumentation erstellt werden
 \end{tabular}
 
 \end{table}
-\subsection{Abnahmekriterien}
+
+\subsection{User-Stories und Sprint-Tasks}
+
+\begin{table}[H]
+
+\caption{Sprint 1}
+
+\ \\
+
+\par
+
+\label{tab:Sprint 1}
+
+\centering
+
+\begin{tabular}{|p{2.5cm} p{12cm}| ll}
+
+\hline
+\multicolumn{2}{|l|}{US01 - Eingabe des Start- und Zielorts}  \\
+
+\hline
+Task \#7 & Felder erstellen f"ur die Eingabe eines Start- und Zielorts\\
+
+\hline
+\multicolumn{2}{l}{}\\
+
+\hline
+\multicolumn{2}{|l|}{US03 - Vorschlagsliste f"ur Eingabe des Start- und Zielorts}\\
+
+\hline
+Task \#8 & Einarbeitung in Google API Dokumentation f"ur Autocomplete-Funktion\\
+
+\hline
+Task \#9 & Autocomplete-Funktion in Felder des Start- und Zielorts implementieren\\
+
+\hline
+
+\end{tabular}
+
+\end{table}
+
+\begin{table}[H]
+
+\caption{Sprint 2}
+
+\ \\
+
+\par
+
+\label{tab:Sprint 2}
+
+\centering
+
+\begin{tabular}{|p{2.5cm} p{12cm}| ll}
+
+\hline
+\multicolumn{2}{|l|}{US06 - Auswahl verschiedener Transportmittel}\\
+
+\hline
+Task \#10 & Auswahl f"ur "offentliche Verkehrsmittel hinzuf"ugen\\
+
+\hline
+Task \#11 & Auswahl f"ur Car2Go/Auto hinzuf"ugen\\
+
+\hline
+Task \#12 & Auswahl f"ur Fahrrad hinzuf"ugen\\
+
+\hline
+Task \#31 & Mockup f"ur Car2Go Objekte erstellen und einbinden\\
+
+
+
+\hline
+\multicolumn{2}{l}{}\\
+
+\hline
+\multicolumn{2}{|l|}{US05 - Aktualisierung der Verbindungen nach "Anderung des Start- und/oder Zielorts}\\
+
+\hline
+Task \#13 & Aktualisierung der Google Karte bei "Anderungen implementieren\\
+
+\hline
+Task \#32 & Aktualisierung der Wegbeschreibung bei "Anderung implementieren\\
+
+\hline
+
+\end{tabular}
+
+\end{table}
+
+\begin{table}[H]
+
+\caption{Sprint 3}
+
+\ \\
+
+\par
+
+\label{tab:Sprint 3}
+
+\centering
+
+\begin{tabular}{|p{2.5cm} p{12cm}| ll}
+
+\hline
+\multicolumn{2}{|l|}{US04 - Anzeige von Verbindungen auf der Karte} \\
+
+\hline
+Task \#14 & Google map f"ur Autofahrt implementieren\\
+
+\hline
+Task \#15 & Google Map für Fahrt mit "offentlichen Verkehrsmitteln implementieren\\
+
+\hline
+Task \#16 & Google Map f"ur Fahrradfahrt implementieren\\
+
+\hline
+Task \#17 & Marker-Funktion bereitstellen\\
+
+\hline
+Task \#18 & Gmap Marker- und Pfad-Funktionen auf Transportmittel und Autocompletefelder anwenden\\
+
+\hline
+Task \#20 & Wegbeschreibung f"ur Autofahrt implementieren\\
+
+\hline
+Task \#29 & Zwischenstopp f"ur Car2Go auf Google Map erstellen\\
+
+\hline
+Task \#30 & Einbindung des Zwischenstopps f"ur das Car2Go Auto in der Wegbeschreibung\\
+
+\hline
+\multicolumn{2}{l}{}\\
+
+\hline
+\multicolumn{2}{|l|}{US07 - Anzeigen einer Wegbeschreibung}\\
+
+\hline
+Task \#21 & Wegbeschreibung f"ur Transit-Fahrt implementieren\\
+
+\hline
+Task \#22 & Wegbeschreibung f"ur Fahrradfahrt implementieren\\
+
+\hline
+Task \#23 & Webbeschreibung von Map abkoppeln\\
+
+\hline
+\end{tabular}
+
+\end{table}
+
+
+\begin{table}[H]
+
+\caption{Sprint 4}
+
+\ \\
+
+\par
+
+\label{tab:Sprint 4}
+
+\centering
+
+\begin{tabular}{|p{2.5cm} p{12cm}| ll}
+
+\hline
+\multicolumn{2}{|l|}{US02 - Anzeige einer Ergebnisliste} \\
+
+\hline
+Task \#24 & Autofahrt Zusammenfassung\\
+
+\hline
+Task \#25 & Transit Zusammenfassung\\
+
+\hline
+Task \#26 & Fahrrad Zusammenfassung\\
+
+\hline
+Task \#27 & Aufklappfunktion f"ur Ergebnisleisten implementieren\\
+
+\hline
+Task \#28 & Erstellen von Unterabschnitten zu den jeweiligen Ergebnisleisten\\
+
+\hline
+\end{tabular}
+
+\end{table}
 
 \section{Konfiguration und Einrichtung zur Softwareentwicklung}
 
