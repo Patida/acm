@@ -48,7 +48,7 @@
         </div>
 
 
-        <!-- Show all availabe data in returned object-->
+        <!-- Load the component GetRoutes with options to calculate the routes for carsharing, public transport service and cycling -->
         <GetRoutes v-if="showResults"
                       class="resultsField"
                       :options=' [{
@@ -109,8 +109,6 @@
   import GetRoutes from '../business/GetRoutes.vue';
   var Promise = require('promise');
   const RouteOptions = require('../business/RouteOptions.js');
-
-
 
   export default {
     components: {
@@ -203,7 +201,7 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 
   .bg {
     background-color: white;
