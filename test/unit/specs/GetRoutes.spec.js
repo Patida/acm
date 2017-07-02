@@ -1,20 +1,8 @@
 import Vue from 'vue'
 import GetRoutes from '@/business/GetRoutes.vue'
 
-function getRenderedText (GetRoutes, propsData) {
-  const Ctor = Vue.extend(GetRoutes)
-  const vm = new Ctor({propsData: propsData}).$mount()
-  return vm.$el.textContent
-}
 
 describe('GetRoutes', () => {
-
-    it('renders correctly with different props', () => {
-      expect(getRenderedText(GetRoutes, {
-        price: '2,70 €'
-      })).toBe('2,70 €')
-    })
-
 
   it('Price works', () => {
     const Constructor = Vue.extend(GetRoutes)
@@ -22,8 +10,8 @@ describe('GetRoutes', () => {
     expect(vm.price).to.equal("2,70 €")
   })
 
-  it('sets the correct default data', () => {
-    expect(typeof GetRoutes.price).toBe('function')
+  /*it('sets the correct default data', () => {
+    expect(typeof GetRoutes.price).to.equal('function')
     const vm = GetRoutes.price
     if (that.shortWaysOutput[0].transportmethod == "TRANSIT") {
       expect(vm.price).to.equal('2.70')
@@ -39,7 +27,7 @@ describe('GetRoutes', () => {
         expect(vm.price).to.equal((Math.ceil((duration + 240) / 60) * 0.25).toFixed(2) + " €")
     }
   })
-
+*/
   it('function duration work', () => {
     const Constructor = Vue.extend(GetRoutes)
     const vm = new Constructor().$mount()

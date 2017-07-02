@@ -43,6 +43,12 @@
     },
     methods: {
 
+      /*
+      1. Reset the arrays shortWaysOutput and directionRouteDescription.
+      2. Create a promises array and push every google api route call in it.
+      3. After every route is returned by google by using the getRoute function, the sorting out and storing of every route is started.
+      4. When step 3 is finished the shortView-calculations start.
+      */
       getRoutes: function() {
         var that = this;
         that.shortWaysOutput = null;
@@ -73,9 +79,20 @@
         })
       },
 
+      /*
+      Returns a Promise.all result for the amount of promises which are given here with the parameter "promises"
+      This function is needed to handle the asynchronous behavior of multiple google javascript api calls.
+      Promise.all waits for every async promise and returns the results of all given promises in an array.
+      It is needed and used in the getRoutes function to wait with the start of the calculations until every route is returned from google.
+      */
       getRoute: function (promises) {
         return Promise.all(promises);
       },
+
+      /*
+      Asynchronous access to the google javascript API to get the routes.
+      It returns a promise to handle the async behavior.
+      */
       GoogleRouteQuery: function(options) {
         var directionsService = new google.maps.DirectionsService();
         return new Promise(function (resolve, reject) {
@@ -90,6 +107,9 @@
         });
       },
 
+      /*
+      returns the values to calculate the shortView values as a Json object.
+      */
       getShortinfo: function(googleResult) {
         if (googleResult.geocoded_waypoints.length == 2) {
           var Ankuftszeit = null;
@@ -124,12 +144,20 @@
         }
       },
 
+      /*
+      Returns the google results for SubResultDescription to display the route description.
+      We sort out the waypoint result because the description would be wrong for the route by feet.
+      */
       getDescription: function(googleResult, options) {
         if (googleResult.geocoded_waypoints.length == 2) {
           return googleResult;
         }
       },
 
+      /*
+      Sort out the results to display the map within the detailed results at SubResultMap.vue.
+      For carsharing we only use the result with the extra waypoint to display also the way by feet to the car.
+      */
       getMap: function(googleResult, options) {
         if (options.travelMode != "WALKING") {
           if (googleResult.geocoded_waypoints.length > 2 || options.travelMode == "BICYCLING" || options.travelMode == "TRANSIT") {
@@ -138,6 +166,9 @@
         }
       },
 
+      /*
+      Returns the tranportmethod in a better understandable format than the google results.
+      */
       transportmethod: function() {
         var that = this;
 
@@ -153,6 +184,10 @@
 
       },
 
+      /*
+      Calculation of the duration.
+      We sum up all resulted values to get the total duration. For carsharing we add 4 minutes.
+      */
       duration: function() {
         var that = this;
         var time = 0;
@@ -166,6 +201,10 @@
         return (time-(time%=60))/60+(9<time?':':':0')+time + 'min';
       },
 
+      /*
+      Returns the departure time.
+      For the carsharing option we sort out the map-only-result value by comparing the values of the array and use the latest.
+      */
       start: function() {
         var that = this;
         var starttime = that.shortWaysOutput[0].start;
@@ -177,6 +216,11 @@
         return starttime;
       },
 
+      /*
+      Within the end function we calculate the arrival time.
+      The calculation is only needed for the carsharing. If the route is transit or bicycling the value is directly returned.
+      If the route is carsharing we sum up the results and add 4 minutes extra.
+      */
       end: function() {
         var that = this;
         var Zeit = new Date();
@@ -194,6 +238,11 @@
 
       },
 
+      /*
+      Calculate the price for the trip
+      At the moment the public transport price is fixed.
+      We add 4 minutes for the carsharing result, because of the search for a parking lot and the configurations before the driving-start.
+      */
       price: function() {
         var that = this;
         if (that.shortWaysOutput[0].transportmethod == "TRANSIT") {
@@ -213,6 +262,7 @@
       }
 
     },
+    // Watcher to listen on changed options data. The counter is used to trigger this options change in Appcimo.vue.
       watch: {
         'counter'(counter) {
           this.getRoutes();
