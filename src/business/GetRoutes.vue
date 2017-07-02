@@ -52,9 +52,10 @@
       getRoutes: function() {
         var that = this;
         that.shortWaysOutput = null;
+        that.directionRouteDescription = null;
         that.shortWaysOutput = [];
         that.directionRouteDescription = [];
-        var promises= [];
+        var promises = [];
 
         for (var i = 0; i < that.options.length; i++) {
           promises.push(that.GoogleRouteQuery(that.options[i]));
@@ -64,18 +65,18 @@
               that.shortWaysOutput.push(that.getShortinfo(results[j],that.options[j]));
 
               if(results[j].geocoded_waypoints.length == 2) {
-                that.directionRouteDescription.push(that.getDescription(results[j], that.options[j]));
+                that.directionRouteDescription.push(results[j]);
               }
               if (results[j].geocoded_waypoints.length > 2 || that.options[j].travelMode == "BICYCLING" || that.options[j].travelMode == "TRANSIT") {
-                that.directionRouteMap = that.getMap(results[j], that.options[j]);
+                that.directionRouteMap = results[j];
               }
             }
         }).then(function() {
-          that.shortView.transport = that.transportmethod();
-          that.shortView.start = that.start();
-          that.shortView.end = that.end();
-          that.shortView.duration = that.duration();
-          that.shortView.price = that.price();
+          that.shortView.transport = that.transportmethod(that.shortWaysOutput[0].transportmethod);
+          that.shortView.start = that.start(that.shortWaysOutput);
+          that.shortView.end = that.end(that.shortWaysOutput);
+          that.shortView.duration = that.duration(that.shortWaysOutput);
+          that.shortView.price = that.price(that.shortWaysOutput);
         })
       },
 
@@ -109,6 +110,7 @@
 
       /*
       returns the values to calculate the shortView values as a Json object.
+      ...
       */
       getShortinfo: function(googleResult) {
         if (googleResult.geocoded_waypoints.length == 2) {
@@ -169,17 +171,15 @@
       /*
       Returns the tranportmethod in a better understandable format than the google results.
       */
-      transportmethod: function() {
-        var that = this;
-
-        if (that.shortWaysOutput[0].transportmethod == "TRANSIT") {
+      transportmethod: function(transportsystem) {
+        if (transportsystem == "TRANSIT") {
           return "Öffis";
         }
-        else if (that.shortWaysOutput[0].transportmethod == "BICYCLING") {
-          return "Fahrrad"
+        else if (transportsystem == "BICYCLING") {
+          return "Fahrrad";
         }
         else {
-          return "Carsharing"
+          return "Carsharing";
         }
 
       },
@@ -188,14 +188,13 @@
       Calculation of the duration.
       We sum up all resulted values to get the total duration. For carsharing we add 4 minutes.
       */
-      duration: function() {
-        var that = this;
+      duration: function(shortWaysOutput) {
         var time = 0;
-        for (var i = 0;i < that.shortWaysOutput.length;i++) {
-          if (that.shortWaysOutput[i].transportmethod == "DRIVING" && that.shortWaysOutput[i].duration != 0) {
+        for (var i = 0;i < shortWaysOutput.length;i++) {
+          if (shortWaysOutput[i].transportmethod == "DRIVING" && shortWaysOutput[i].duration != 0) {
             time = time + 240;
           }
-          time = time + that.shortWaysOutput[i].duration
+          time = time + shortWaysOutput[i].duration
         }
 
         return (time-(time%=60))/60+(9<time?':':':0')+time + 'min';
@@ -205,12 +204,11 @@
       Returns the departure time.
       For the carsharing option we sort out the map-only-result value by comparing the values of the array and use the latest.
       */
-      start: function() {
-        var that = this;
-        var starttime = that.shortWaysOutput[0].start;
-        for (var k = 0; k < that.shortWaysOutput.length; k++) {
-            if ( starttime < that.shortWaysOutput[k].start) {
-                starttime = that.shortWaysOutput[k].start;
+      start: function(shortWaysOutput) {
+        var starttime = shortWaysOutput[0].start;
+        for (var k = 0; k < shortWaysOutput.length; k++) {
+            if ( starttime < shortWaysOutput[k].start) {
+                starttime = shortWaysOutput[k].start;
             }
         }
         return starttime;
@@ -221,18 +219,18 @@
       The calculation is only needed for the carsharing. If the route is transit or bicycling the value is directly returned.
       If the route is carsharing we sum up the results and add 4 minutes extra.
       */
-      end: function() {
+      end: function(shortWaysOutput) {
         var that = this;
         var Zeit = new Date();
-        if (that.shortWaysOutput[0].transportmethod == "DRIVING" || that.shortWaysOutput[0].transportmethod =="WALKING") {
+        if (shortWaysOutput[0].transportmethod == "DRIVING" || shortWaysOutput[0].transportmethod =="WALKING") {
           var calcDuration = 240;
-          for (var i = 0; i < that.shortWaysOutput.length; i++) {
-            calcDuration = calcDuration + that.shortWaysOutput[i].duration;
+          for (var i = 0; i < shortWaysOutput.length; i++) {
+            calcDuration = calcDuration + shortWaysOutput[i].duration;
           }
           var Finishtime = (new Date(Zeit.setTime(Zeit.getTime() + calcDuration*1000))).toLocaleString('de-DE').substring(10, 15);
         }
         else {
-           var Finishtime =  that.shortWaysOutput[0].finish;
+           var Finishtime =  shortWaysOutput[0].finish;
         }
         return Finishtime;
 
@@ -243,18 +241,17 @@
       At the moment the public transport price is fixed.
       We add 4 minutes for the carsharing result, because of the search for a parking lot and the configurations before the driving-start.
       */
-      price: function() {
-        var that = this;
-        if (that.shortWaysOutput[0].transportmethod == "TRANSIT") {
+      price: function(shortWaysOutput) {
+        if (shortWaysOutput[0].transportmethod == "TRANSIT") {
           return "2,70 €";
         }
-        else if (that.shortWaysOutput[0].transportmethod == "BICYCLING") {
+        else if (shortWaysOutput[0].transportmethod == "BICYCLING") {
           return "Its free and healty!";
         }
         else {
           var duration = 0;
-          for (var i = 0; i < that.shortWaysOutput.length; i++) {
-              duration += that.shortWaysOutput[i].duration;
+          for (var i = 0; i < shortWaysOutput.length; i++) {
+              duration += shortWaysOutput[i].duration;
           }
           return (Math.ceil((duration + 240) / 60) * 0.25).toFixed(2) + " €";
 
