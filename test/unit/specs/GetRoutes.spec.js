@@ -25,7 +25,7 @@ describe('GetRoutes', () => {
 
   it('function duration work', () => {
     var mocking = vm.duration(testShortWaysOutput)
-    expect(mocking).to.equal("07:20min")
+    expect(mocking).to.equal("7:20min")
   })
 
   it('function transportmethod works for DRIVING', () => {
