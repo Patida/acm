@@ -1,9 +1,17 @@
+machine:
+  node:
+    version: 8.0.0
+
 dependencies:
+    pre:
+      - node --version
+      - npm --version
     override:
         - sudo pip install awscli
+        - sudo pip install nodejs
 deployment:
   prod:
     branch: master
     commands:
-      - aws s3 sync /home/ubuntu/acm s3://appcimo --delete
+      - aws s3 sync /home/ubuntu/acm/dist s3://appcimo --delete
 
