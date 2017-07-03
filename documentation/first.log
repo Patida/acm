@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.26)  3 JUL 2017 17:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.26)  3 JUL 2017 20:20
 entering extended mode
 **./first.tex
 (first.tex
@@ -317,8 +317,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 2.
-Missing character: There is no Ã in font cmssbx10!
-Missing character: There is no ¤ in font cmssbx10!
 )
 \tf@toc=\write3
 \openout3 = `first.toc'.
@@ -528,12 +526,6 @@ File: dashboard.png Graphic file (type png)
  <use dashboard.png>
 Package pdftex.def Info: dashboard.png used on input line 132.
 (pdftex.def)             Requested size: 455.24408pt x 177.92781pt.
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¶ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¼ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¼ in font cmr10!
 
 <members.png, id=27, 1408.51219pt x 274.77657pt>
 File: members.png Graphic file (type png)
@@ -541,13 +533,9 @@ File: members.png Graphic file (type png)
 Package pdftex.def Info: members.png used on input line 144.
 (pdftex.def)             Requested size: 455.24408pt x 88.81076pt.
 Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¼ in font cmr10!
-Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¶ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¶ in font cmr10!
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 
@@ -984,8 +972,6 @@ chapter 5.
 
 ]
 chapter 6.
-Missing character: There is no Ã in font cmssbx10!
-Missing character: There is no ¤ in font cmssbx10!
 [25
 
 ] (first.aux)
@@ -1006,7 +992,7 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><D:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on first.pdf (25 pages, 1515382 bytes).
+Output written on first.pdf (25 pages, 1515616 bytes).
 PDF statistics:
  141 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
