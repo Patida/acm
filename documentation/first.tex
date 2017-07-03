@@ -4,6 +4,8 @@
 \usepackage{float}
 \restylefloat{figure}
 \usepackage{graphicx} 
+\parindent0pt
+
 
 \usepackage[margin=25mm,right=25mm, left=25mm]{geometry}
 
@@ -118,7 +120,7 @@ Product Backlog Refinement: Im Projektteam wird untersucht, inwieweit der im Pro
 
 F"ur das Projektmanagement ist es wichtig eine geeignete Projektmanagementsoftware zu finden, die sich an die Bedürfnisse
 des Softwareprojektes anpassen lässt. Nach Recherchen und Austausch zwischen Kommolitonen und Arbeitskollegen wurde uns Taiga.io empfohlen. Taiga.io ist eine webbasierte Projektmanagement-Software mit der eine Projektdurchführung mit Scrum
-ermöglicht. Integration mit Github ist ebenso möglich, wie die Einrichtung von Plugins, z.B. Chat-Programmen, wie HipChat und Slack.
+erm"oglicht. Integration mit Github ist ebenso möglich, wie die Einrichtung von Plugins, z.B. Chat-Programmen, wie HipChat und Slack.
 
 \subsection{Einrichtung des Projektteams}
 
@@ -134,7 +136,7 @@ Sobald die Registrierung in Taiga.io erfolgt ist gelangt man auf das allgemeine 
 \end{center}
 \end{figure}
 
-"Uber das Men"u "`MANAGE PROJECTS"' ist es m"oglich, alle Projekte zu verwalten und neue zu erstellen. Zur kostenlosen Nutzung ist die Erstellung eines privaten Projekts mit maximal vier Usern m"oglich oder beliebig viele "offentliche Projekte. Sobald das Projekt erstellt ist, können im Admin-Menü User hinzugefügt und die entsprechenden Rollen im Scrum-Vorgehensmodell zugewiesen werden.
+"Uber das Men"u "`MANAGE PROJECTS"' ist es m"oglich, alle Projekte zu verwalten und neue zu erstellen. Zur kostenlosen Nutzung ist die Erstellung eines privaten Projekts mit maximal vier Usern m"oglich oder beliebig viele "offentliche Projekte. Sobald das Projekt erstellt ist, k"onnen im Admin-Men"u User hinzugef"ugt und die entsprechenden Rollen im Scrum-Vorgehensmodell zugewiesen werden.
 
 \begin{figure} [H]
 \begin{center}
@@ -146,11 +148,11 @@ Sobald die Registrierung in Taiga.io erfolgt ist gelangt man auf das allgemeine 
 \end{center}
 \end{figure}
 
-Wir haben uns entschieden, dass alle Projektbeteiligten die Rolle Product Owner zugewiesen bekommen, da eine strikte Durchführung von Scrum nicht möglich war.
+Wir haben uns entschieden, dass alle Projektbeteiligten die Rolle Product Owner zugewiesen bekommen, da eine strikte Durchf"uhrung von Scrum nicht möglich war.
 
 \subsection{Integration HipChat}
 
-Um eine schnelle Kommunikation innerhalb des Projekts entschieden wir uns für eine Chat-Lösung die einerseits als Windows-Applikation und Smartphone-App verfügbar ist. F"ur die Durchf"uhrung des Projektes nutzten wir HipChat von Altlassian. Die Integration in Taiga.io funktioniert mit Hilfe eines Webhooks, der mit HipChat erzeugt wird und in Taiga.io integriert wird. Somit wird "uber s"amtliche Aktiviat"aten im HipChat benachrichtigt.
+Um eine schnelle Kommunikation innerhalb des Projekts entschieden wir uns für eine Chat-L"osung die einerseits als Windows-Applikation und Smartphone-App verfügbar ist. F"ur die Durchf"uhrung des Projektes nutzten wir HipChat von Altlassian. Die Integration in Taiga.io funktioniert mit Hilfe eines Webhooks, der mit HipChat erzeugt wird und in Taiga.io integriert wird. Somit wird "uber s"amtliche Aktiviat"aten im HipChat benachrichtigt.
 
 \begin{figure} [H]
 \begin{center}
@@ -226,7 +228,7 @@ Wochen, dadurch soll gew"ahrleistet werden, dass der Sprint mit allen Vorgehensw
 
 \section{Produktanforderungen}
 
-\subsection{funktionale Anforderungen}
+\subsection{Funktionale Anforderungen}
 
 \begin{table}[H]
 
@@ -343,6 +345,13 @@ NFU02 &	Das System muss mit einem Entwicklungs-Framework umgesetzt werden.\\
 NFU03 &	Das System soll als Single-Page Anwendung umgesetzt werden.\\
 
 \hline
+NFU04 &	Das System soll gestestet werden.\\
+
+\hline
+NFU05 &	Das System soll über ein Deployment verf"ugen.\\
+
+\hline
+NFU06 &	F"ur Das System soll Continious Integration implementiert werden.\\
 
 \end{tabular}
 
@@ -369,6 +378,8 @@ Nr. &	Beschreibung\\
 
 \hline
 PRJ01 &	Für die Umsetzung des Systems soll ein modernes Entwicklungs-Framework für die Softwareerstellung genutzt werden.\\
+
+\hline
 PRJ02 &	Es muss eine Projektmanagementsoftware, für die mit der Softwareerstellung einhergehende Projektarbeit, genutzt werden.\\
 
 \hline
@@ -570,6 +581,71 @@ Task \#28 & Erstellen von Unterabschnitten zu den jeweiligen Ergebnisleisten\\
 
 \end{table}
 
+\begin{table}[H]
+
+\caption{Sprint 5}
+
+\ \\
+
+\par
+
+\label{tab:Sprint 5}
+
+\centering
+
+\begin{tabular}{|p{2.5cm} p{12cm}| ll}
+
+\hline
+\multicolumn{2}{|l|}{US08 - Programmcode-Refactoring} \\
+
+\hline
+Task \#34 & Komponenten umstrukturieren\\
+
+\hline
+Task \#35 & Methoden umschreiben, damit diese testbar sind\\
+
+\hline
+Task \#36 & Konfiguration der Testumgebung\\
+
+\hline
+\end{tabular}
+
+\end{table}
+
+\begin{table}[H]
+
+\caption{Sprint 6}
+
+\ \\
+
+\par
+
+\label{tab:Sprint 6}
+
+\centering
+
+\begin{tabular}{|p{2.5cm} p{12cm}| ll}
+
+\hline
+\multicolumn{2}{|l|}{US09 - CI, Tests, Deploy, Dokumentation} \\
+
+\hline
+Task \#38 & Continious Integration konfigurieren (CircleCI)\\
+
+\hline
+Task \#39 & Unit Tests schreiben\\
+
+\hline
+Task \#40 & Projektdokumentation schreiben\\
+
+\hline
+Task \#41 & Deployment AppCiMo nach AWS (Amazon Web Service)\\
+
+\hline
+\end{tabular}
+
+\end{table}
+
 \section{Konfiguration und Einrichtung zur Softwareentwicklung}
 
 \subsection{Entwicklungsumgebung}
@@ -638,11 +714,176 @@ Bei der Erstellung der Webapplikation Appcimo sorgen vor allem \textbf{Direktive
 
 
 \subsection{Node.js und NPM}
+Appcimo wird mit Hilfe der open-source JavaScript Runtime \textbf{Node.JS} erstellt. Es wird von der \textbf{Node.js Foundation} entwickelt und vertrieben. \\
+
+\begin{figure} [h]
+\begin{center}
+
+
+\includegraphics[width=8cm]{nodejs.png}
+\caption{Node.JS Logo}
+\label{nodejs}
+
+\end{center}
+\end{figure}
+
+Node.JS wird ben"otigt, um dem Javascript-Programm eine Laufzeitumgebung zur Verf"ugung zu stellen und den Quellcode mittels des Node.JS Interpreters einzulesen, zu analysieren und auszuf"uhren. Dadurch kann Javascript-Code auf einem Server lauff"ahig gemacht werden.\\
+
+Die aktuelle Node.JS Version kann auf der offiziellen Seite https://nodejs.org/en/ gratis heruntergeladen und installiert werden.\\
+
+Mit der Installation von Node.JS wird auch der \textbf{Node.JS Package Manager} zur Verf"ugung gestellt.\\
+
+\begin{figure} [h]
+\begin{center}
+
+
+\includegraphics[width=8cm]{npm.png}
+\caption{Node.JS Package Manager Logo}
+\label{npm}
+
+\end{center}
+\end{figure}
+
+
+Der npm Package Manager ist eine Platform f"ur Javascript-Entwickler, die Ihren Code oder Teile Ihres Codes f"ur andere Entwickler zur Verf"ugung stellen m"ochten. Dieser Code wird in Packages oder Module geb"undelt, die JavaScript-Bibliotheken enthalten. Ein Package ist ein Verzeichnis, das eine oder mehrere Dateien enth"alt. In ihnen gibt es typischerweise die Datei \textbf{package.json}, die einige Meta-Daten zu dem Package enth"alt. \\
+
+Packages sind relativ klein und meistens nur f"ur einen bestimmten Zweck gedacht. Die Idee hier ist, mittels mehrerer kleiner  Packages ma"sgeschneiderte L"osungen f"ur die eigene Applikation zu konstruieren. \\
+
+Die Packages und Module werden "uber die offizielle npm Seite www.npmjs.com/ zum Download angeboten. Sie werden "ublicherweise "uber den Git-Bash Konsolenbefehl npm install [...] installiert. Sie werden dann als Komponenten in die Applikation eingef"ugt und in dem Projekt-Verzeichnis \textbf{nodemodules} abgelegt.\\
+
+Mittels des Package-Managers lassen sich die f"ur das eigene Programm verwendeten Packages leicht verwalten und auch updaten. \\
+
+\textbf{F"ur die Webapplikation Appcimo werden folgende npm Packages installiert.} \\
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{package2.png}
+\label{vue-cli}
+\end{center}
+\end{figure}
+
+
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{package1.png}
+\label{autocomplete}
+\end{center}
+\end{figure}
+
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{package3.png}
+\label{promise}
+\end{center}
+\end{figure}
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{package4.png}
+\label{vue-material}
+\end{center}
+\end{figure}
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{package5.png}
+\label{vue-router}
+\end{center}
+\end{figure}
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{package6.png}
+\label{karma}
+\end{center}
+\end{figure}
+
+
+
 
 \subsection{Github}
+Appcimo wird mit dem Verison Control System \textbf{Git} auf \textbf{Github} gespeichert.
+Dadurch wird eine transparente und sichere Erstellung der Applikation gew"ahrleistet. \\
 
-\subsection{TravisCI}
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{github.png}
+\caption{GitHub Logo}
+\label{github}
+\end{center}
+\end{figure}
 
+https://github.com/Patida/acm \\
+
+Hierf"ur wurden Entwickler des Teams als Contributer f"ur das Projekt freigeschaltet. \\
+
+\textbf{Git-Hub Accounts} \\
+https://github.com/schwetim \\
+https://github.com/ARCMereel \\
+https://github.com/PattnOne \\
+
+
+Das \textbf{Repository} enth"alt den gesamten Code des Projekts, zuz"uglich der Tests und der Dokumentation und wird an einem Master Branch erstellt. \\
+"anderungen an dem Programm-Code werden von den Projektmitgliedern commitet und gepusht, so dass alle Entwickler dauerhaft Zugriff auf die aktuellste Programm-Version haben. \\
+
+Durch Kommentare bei jedem Commit, kennen alle Entwickler den aktuellen Stand und die Gr"unde des Push’s.  \\
+Bei Push-""berschneidungen werden die Branches gemerged, so dass alle "Anderungen und Features im neuen Versionsstand enthalten sind. \\
+
+
+\subsection{CircleCI}
+\textbf{CircleCI} ist eine Continuous Integration und Release Platform. \\
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{circle.png}
+\caption{CircleCI Logo}
+\label{circleci}
+\end{center}
+\end{figure}
+
+CircleCI automatisiert den Build-, Test-, und Deploy-Prozess von Applikationen.
+Bei der Einrichtung des CircleCI accounts, wird das Github Repository "uber eine Schnittstelle mit CircleCI verkn"upft. \\
+Somit kann CircleCI auf den kompletten Code zugreifen und Tools und Services zur Verf"ugung stellen. \\
+
+Der Software-Build kann "uber ein modernes UI gesteuert und beobachtet werden. \\
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{build1.png}
+\caption{CircleCI Starteseite}
+\label{circleci}
+\end{center}
+\end{figure}
+
+Da der Software-Build inklusive aller Tests logisch ausgef"uhrt wird, kann auf das Konsolen-Reporting der Testf"alle innerhalb der CircleCI UI zugegriffen werden. \\
+
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{build2.png}
+\caption{Ausschnitt der Appcimo-Testauswertung}
+\label{circlecitest}
+\end{center}
+\end{figure}
+
+
+\textbf{AWS S3} \\
+Ein weiteres Feature von CircleCI ist die Koppelung des CircleCI-Accounts mit einem Amazon AWS Account. \\
+"Uber eine Schnittstelle zu Amazons Web Services ist CircleCI in der Lage, nach erfolgreichem Build, die Applikation auf einem AWS Server zu hosten.\\
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=0.7]{build3.png}
+\caption{Application Build - CircleCI}
+\label{circlecitest}
+\end{center}
+\end{figure}
+
+
+
+\textbf{Link zur Applikation: } http://appcimo.s3-website-eu-west-1.amazonaws.com/ 
 
 \chapter{Systementwurf und Umsetzung}
 
@@ -668,7 +909,7 @@ Bei der Erstellung der Webapplikation Appcimo sorgen vor allem \textbf{Direktive
 
 \section{Ausblick}
 
-\chapter{Anhänge}
+\chapter{Anh"ange}
 
 \section{Glossar}
 
