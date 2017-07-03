@@ -21,7 +21,7 @@
 \contentsline {section}{\numberline {3.2}Konfiguration und Einrichtung zur Softwareentwicklung}{14}
 \contentsline {subsection}{\numberline {3.2.1}Entwicklungsumgebung}{14}
 \contentsline {subsection}{\numberline {3.2.2}VueJS}{15}
-\contentsline {subsection}{\numberline {3.2.3}Node.js und NPM}{15}
+\contentsline {subsection}{\numberline {3.2.3}Node.js und NPM}{16}
 \contentsline {subsection}{\numberline {3.2.4}Github}{19}
 \contentsline {subsection}{\numberline {3.2.5}CircleCI}{20}
 \contentsline {chapter}{\numberline {4}Systementwurf und Umsetzung}{23}
