@@ -4,7 +4,10 @@
       <button v-on:click="showDrive = !showDrive">
         <img src="../assets/downarrow.png" height="20" width="15">
       </button>
-      <span class="shortinfo" id="transport"> {{ shortView.transport }}</span>
+      <span class="shortinfo" id="transport" > {{ shortView.transport }}
+        <span v-if="shortView.transport == 'Carsharing'" v-on:mouseover="bwarn = true" v-on:mouseleave="bwarn = false" class="warning">!</span>
+        <div v-if="bwarn" class="warnmsg">{{ warning }}</div>
+      </span>
       <span class="shortinfo" id="start">{{ shortView.start }}</span>
       <span class="shortinfo">{{ shortView.end }}</span>
       <span class="shortinfo" id="duration">{{ shortView.duration }}</span>
@@ -54,16 +57,18 @@
     },
     data() {
       return {
-        showDrive: false
+        showDrive: false,
+        bwarn: false,
+        warning: "Bitte beachten Sie, dass die Carsharing suche noch nich korrekt funktioniert. Es wird angenommen, dass das Auto in der Straße Ihrer Startadresse bei der Hausnummer 5 steht."
       }
     },
     methods: {
       resetDetails: function() {
-          this.showDrive = !this.showDrive;
+          this.showDrive = false;
       }
     },
-    watcher: {
-      'shortView'(shortView) {
+    watch: {
+      'counter'(counter) {
         this.resetDetails();
       }
     }
@@ -115,6 +120,8 @@
   }
 
   #price {
+    float: right;
+    margin-right: 10%;
   }
 
   .shortinfo {
@@ -124,5 +131,18 @@
     text-align: center;
     background-color: lightgrey;
     padding-top: 5px
+  }
+
+  .warning {
+    color: red;
+    width: 10px;
+    display: inline-block;
+  }
+
+  .warnmsg {
+    position: fixed;
+    background-color: white;
+    font-size: 16px;
+
   }
 </style>

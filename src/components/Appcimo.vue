@@ -43,10 +43,8 @@
           <span class="resultFieldMenue" id="Start" >Startzeit</span>
           <span class="resultFieldMenue" id="End">Ankunftszeit</span>
           <span class="resultFieldMenue" id="duration">Dauer</span>
-          <span class="resultFieldMenue">Kurzansicht</span>
           <span class="resultFieldMenue" id="price">Preis</span>
         </div>
-
 
         <!-- Load the component GetRoutes with options to calculate the routes for carsharing, public transport service and cycling -->
         <GetRoutes v-if="showResults"
@@ -99,8 +97,11 @@
 
         ></GetRoutes>
       </div>
+
       </div>
+
     </div>
+
   </div>
 </template>
 <script>
@@ -137,7 +138,8 @@
             vin: 'WMEEJ3BA8DK643640'
         },
         showResults: false,
-        counter: 0
+        counter: 0,
+
       }
 
     },
@@ -249,12 +251,15 @@
   .resultsField {
     margin: auto;
     width: 100%;
+    min-width: 1200px;
   }
 
   #resultsFieldDescriptor {
     text-align: left;
     margin: auto;
-    width: 80%;
+    width: 100%;
+    margin-top: 100px;
+    min-width: 1200px;
   }
 
   .resultFieldMenue  {
@@ -269,11 +274,11 @@
   }
 
   #transport {
-    margin-left: 40px;
-  }
+    margin-left: 12.5%;
+      }
 
   #Start {
-    margin-left: 40px;
+    margin-left: 37px;
   }
   #duration {
     margin-right: 100px;
@@ -281,7 +286,7 @@
 
   #price {
     float: right;
-    margin-right: 10%;
+    margin-right: 18%;
   }
 
   #menubar {
@@ -337,6 +342,10 @@
     position: absolute;
     margin-top: 200px;
     width: 100%;
+  }
+
+  .warning {
+    position: relative;
   }
 
 </style>

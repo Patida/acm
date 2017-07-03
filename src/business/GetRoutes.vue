@@ -4,7 +4,7 @@
       :shortView="shortView"
       :directionRouteMap="directionRouteMap"
       :directionRouteDescription="directionRouteDescription"
-      :counter = "shortView"
+      :counter = "counter"
     >
     </ResultView>
   </div>
