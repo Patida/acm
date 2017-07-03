@@ -109,7 +109,6 @@
   import vueResource from 'vue-resource';
   import GetRoutes from '../business/GetRoutes.vue';
   var Promise = require('promise');
-  const RouteOptions = require('../business/RouteOptions.js');
 
   export default {
     components: {
