@@ -22,20 +22,20 @@
 \contentsline {subsection}{\numberline {3.2.1}Entwicklungsumgebung}{14}
 \contentsline {subsection}{\numberline {3.2.2}VueJS}{15}
 \contentsline {subsection}{\numberline {3.2.3}Node.js und NPM}{15}
-\contentsline {subsection}{\numberline {3.2.4}Github}{15}
-\contentsline {subsection}{\numberline {3.2.5}TravisCI}{15}
-\contentsline {chapter}{\numberline {4}Systementwurf und Umsetzung}{16}
-\contentsline {section}{\numberline {4.1}Systemkomponenten}{16}
-\contentsline {subsection}{\numberline {4.1.1}Komponentendiagramm}{16}
-\contentsline {subsection}{\numberline {4.1.2}Komponentenbeschreibung}{16}
-\contentsline {section}{\numberline {4.2}Google API}{16}
-\contentsline {subsection}{\numberline {4.2.1}Google Services}{16}
-\contentsline {subsection}{\numberline {4.2.2}Verarbeitung JSON-Objekte}{16}
-\contentsline {subsection}{\numberline {4.2.3}Methoden}{16}
-\contentsline {subsection}{\numberline {4.2.4}Refactoring und Tests}{16}
-\contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{17}
-\contentsline {section}{\numberline {5.1}Zusammenfassung}{17}
-\contentsline {section}{\numberline {5.2}Ausblick}{17}
-\contentsline {chapter}{\numberline {6}Anhänge}{18}
-\contentsline {section}{\numberline {6.1}Glossar}{18}
-\contentsline {section}{\numberline {6.2}verwendete Software}{18}
+\contentsline {subsection}{\numberline {3.2.4}Github}{19}
+\contentsline {subsection}{\numberline {3.2.5}CircleCI}{20}
+\contentsline {chapter}{\numberline {4}Systementwurf und Umsetzung}{23}
+\contentsline {section}{\numberline {4.1}Systemkomponenten}{23}
+\contentsline {subsection}{\numberline {4.1.1}Komponentendiagramm}{23}
+\contentsline {subsection}{\numberline {4.1.2}Komponentenbeschreibung}{23}
+\contentsline {section}{\numberline {4.2}Google API}{23}
+\contentsline {subsection}{\numberline {4.2.1}Google Services}{23}
+\contentsline {subsection}{\numberline {4.2.2}Verarbeitung JSON-Objekte}{23}
+\contentsline {subsection}{\numberline {4.2.3}Methoden}{23}
+\contentsline {subsection}{\numberline {4.2.4}Refactoring und Tests}{23}
+\contentsline {chapter}{\numberline {5}Zusammenfassung und Ausblick}{24}
+\contentsline {section}{\numberline {5.1}Zusammenfassung}{24}
+\contentsline {section}{\numberline {5.2}Ausblick}{24}
+\contentsline {chapter}{\numberline {6}Anhänge}{25}
+\contentsline {section}{\numberline {6.1}Glossar}{25}
+\contentsline {section}{\numberline {6.2}verwendete Software}{25}
