@@ -12,6 +12,8 @@
 
 \author{Timo Schwertfeger, Daniel Kaiser, Patrick Preu"s}
 
+
+
 \title{Dokumentation f"ur das Softwaretechnik-Projekt AppCiMo (application for city movement) 
 \newline
 \newline
@@ -46,6 +48,17 @@ Das Team AppCiMo m"ochte gerne etwas Licht in diesen Gro"sstadtdschungel bringen
 Ziel des Projektes ist die Planung und Entwicklung eines City-Movement-Prototypen in Form einer One-Page Webapplikation. Diese Webapplikation soll Nutzern als Entscheidungshilfe f"ur ihre Weg-Zielerreichung in deutschen Gro"sst"adten dienen. \\
 
 Den Nutzern sollen ausgehend von Start- und Bestimmungsort, drei unterschiedliche Transportm"oglichkeiten f"ur ihre Zielerreichung aufgezeigt werden. Diese M"oglichkeiten umfassen Carsharing-Angebote in der N"ahe, "offentliche Verkehrsmittel und das eigene Fahrrad. Zus"atzlich sollen für eine sofortige Einsch"atzung der ermittelten Transportm"oglichkeiten jeweils die Distanz, die voraussichtlich ben"otigte Zeit und die Kosten dargestellt werden. \\
+
+\textbf{Features:}
+\begin{itemize}
+\item Mindestens drei verschiedene Transportm"oglichkeiten um das Ziel zu erreichen\\
+\item Kurzansichten und detaillierte Ansichten\\
+\item Preisermittlung f"ur jede Transportmöglichkeit\\
+\item Kartenvorschau in GoogleMaps\\
+\item Wegbeschreibung zu dem Ziel\\
+
+
+\end{itemize}
 
 Bei Appcimo handelt es sich um eine browserbasierte Webapplikation, d.h. für die Nutzung ist eine Internetverbindung notwendig. Außerdem ist eine automatische Standorterfassung von Vorteil.
 Diese Webapplikation soll auf den gängigen Browsern stabil laufen.
@@ -749,7 +762,7 @@ Der npm Package Manager ist eine Platform f"ur Javascript-Entwickler, die Ihren 
 
 Packages sind relativ klein und meistens nur f"ur einen bestimmten Zweck gedacht. Die Idee hier ist, mittels mehrerer kleiner  Packages ma"sgeschneiderte L"osungen f"ur die eigene Applikation zu konstruieren. \\
 
-Die Packages und Module werden "uber die offizielle npm Seite www.npmjs.com/ zum Download angeboten. Sie werden "ublicherweise "uber den Bash/Cmd Konsolenbefehl npm install [...] installiert. Sie werden dann als Komponenten in die Applikation eingef"ugt und in dem Projekt-Verzeichnis \textbf{node_modules} abgelegt.\\
+Die Packages und Module werden "uber die offizielle npm Seite www.npmjs.com/ zum Download angeboten. Sie werden "ublicherweise "uber den Bash/Cmd Konsolenbefehl npm install [...] installiert. Sie werden dann als Komponenten in die Applikation eingef"ugt und in dem Projekt-Verzeichnis \textbf{nodemodules} abgelegt.\\
 
 Mittels des Package-Managers lassen sich die f"ur das eigene Programm verwendeten Packages leicht verwalten und auch updaten. \\
 
@@ -890,8 +903,175 @@ Ein weiteres Feature von CircleCI ist die Koppelung des CircleCI-Accounts mit ei
 \section{Systemkomponenten}
 
 \subsection{Komponentendiagramm}
-
+- Diagramm -
 \subsection{Komponentenbeschreibung}
+Komponenten sind eines der m"achtigsten Features in Vue. Durch sie ist es m"oglich, HTML-Elemente und die damit verbundenen Sctipt- und Style-Elemente wiederverwendbar zu machen.  Diese Komponenten k"onnen auf das Nutzerverhalten oder Events reagieren und Werte und  Attribute aktiv modifizieren und bereitstellen.\\
+
+\textbf{Komponenten} \\
+
+\textbf{1. Appcimo.vue} \\
+
+\textbf{Appcimo.vue} ist die Hauptkomponente der Webapplikation.  Alle weiteren Komponenten sind entweder in die Appcimo-Komponente eingesetzt oder in Unterkomponenten von Appcimo.vue eingesetzt.\\
+
+
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=1]{compAppcimo.png}
+\caption{Komponente Appcimo.vue}
+\label{Appcimo}
+\end{center}
+\end{figure}
+
+Appcimo.vue enth"alt die grunds"atzlichen Style-Elemente f"ur das Logo der Seite, die Top-Navigation, den Hintergrund und die einzelnen Untermen"us. Au"serdem enth"alt diese Komponente den Button, der die Methode getRoutes() startet: Finde meinen Weg!\\
+
+\textbf{Enthaltene Komponenten:} VueGoogleAutocomplete, GetRoutes. \\
+
+\textbf{Funktionen} \\
+
+\textbf{getOrigin()}: Ermittelt durch Auswertung der VueGoogleAutocomplete-Komponente die Geoinformationen vom Startpunkt und "uber die GoogleMaps-API den n"achstgelegenen Car2Go Standort. \\
+
+\textbf{getDestination()}:  Ermittelt durch Auswertung der VueGoogleAutocomplete-Komponente die Geoinformationen vom Zielort.\\
+
+\textbf{getRoutes()}: Startet den Prozess die Komponente GetRoutes.vue zu rendern und sichtbar zu machen.\\
+
+\textbf{mockCarAddress()}: Simuliert zu Testzwecken einen Standort eines Car2Go-Autos.\\
+
+\textbf{getCarLocation()}: Ermittelt "uber den asynchronen Google geocode service den Standort des n"achstgelegenen Car2Go-Autos als ein Google geocode Objekt.\\
+
+
+\textbf{2. VueGoogleAutocomplete.vue}
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=1]{autocomplete.png}
+\caption{Komponente VueGoogleAutocomplete.vue}
+\label{Autocomplete}
+\end{center}
+\end{figure}
+
+\textbf{VueGoogleAutocomplete} wurde "uber den npm-Manager installiert. Diese Komponente stellt eine Inputbox, entsprechende Styleelemente und Google-API-Funktionalit"aten zur Verf"ugung. Durch diese Komponente k"onnen beliebige Adressen den entsprechenden Geoinformationen (Breitengrad, L"angengrad) zugeordnet werden.\\
+
+Es werden zwei VueGoogleAutocomplete-Komponenten verwendet. Eine f"ur den Startpunkt, bzw. den aktuellen Standort und eine Komponente f"ur den Zielort bzw. die Zieladresse. Die ermittelten Geoinformationen werden in den entsprechenden Properties von Appcimo.vue zwischengespeichert.\\
+
+
+\textbf{3. GetRoutes.vue}\\
+
+\textbf{GetRoutes.vue} enth"alt die Business-Logic des Programms. \\
+
+\textbf{Enthaltene Komponenten}: ResultView\\
+
+\textbf{Funktionen:}\\
+
+\textbf{getRoutes()}: Ermittlung und Speicherung der zur Auswahl stehenden Transportm"oglichkeiten mittels Promise-Funktionen. Die Promise-Funktionen dienen dabei als Zusicherung eines zur"uckerhaltenen Wertes durch die Google-API Calls. \\
+
+\textbf{GetRoute()}:  Gibt alle Promise-Resultate der Funktionen wieder, die den Parameter "promises" enthalten. Diese Funktion wird ben"otigt, um mehrere zeitgleiche asynchrone google javascript api Calls auszuwerten. Dadurch „wartet“ die getRoutes-Funktion auf Ergebnisse, bevor die Berechnungen der erhaltenen Werte starten k"onnen.\\
+
+\textbf{GoogleRouteQuery()}: Erm"oglicht asynchrone Benutzung der Google Javascript API, um Routen zu ermitteln. Diese Funktion gibt ein „Promise“ zur"uck, das den Empfang von Werten durch API Calls signalisiert.\\
+
+\textbf{getShortinfo()}:  Berechnet die Werte, die in der Shortview ausgegeben werden. Dies beinhaltet die Startzeit  und die Ankunftszeit f"ur jede der Transportm"oglichkeiten. Diese Werte werden in Form eines JSON-Objekts zur"uckgegeben. \\
+
+\textbf{getDescription()}: Gibt die Google-Ergebnisse der SubResultDescription wieder, um Wegbeschreibungen auf der Seiten anzeigen zu k"onnen. Au"serdem werden Ergebnisse f"ur den Fu"sweg anhand der Wegpunkte aussortiert, da diese falsch sein w"urden.\\
+
+\textbf{getMap()}: "uber Sortiermechanismen werden die Ergebnisse des Google-API Calls gefiltert und zur Speicherung wiedergegeben.\\
+
+\textbf{transportmethod()}:  Formatiert die Transportmethode und gibt sie zur"uck.
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=1]{transportmethod.png}
+\caption{Transportmethod in Appcimo}
+\label{transportmethod}
+\end{center}
+\end{figure}
+
+
+\textbf{duration()}:  Die Fahrtdauer wird addiert, um ein Endergebnis f"ur die Dauer zu erhalten. F"ur CarSharing-Transportmethoden werden 4 Minuten zus"atzlich berechnet.
+
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=1]{duration.png}
+\caption{Duration in Appcimo}
+\label{Duration}
+\end{center}
+\end{figure}
+
+
+\textbf{end()}:  Berechnung der Ankunftszeit. Diese Funktion wird nur f"ur CarSharing-Angebote ben"otigt.  Es werden 4 Minuten zus"atzlich berechnet.
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=1]{end.png}
+\caption{Ankunftszeit in Appcimo}
+\label{end}
+\end{center}
+\end{figure}
+
+\textbf{price()}:  Berechnung des Preises f"ur den Transport. Der Preis f"ur die "offentlichen Verkehrsmittel ist momentan noch fix. 
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=1]{price.png}
+\caption{Preisberechnung in Appcimo}
+\label{price}
+\end{center}
+\end{figure}
+
+\textbf{4. ResultView.vue}\\
+
+Die Komponente \textbf{ResultView.vue} stellt eine Zusammenfassung der ermittelten Transportm"oglichkeiten in Form von ausklappbaren Leisten dar. \\
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=1]{resultview.png}
+\caption{Komponente ResultView.vue}
+\label{resultview}
+\end{center}
+\end{figure}
+
+Die Ergebnisleisten werden bei einem Klick mittels eines Transition-Effekts ausgeklappt und die Details zur jeweiligen Transportm"oglichkeit abgerufen und ausgegeben. Diese Komponente enth"alt eine Watcher-Funktionalit"at, um bei mehrmaliger Benutzung der Routenermittlung stets die aktuellen Ergebnisse anzuzeigen. \\
+
+Zum jetzigen Stand ist die CarSharing-Option nicht vollst"andig implementiert, so dass die Car2Go-Standorte simuliert werden. Ein entsprechender Hinweis wird auf der Webseite abgebildet.\\
+
+\textbf{Enthaltene Komponenten}: SubResultMap, SubResultDescription\\
+
+\textbf{5. SubResultDescription.vue}\\
+
+Diese Komponente enth"alt die Wegbeschreibung einer Route vom Startpunkt bis zum Zielpunkt.\\
+
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=1]{SubResultDescription.png}
+\caption{Komponente SubResultDescription.vue}
+\label{SubResultDescription}
+\end{center}
+\end{figure}
+
+\textbf{Funktionen:}\\
+
+\textbf{updateDescription()}: Ermittelt "uber einen API-Call an den Google-Direction-Service die Wegbeschreibung einer angefragten Route und rendert diese innerhalb der Komponente. Diese Funktion wird ausgef"uhrt, sobald die Komponente aufgerufen wird.\\
+
+\textbf{6. SubResultMap.vue}\\
+
+Die GoogleMap wird in dieser Komponente dargestellt.\\
+
+
+\begin{figure} [H]
+\begin{center}
+\includegraphics[scale=1]{SubResultMap.png}
+\caption{Komponente SubResultMap.vue}
+\label{SubResultMap}
+\end{center}
+\end{figure}
+
+
+\textbf{Funktionen:}\\
+
+\textbf{initMap()}: Die GoogleMap wird beim Start der Komponente gerendert und anhand von vorher festgelegten Parametern (Zoom-Level der Karte, Initialstandort, ziehbare Karte)  dargestellt. Die direkte Einbindung des directionDisplay erm"oglicht es, die Route anhand von farbigen Pfaden und Wegpunkten darzustellen.\\
+
+
 
 \section{Google API}
 
