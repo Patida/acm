@@ -38,5 +38,5 @@
 \contentsline {subsection}{\numberline {5.2.4}Continuous Integration}{36}
 \contentsline {chapter}{\numberline {6}Zusammenfassung und Ausblick}{37}
 \contentsline {chapter}{\numberline {7}Anh\active@dq \dq@prtct {a}nge}{38}
-\contentsline {section}{\numberline {7.1}Glossar}{38}
-\contentsline {section}{\numberline {7.2}verwendete Software}{38}
+\contentsline {chapter}{Abbildungsverzeichnis}{38}
+\contentsline {chapter}{Tabellenverzeichnis}{39}

@@ -1,30 +1,30 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.6.26)  5 JUL 2017 18:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.7.5)  5 JUL 2017 23:05
 entering extended mode
 **./first.tex
 (first.tex
 LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 75 language(s) loaded.
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrreprt.cls"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrreprt.cls"
 Document Class: scrreprt 2017/04/13 v3.23 KOMA-Script document class (report)
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrkbase.sty"
 Package: scrkbase 2017/04/13 v3.23 KOMA-Script package (KOMA-Script-dependent b
 asics and keyval usage)
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrbase.sty"
 Package: scrbase 2017/04/13 v3.23 KOMA-Script package (KOMA-Script-independent 
 basics and keyval usage)
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrlfile.sty"
 Package: scrlfile 2017/04/13 v3.23 KOMA-Script package (loading files)
 
 Package scrlfile, 2017/04/13 v3.23 KOMA-Script package (loading files)
                   Copyright (C) Markus Kohm
 
-))) ("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty"
+))) ("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\tocbasic.sty"
 Package: tocbasic 2017/04/13 v3.23 KOMA-Script package (handling toc-files)
 \scr@dte@tocline@numberwidth=\skip41
 \scr@dte@tocline@numbox=\box26
@@ -49,11 +49,11 @@ Package scrreprt Info: You've used standard option `11pt'.
 Class scrreprt Info: File `scrsize11pt.clo' used to setup font sizes on input l
 ine 2272.
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize11pt.clo"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\scrsize11pt.clo"
 File: scrsize11pt.clo 2017/04/13 v3.23 KOMA-Script font size class option (11pt
 )
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\koma-script\typearea.sty"
 Package: typearea 2017/04/13 v3.23 KOMA-Script package (type area)
 \ta@bcor=\skip42
 \ta@div=\count79
@@ -108,11 +108,11 @@ LaTeX Info: Redefining \textsubscript on input line 4841.
 Class scrreprt Info: Redefining `\numberline' on input line 5988.
 \bibindent=\dimen102
 )
-("D:\Program Files\MiKTeX 2.9\tex\generic\german\ngerman.sty" v2.5e 1998-07-08
+("C:\Program Files\MiKTeX 2.9\tex\generic\german\ngerman.sty" v2.5e 1998-07-08
 Package: ngerman 1998/07/08 v2.5e Support for writing german texts (br)
 \grmnU@D=\dimen103
 ngerman -- \language number for naustrian undefined, default 45 used.
-) ("D:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count89
 \float@exts=\toks15
@@ -122,27 +122,27 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 \@float@every@figure=\toks17
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
 File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count90
@@ -150,22 +150,65 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen104
 \Gin@req@width=\dimen105
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\chngcntr\chngcntr.sty"
+Package: chngcntr 2009/09/02 v1.0a change counter resetting
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tocloft\tocloft.sty"
+Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 44.
+\cftparskip=\skip56
+\cftbeforetoctitleskip=\skip57
+\cftaftertoctitleskip=\skip58
+\cftbeforepartskip=\skip59
+\cftpartnumwidth=\skip60
+\cftpartindent=\skip61
+\cftbeforechapskip=\skip62
+\cftchapindent=\skip63
+\cftchapnumwidth=\skip64
+\cftbeforesecskip=\skip65
+\cftsecindent=\skip66
+\cftsecnumwidth=\skip67
+\cftbeforesubsecskip=\skip68
+\cftsubsecindent=\skip69
+\cftsubsecnumwidth=\skip70
+\cftbeforesubsubsecskip=\skip71
+\cftsubsubsecindent=\skip72
+\cftsubsubsecnumwidth=\skip73
+\cftbeforeparaskip=\skip74
+\cftparaindent=\skip75
+\cftparanumwidth=\skip76
+\cftbeforesubparaskip=\skip77
+\cftsubparaindent=\skip78
+\cftsubparanumwidth=\skip79
+\cftbeforeloftitleskip=\skip80
+\cftafterloftitleskip=\skip81
+\cftbeforefigskip=\skip82
+\cftfigindent=\skip83
+\cftfignumwidth=\skip84
+\c@lofdepth=\count91
+\c@lotdepth=\count92
+\cftbeforelottitleskip=\skip85
+\cftafterlottitleskip=\skip86
+\cftbeforetabskip=\skip87
+\cfttabindent=\skip88
+\cfttabnumwidth=\skip89
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
 Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 )
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("D:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count91
-\Gm@cntv=\count92
-\c@Gm@tempcnt=\count93
+\Gm@cnth=\count93
+\Gm@cntv=\count94
+\c@Gm@tempcnt=\count95
 \Gm@bindingoffset=\dimen106
 \Gm@wd@mp=\dimen107
 \Gm@odd@mp=\dimen108
@@ -176,13 +219,7 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen113
 \Gm@dimlist=\toks18
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")) (first.aux
-
-LaTeX Warning: Label `tab:Tabelle1' multiply defined.
-
-
-LaTeX Warning: Label `tab:Tabelle1' multiply defined.
-
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")) (first.aux
 
 LaTeX Warning: Label `webstorm_logo' multiply defined.
 
@@ -195,36 +232,36 @@ LaTeX Warning: Label `circlecitest' multiply defined.
 )
 \openout1 = `first.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
- ("D:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+ ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count94
+\scratchcounter=\count96
 \scratchdimen=\dimen114
 \scratchbox=\box30
-\nofMPsegments=\count95
-\nofMParguments=\count96
+\nofMPsegments=\count97
+\nofMParguments=\count98
 \everyMPshowfont=\toks19
-\MPscratchCnt=\count97
+\MPscratchCnt=\count99
 \MPscratchDim=\dimen115
-\MPnumerator=\count98
-\makeMPintoPDFobject=\count99
+\MPnumerator=\count100
+\makeMPintoPDFobject=\count101
 \everyMPtoPDFconversion=\toks20
-) ("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
 Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
@@ -233,22 +270,22 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 ))
-("D:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-("D:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
@@ -299,12 +336,12 @@ G,.JBIG2,.JB2,.eps]
 <appcimo.png, id=1, 444.91219pt x 320.69812pt>
 File: appcimo.png Graphic file (type png)
  <use appcimo.png>
-Package pdftex.def Info: appcimo.png used on input line 27.
+Package pdftex.def Info: appcimo.png used on input line 45.
 (pdftex.def)             Requested size: 318.66948pt x 229.69867pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 27.
+(Font)              <14.4> on input line 45.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 27.
+(Font)              <7> on input line 45.
  [1
 
 
@@ -312,14 +349,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <./appcimo.png>] (first.to
 c
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 2.
+(Font)              <10.95> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 2.
+(Font)              <8> on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 2.
- [2
-
-])
+(Font)              <6> on input line 1.
+ [2])
 \tf@toc=\write3
 \openout3 = `first.toc'.
 
@@ -345,54 +380,54 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--49
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
 
  []
 
 
-Overfull \hbox (27.49933pt too wide) in paragraph at lines 50--51
+Overfull \hbox (27.49933pt too wide) in paragraph at lines 68--69
 \OT1/cmr/m/n/10.95 portm[]oglich-kei-ten f[]ur ih-re Ziel-er-rei-chung auf-ge-z
 eigt wer-den. Die-se M[]oglich-kei-ten um-fas-sen Carsharing-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--51
+Underfull \hbox (badness 10000) in paragraph at lines 68--69
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 54.
-("D:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 72.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 54.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--59
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
@@ -403,47 +438,47 @@ chapter 2.
 <Scrum.png, id=25, 370.38374pt x 273.27094pt>
 File: Scrum.png Graphic file (type png)
  <use Scrum.png>
-Package pdftex.def Info: Scrum.png used on input line 80.
+Package pdftex.def Info: Scrum.png used on input line 98.
 (pdftex.def)             Requested size: 341.43306pt x 251.91266pt.
  [6
 
  <./Scrum.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
+Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
+Underfull \hbox (badness 10000) in paragraph at lines 124--125
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--110
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
@@ -460,72 +495,89 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
 
 <dashboard.png, id=33, 938.00438pt x 366.61969pt>
 File: dashboard.png Graphic file (type png)
  <use dashboard.png>
-Package pdftex.def Info: dashboard.png used on input line 146.
+Package pdftex.def Info: dashboard.png used on input line 164.
 (pdftex.def)             Requested size: 455.24408pt x 177.92781pt.
 
 <members.png, id=34, 1408.51219pt x 274.77657pt>
 File: members.png Graphic file (type png)
  <use members.png>
-Package pdftex.def Info: members.png used on input line 158.
+Package pdftex.def Info: members.png used on input line 176.
 (pdftex.def)             Requested size: 455.24408pt x 88.81076pt.
 
 <hipchat.png, id=35, 1011.02719pt x 783.67781pt>
 File: hipchat.png Graphic file (type png)
  <use hipchat.png>
-Package pdftex.def Info: hipchat.png used on input line 173.
+Package pdftex.def Info: hipchat.png used on input line 191.
 (pdftex.def)             Requested size: 455.24408pt x 352.87895pt.
  [8 <./dashboard.png> <./members.png>]
 <info_taiga_github_hipchat.png, id=41, 1148.03906pt x 612.78937pt>
 File: info_taiga_github_hipchat.png Graphic file (type png)
 
 <use info_taiga_github_hipchat.png>
-Package pdftex.def Info: info_taiga_github_hipchat.png used on input line 186.
+Package pdftex.def Info: info_taiga_github_hipchat.png used on input line 204.
 (pdftex.def)             Requested size: 455.24408pt x 242.98886pt.
  [9 <./hipchat.png>]
 <backlog.png, id=46, 1409.265pt x 431.36156pt>
 File: backlog.png Graphic file (type png)
  <use backlog.png>
-Package pdftex.def Info: backlog.png used on input line 200.
+Package pdftex.def Info: backlog.png used on input line 218.
 (pdftex.def)             Requested size: 455.24408pt x 139.34175pt.
 
 <sprint_tasks.png, id=47, 1381.41093pt x 513.41812pt>
 File: sprint_tasks.png Graphic file (type png)
  <use sprint_tasks.png>
-Package pdftex.def Info: sprint_tasks.png used on input line 216.
+Package pdftex.def Info: sprint_tasks.png used on input line 234.
 (pdftex.def)             Requested size: 455.24408pt x 169.19347pt.
 
 [10 <./info_taiga_github_hipchat.png> <./backlog.png>]
-<sprints.png, id=53, 167.87718pt x 642.14906pt>
-File: sprints.png Graphic file (type png)
- <use sprints.png>
-Package pdftex.def Info: sprints.png used on input line 232.
-(pdftex.def)             Requested size: 170.71758pt x 569.07108pt.
- [11 <./sprint_tasks.png>] [12 <./sprints.png>]
+<sprint_2.jpg, id=53, 182.18062pt x 269.50688pt>
+File: sprint_2.jpg Graphic file (type jpg)
+ <use sprint_2.jpg>
+Package pdftex.def Info: sprint_2.jpg used on input line 250.
+(pdftex.def)             Requested size: 170.72162pt x 284.53268pt.
+
+<sprint_1.jpg, id=54, 179.92218pt x 382.42876pt>
+File: sprint_1.jpg Graphic file (type jpg)
+ <use sprint_1.jpg>
+Package pdftex.def Info: sprint_1.jpg used on input line 259.
+(pdftex.def)             Requested size: 170.73018pt x 284.53922pt.
+ [11 <./sprint_tasks.png> <./sprint_2.jpg>]
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¤ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+Missing character: There is no Ã in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+ [12 <./sprint_1.jpg>]
 chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
 
  []
 
@@ -548,364 +600,364 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 336--337
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
 
  []
 
 [13
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 377--378
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 413--414
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 451--452
+Underfull \hbox (badness 10000) in paragraph at lines 449--450
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 487--488
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 500--501
+Underfull \hbox (badness 10000) in paragraph at lines 536--537
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 562--563
+Underfull \hbox (badness 10000) in paragraph at lines 598--599
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--600
+Underfull \hbox (badness 10000) in paragraph at lines 635--636
 
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 630--631
+Underfull \hbox (badness 10000) in paragraph at lines 666--667
 
  []
 
 [16]
 chapter 4.
 
-Underfull \hbox (badness 10000) in paragraph at lines 663--665
+Underfull \hbox (badness 10000) in paragraph at lines 699--701
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 666--667
+Underfull \hbox (badness 10000) in paragraph at lines 702--703
 
  []
 
 <Webstorm.png, id=75, 155.07938pt x 150.5625pt>
 File: Webstorm.png Graphic file (type png)
  <use Webstorm.png>
-Package pdftex.def Info: Webstorm.png used on input line 671.
+Package pdftex.def Info: Webstorm.png used on input line 707.
 (pdftex.def)             Requested size: 93.04832pt x 90.33818pt.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ž in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 678--679
+Underfull \hbox (badness 10000) in paragraph at lines 714--715
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 680--681
+Underfull \hbox (badness 10000) in paragraph at lines 716--717
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 682--683
+Underfull \hbox (badness 10000) in paragraph at lines 718--719
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 684--685
+Underfull \hbox (badness 10000) in paragraph at lines 720--721
 
  []
 
 <atom.png, id=76, 136.25906pt x 136.25906pt>
 File: atom.png Graphic file (type png)
  <use atom.png>
-Package pdftex.def Info: atom.png used on input line 689.
+Package pdftex.def Info: atom.png used on input line 725.
 (pdftex.def)             Requested size: 109.00739pt x 109.00739pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 696--697
+Underfull \hbox (badness 10000) in paragraph at lines 732--733
 
  []
 
 [17
 
  <./Webstorm.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 702--703
+Underfull \hbox (badness 10000) in paragraph at lines 738--739
 
  []
 
 <mvvm.png, id=80, 350.81062pt x 102.3825pt>
 File: mvvm.png Graphic file (type png)
  <use mvvm.png>
-Package pdftex.def Info: mvvm.png used on input line 710.
+Package pdftex.def Info: mvvm.png used on input line 746.
 (pdftex.def)             Requested size: 341.43306pt x 99.65303pt.
 
-Overfull \hbox (3.40941pt too wide) in paragraph at lines 717--718
+Overfull \hbox (3.40941pt too wide) in paragraph at lines 753--754
 \OT1/cmr/m/n/10.95 rea-giert es au-to-ma-tisch bei []Ande-rung von Va-ria-blen 
 und stellt die-se mit-tels DOM-Manipulationen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 717--718
+Underfull \hbox (badness 10000) in paragraph at lines 753--754
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 719--721
+Underfull \hbox (badness 10000) in paragraph at lines 755--757
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 722--723
+Underfull \hbox (badness 10000) in paragraph at lines 758--759
 
  []
 
 [18 <./atom.png> <./mvvm.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 728--729
+Underfull \hbox (badness 10000) in paragraph at lines 764--765
 
  []
 
 <nodejs.png, id=84, 283.0575pt x 174.6525pt>
 File: nodejs.png Graphic file (type png)
  <use nodejs.png>
-Package pdftex.def Info: nodejs.png used on input line 734.
+Package pdftex.def Info: nodejs.png used on input line 770.
 (pdftex.def)             Requested size: 227.62204pt x 140.45238pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 741--742
+Underfull \hbox (badness 10000) in paragraph at lines 777--778
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 743--744
+Underfull \hbox (badness 10000) in paragraph at lines 779--780
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 745--746
+Underfull \hbox (badness 10000) in paragraph at lines 781--782
 
  []
 
 <npm.png, id=85, 220.57407pt x 93.34875pt>
 File: npm.png Graphic file (type png)
  <use npm.png>
-Package pdftex.def Info: npm.png used on input line 751.
+Package pdftex.def Info: npm.png used on input line 787.
 (pdftex.def)             Requested size: 227.62204pt x 96.33543pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 759--760
+Underfull \hbox (badness 10000) in paragraph at lines 795--796
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 761--762
+Underfull \hbox (badness 10000) in paragraph at lines 797--798
 
  []
 
 [19 <./nodejs.png> <./npm.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 763--764
+Underfull \hbox (badness 10000) in paragraph at lines 799--800
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 765--766
+Underfull \hbox (badness 10000) in paragraph at lines 801--802
 
  []
 
 <package2.png, id=90, 651.18282pt x 269.50688pt>
 File: package2.png Graphic file (type png)
  <use package2.png>
-Package pdftex.def Info: package2.png used on input line 772.
+Package pdftex.def Info: package2.png used on input line 808.
 (pdftex.def)             Requested size: 455.82486pt x 188.65352pt.
 
-Overfull \hbox (0.58075pt too wide) in paragraph at lines 772--774
+Overfull \hbox (0.58075pt too wide) in paragraph at lines 808--810
  [] 
  []
 
 <package1.png, id=91, 651.18282pt x 304.88907pt>
 File: package1.png Graphic file (type png)
  <use package1.png>
-Package pdftex.def Info: package1.png used on input line 781.
+Package pdftex.def Info: package1.png used on input line 817.
 (pdftex.def)             Requested size: 455.82486pt x 213.42088pt.
 
-Overfull \hbox (0.58075pt too wide) in paragraph at lines 781--783
+Overfull \hbox (0.58075pt too wide) in paragraph at lines 817--819
  [] 
  []
 
 <package3.png, id=92, 609.77812pt x 286.82156pt>
 File: package3.png Graphic file (type png)
  <use package3.png>
-Package pdftex.def Info: package3.png used on input line 789.
+Package pdftex.def Info: package3.png used on input line 825.
 (pdftex.def)             Requested size: 426.84177pt x 200.77371pt.
  [20 <./package2.png> <./package1.png>] <package4.png, id=96, 652.68843pt x 216
 .05719pt>
 File: package4.png Graphic file (type png)
 
 <use package4.png>
-Package pdftex.def Info: package4.png used on input line 796.
+Package pdftex.def Info: package4.png used on input line 832.
 (pdftex.def)             Requested size: 456.87878pt x 151.23898pt.
 
-Overfull \hbox (1.63467pt too wide) in paragraph at lines 796--798
+Overfull \hbox (1.63467pt too wide) in paragraph at lines 832--834
  [] 
  []
 
 <package5.png, id=97, 650.43pt x 229.60782pt>
 File: package5.png Graphic file (type png)
  <use package5.png>
-Package pdftex.def Info: package5.png used on input line 803.
+Package pdftex.def Info: package5.png used on input line 839.
 (pdftex.def)             Requested size: 455.2979pt x 160.72437pt.
 
 <package6.png, id=98, 653.44125pt x 255.95625pt>
 File: package6.png Graphic file (type png)
  <use package6.png>
-Package pdftex.def Info: package6.png used on input line 810.
+Package pdftex.def Info: package6.png used on input line 846.
 (pdftex.def)             Requested size: 457.40576pt x 179.16814pt.
 
-Overfull \hbox (2.16165pt too wide) in paragraph at lines 810--812
+Overfull \hbox (2.16165pt too wide) in paragraph at lines 846--848
  [] 
  []
 
 [21 <./package3.png> <./package4.png> <./package5.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 819--821
+Underfull \hbox (badness 10000) in paragraph at lines 855--857
 
  []
 
 <github.png, id=105, 287.57437pt x 95.6072pt>
 File: github.png Graphic file (type png)
  <use github.png>
-Package pdftex.def Info: github.png used on input line 824.
+Package pdftex.def Info: github.png used on input line 860.
 (pdftex.def)             Requested size: 201.30069pt x 66.92456pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 830--831
+Underfull \hbox (badness 10000) in paragraph at lines 866--867
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 832--833
+Underfull \hbox (badness 10000) in paragraph at lines 868--869
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 834--838
+Underfull \hbox (badness 10000) in paragraph at lines 870--874
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 840--842
+Underfull \hbox (badness 10000) in paragraph at lines 876--878
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 843--845
+Underfull \hbox (badness 10000) in paragraph at lines 879--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 848--849
+Underfull \hbox (badness 10000) in paragraph at lines 884--885
 
  []
 
 <circle.png, id=106, 220.57407pt x 170.88844pt>
 File: circle.png Graphic file (type png)
  <use circle.png>
-Package pdftex.def Info: circle.png used on input line 852.
+Package pdftex.def Info: circle.png used on input line 888.
 (pdftex.def)             Requested size: 154.40079pt x 119.62108pt.
  [22 <./package6.png> <./github.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 858--861
+Underfull \hbox (badness 10000) in paragraph at lines 894--897
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 862--863
+Underfull \hbox (badness 10000) in paragraph at lines 898--899
 
  []
 
 <build1.png, id=111, 662.475pt x 500.62032pt>
 File: build1.png Graphic file (type png)
  <use build1.png>
-Package pdftex.def Info: build1.png used on input line 866.
+Package pdftex.def Info: build1.png used on input line 902.
 (pdftex.def)             Requested size: 463.72934pt x 350.43182pt.
 
-Overfull \hbox (8.48523pt too wide) in paragraph at lines 866--869
+Overfull \hbox (8.48523pt too wide) in paragraph at lines 902--905
  [] 
  []
 
 [23 <./circle.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 872--873
+Underfull \hbox (badness 10000) in paragraph at lines 908--909
 
  []
 
 <build2.png, id=115, 469.00218pt x 484.05844pt>
 File: build2.png Graphic file (type png)
  <use build2.png>
-Package pdftex.def Info: build2.png used on input line 877.
+Package pdftex.def Info: build2.png used on input line 913.
 (pdftex.def)             Requested size: 328.29929pt x 338.8386pt.
  [24 <./build1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 884--887
+Underfull \hbox (badness 10000) in paragraph at lines 920--923
 
  []
 
 <build3.png, id=119, 798.73407pt x 167.12437pt>
 File: build3.png Graphic file (type png)
  <use build3.png>
-Package pdftex.def Info: build3.png used on input line 890.
+Package pdftex.def Info: build3.png used on input line 926.
 (pdftex.def)             Requested size: 559.11005pt x 116.98625pt.
 
-Overfull \hbox (103.86594pt too wide) in paragraph at lines 890--893
+Overfull \hbox (103.86594pt too wide) in paragraph at lines 926--929
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 904--905
+Underfull \hbox (badness 10000) in paragraph at lines 940--941
 
  []
 
 [25 <./build2.png> <./build3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 906--907
+Underfull \hbox (badness 10000) in paragraph at lines 942--943
 
  []
 
 <google1.png, id=124, 215.30438pt x 121.20282pt>
 File: google1.png Graphic file (type png)
  <use google1.png>
-Package pdftex.def Info: google1.png used on input line 912.
+Package pdftex.def Info: google1.png used on input line 948.
 (pdftex.def)             Requested size: 215.30385pt x 121.20251pt.
 
 <google2.png, id=125, 455.45157pt x 185.94469pt>
 File: google2.png Graphic file (type png)
  <use google2.png>
-Package pdftex.def Info: google2.png used on input line 923.
+Package pdftex.def Info: google2.png used on input line 959.
 (pdftex.def)             Requested size: 455.45045pt x 185.94421pt.
  [26 <./google1.png> <./google2.png>]
 chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 935--937
+Underfull \hbox (badness 10000) in paragraph at lines 971--973
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 938--939
+Underfull \hbox (badness 10000) in paragraph at lines 974--975
 
  []
 
 <mvvmappcimo.png, id=129, 435.12563pt x 213.04594pt>
 File: mvvmappcimo.png Graphic file (type png)
  <use mvvmappcimo.png>
-Package pdftex.def Info: mvvmappcimo.png used on input line 942.
+Package pdftex.def Info: mvvmappcimo.png used on input line 978.
 (pdftex.def)             Requested size: 435.12456pt x 213.04541pt.
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
@@ -918,106 +970,40 @@ Missing character: There is no œ in font cmr10!
 File: komponentendiagramm.png Graphic file (type png)
 
 <use komponentendiagramm.png>
-Package pdftex.def Info: komponentendiagramm.png used on input line 954.
+Package pdftex.def Info: komponentendiagramm.png used on input line 990.
 (pdftex.def)             Requested size: 455.45045pt x 358.33788pt.
  [27
 
  <./mvvmappcimo.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 962--963
+Underfull \hbox (badness 10000) in paragraph at lines 998--999
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 964--965
+Underfull \hbox (badness 10000) in paragraph at lines 1000--1001
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 966--967
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 968--969
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1005
 
  []
 
 <compAppcimo.png, id=134, 455.45157pt x 202.50656pt>
 File: compAppcimo.png Graphic file (type png)
  <use compAppcimo.png>
-Package pdftex.def Info: compAppcimo.png used on input line 974.
+Package pdftex.def Info: compAppcimo.png used on input line 1010.
 (pdftex.def)             Requested size: 455.45045pt x 202.50604pt.
 
 [28 <./komponentendiagramm.png>]
-Overfull \hbox (13.99435pt too wide) in paragraph at lines 980--981
+Overfull \hbox (13.99435pt too wide) in paragraph at lines 1016--1017
 []\OT1/cmr/m/n/10.95 Appcimo.vue enth[]alt die grunds[]atz-li-chen Style-Elemen
 te f[]ur das Lo-go der Sei-te, die Top-Navigation,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 980--981
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 982--983
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 984--985
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 988--989
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 990--991
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 992--993
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 994--995
-
- []
-
-<autocomplete.png, id=138, 455.45157pt x 174.6525pt>
-File: autocomplete.png Graphic file (type png)
- <use autocomplete.png>
-Package pdftex.def Info: autocomplete.png used on input line 1001.
-(pdftex.def)             Requested size: 455.45045pt x 174.65207pt.
-
-[29 <./compAppcimo.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1009--1010
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1013
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1014--1015
-
  []
 
 
@@ -1035,24 +1021,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 1020--1021
 
  []
 
-ngerman: "pp is now obsolete, please use ppp instead on input line 1022.
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ž in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no œ in font cmr10!
 
 Underfull \hbox (badness 10000) in paragraph at lines 1022--1023
 
  []
 
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ž in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no œ in font cmr10!
 
 Underfull \hbox (badness 10000) in paragraph at lines 1024--1025
 
@@ -1063,7 +1036,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
 
  []
 
-[30 <./autocomplete.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 1028--1029
 
  []
@@ -1073,20 +1046,99 @@ Underfull \hbox (badness 10000) in paragraph at lines 1030--1031
 
  []
 
+<autocomplete.png, id=138, 455.45157pt x 174.6525pt>
+File: autocomplete.png Graphic file (type png)
+ <use autocomplete.png>
+Package pdftex.def Info: autocomplete.png used on input line 1037.
+(pdftex.def)             Requested size: 455.45045pt x 174.65207pt.
+
+[29 <./compAppcimo.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1043--1044
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1045--1046
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1048--1049
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1050--1051
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1052--1053
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1054--1055
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1056--1057
+
+ []
+
+ngerman: "pp is now obsolete, please use ppp instead on input line 1058.
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ž in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no œ in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 1058--1059
+
+ []
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ž in font cmr10!
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no œ in font cmr10!
+
+Underfull \hbox (badness 10000) in paragraph at lines 1060--1061
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1062--1063
+
+ []
+
+[30 <./autocomplete.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1064--1065
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1066--1067
+
+ []
+
 <transportmethod.png, id=145, 105.39375pt x 155.07938pt>
 File: transportmethod.png Graphic file (type png)
 
 <use transportmethod.png>
-Package pdftex.def Info: transportmethod.png used on input line 1036.
+Package pdftex.def Info: transportmethod.png used on input line 1072.
 (pdftex.def)             Requested size: 105.39348pt x 155.07898pt.
  <duration.png, id=146, 105.39375pt x 156.585pt>
 File: duration.png Graphic file (type png)
 
 <use duration.png>
-Package pdftex.def Info: duration.png used on input line 1048.
+Package pdftex.def Info: duration.png used on input line 1084.
 (pdftex.def)             Requested size: 105.39348pt x 156.58461pt.
 
-Overfull \hbox (3.06699pt too wide) in paragraph at lines 1055--1056
+Overfull \hbox (3.06699pt too wide) in paragraph at lines 1091--1092
 []\OT1/cmr/bx/n/10.95 end()\OT1/cmr/m/n/10.95 : Be-rech-nung der An-kunfts-zeit
 . Die-se Funk-ti-on wird nur f[]ur CarSharing-Angebote ben[]otigt.
  []
@@ -1094,64 +1146,64 @@ Overfull \hbox (3.06699pt too wide) in paragraph at lines 1055--1056
 <end.png, id=147, 105.39375pt x 155.07938pt>
 File: end.png Graphic file (type png)
  <use end.png>
-Package pdftex.def Info: end.png used on input line 1059.
+Package pdftex.def Info: end.png used on input line 1095.
 (pdftex.def)             Requested size: 105.39348pt x 155.07898pt.
  [31 <./transportmethod.png> <./duration.png>] <price.png, id=152, 130.98938pt 
 x 169.38281pt>
 File: price.png Graphic file (type png)
 
 <use price.png>
-Package pdftex.def Info: price.png used on input line 1069.
+Package pdftex.def Info: price.png used on input line 1105.
 (pdftex.def)             Requested size: 130.98904pt x 169.38239pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1075--1076
+Underfull \hbox (badness 10000) in paragraph at lines 1111--1112
 
  []
 
 
-Overfull \hbox (13.43256pt too wide) in paragraph at lines 1077--1078
+Overfull \hbox (13.43256pt too wide) in paragraph at lines 1113--1114
 []\OT1/cmr/m/n/10.95 Die Kom-po-nen-te \OT1/cmr/bx/n/10.95 Re-sult-View.vue \OT
 1/cmr/m/n/10.95 stellt ei-ne Zu-sam-men-fas-sung der er-mit-tel-ten Trans-portm
 []oglich-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1077--1078
+Underfull \hbox (badness 10000) in paragraph at lines 1113--1114
 
  []
 
 <resultview.png, id=153, 456.95718pt x 97.86563pt>
 File: resultview.png Graphic file (type png)
  <use resultview.png>
-Package pdftex.def Info: resultview.png used on input line 1081.
+Package pdftex.def Info: resultview.png used on input line 1117.
 (pdftex.def)             Requested size: 456.95605pt x 97.86537pt.
 
-Overfull \hbox (1.71194pt too wide) in paragraph at lines 1081--1084
+Overfull \hbox (1.71194pt too wide) in paragraph at lines 1117--1120
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1087--1088
+Underfull \hbox (badness 10000) in paragraph at lines 1123--1124
 
  []
 
 [32 <./end.png> <./price.png> <./resultview.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1089--1090
+Underfull \hbox (badness 10000) in paragraph at lines 1125--1126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1091--1092
+Underfull \hbox (badness 10000) in paragraph at lines 1127--1128
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1093--1094
+Underfull \hbox (badness 10000) in paragraph at lines 1129--1130
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1095--1096
+Underfull \hbox (badness 10000) in paragraph at lines 1131--1132
 
  []
 
@@ -1159,55 +1211,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 1095--1096
 File: SubResultDescription.png Graphic file (type png)
 
 <use SubResultDescription.png>
-Package pdftex.def Info: SubResultDescription.png used on input line 1100.
+Package pdftex.def Info: SubResultDescription.png used on input line 1136.
 (pdftex.def)             Requested size: 456.95605pt x 367.37158pt.
 
-Overfull \hbox (1.71194pt too wide) in paragraph at lines 1100--1103
+Overfull \hbox (1.71194pt too wide) in paragraph at lines 1136--1139
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1106--1107
+Underfull \hbox (badness 10000) in paragraph at lines 1142--1143
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1108--1109
+Underfull \hbox (badness 10000) in paragraph at lines 1144--1145
 
  []
 
 [33 <./SubResultDescription.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1110--1111
+Underfull \hbox (badness 10000) in paragraph at lines 1146--1147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1112--1113
+Underfull \hbox (badness 10000) in paragraph at lines 1148--1149
 
  []
 
 <SubResultMap.png, id=161, 456.95718pt x 277.78781pt>
 File: SubResultMap.png Graphic file (type png)
  <use SubResultMap.png>
-Package pdftex.def Info: SubResultMap.png used on input line 1117.
+Package pdftex.def Info: SubResultMap.png used on input line 1153.
 (pdftex.def)             Requested size: 456.95605pt x 277.78711pt.
 
-Overfull \hbox (1.71194pt too wide) in paragraph at lines 1117--1120
+Overfull \hbox (1.71194pt too wide) in paragraph at lines 1153--1156
  [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1124--1125
+Underfull \hbox (badness 10000) in paragraph at lines 1160--1161
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1126--1127
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1163
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1130--1131
+Underfull \hbox (badness 10000) in paragraph at lines 1166--1167
 
  []
 
@@ -1215,21 +1267,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 1130--1131
 File: sequenzdiagramm.png Graphic file (type png)
 
 <use sequenzdiagramm.png>
-Package pdftex.def Info: sequenzdiagramm.png used on input line 1136.
+Package pdftex.def Info: sequenzdiagramm.png used on input line 1172.
 (pdftex.def)             Requested size: 455.45045pt x 408.02338pt.
  [34 <./SubResultMap.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1150--1151
+Underfull \hbox (badness 10000) in paragraph at lines 1186--1187
 
  []
 
 
-Overfull \hbox (6.02512pt too wide) in paragraph at lines 1155--1156
+Overfull \hbox (6.02512pt too wide) in paragraph at lines 1191--1192
 \OT1/cmr/m/n/10.95 ei-nem Build-Prozess un-ter-zo-gen wer-den, bei dem die Vue-
 Dateien in HTML-, CSS- und Javascript-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1155--1156
+Underfull \hbox (badness 10000) in paragraph at lines 1191--1192
 
  []
 
@@ -1247,7 +1299,7 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 1157--1159
+Underfull \hbox (badness 10000) in paragraph at lines 1193--1195
 
  []
 
@@ -1258,12 +1310,12 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 1163--1164
+Underfull \hbox (badness 10000) in paragraph at lines 1199--1200
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1165--1166
+Underfull \hbox (badness 10000) in paragraph at lines 1201--1202
 
  []
 
@@ -1276,22 +1328,22 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no œ in font cmr10!
 
-Underfull \hbox (badness 10000) in paragraph at lines 1171--1173
+Underfull \hbox (badness 10000) in paragraph at lines 1207--1209
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1174--1175
+Underfull \hbox (badness 10000) in paragraph at lines 1210--1211
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1176--1177
+Underfull \hbox (badness 10000) in paragraph at lines 1212--1213
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1178--1179
+Underfull \hbox (badness 10000) in paragraph at lines 1214--1215
 
  []
 
@@ -1299,29 +1351,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 1178--1179
 
 ]
 chapter 7.
-[38
+(first.lof)
+\tf@lof=\write4
+\openout4 = `first.lof'.
 
-] (first.aux)
+ [38
+
+] (first.lot)
+\tf@lot=\write5
+\openout5 = `first.lot'.
+
+ [39] (first.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4482 strings out of 493323
- 75742 string characters out of 3139069
- 244320 words of memory out of 3000000
- 7953 multiletter control sequences out of 15000+200000
- 9081 words of font info for 32 fonts, out of 3000000 for 9000
+ 4771 strings out of 493323
+ 80069 string characters out of 3139064
+ 249353 words of memory out of 3000000
+ 8224 multiletter control sequences out of 15000+200000
+ 9686 words of font info for 34 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 48i,10n,66p,8818b,268s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><D:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><D:/Program Files/MiKTeX 2.9/f
+ 48i,10n,66p,8818b,270s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on first.pdf (38 pages, 1998594 bytes).
+Output written on first.pdf (39 pages, 2033960 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
+ 201 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 196 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 201 words of extra memory for PDF output out of 10000 (max. 10000000)
 

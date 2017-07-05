@@ -3,9 +3,27 @@
 \usepackage{ngerman}
 \usepackage{float}
 \restylefloat{figure}
-\usepackage{graphicx} 
+\usepackage{graphicx}
 \parindent0pt
 
+\usepackage{chngcntr}
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}
+
+\usepackage{tocloft}
+\renewcommand{\figurename}{Abbildung}
+\renewcommand{\tablename}{Tabelle}
+\renewcommand{\cftfigpresnum}{Abb. }
+\renewcommand{\cfttabpresnum}{Tab. }
+
+\renewcommand{\cftfigaftersnum}{:}
+\renewcommand{\cfttabaftersnum}{:}
+
+\setlength{\cftfignumwidth}{2cm}
+\setlength{\cfttabnumwidth}{2cm}
+
+\setlength{\cftfigindent}{0cm}
+\setlength{\cfttabindent}{0cm}
 
 \usepackage[margin=25mm,right=25mm, left=25mm]{geometry}
 
@@ -14,7 +32,7 @@
 
 
 
-\title{Dokumentation f"ur das Softwaretechnik-Projekt AppCiMo (application for city movement) 
+\title{Dokumentation f"ur das Softwaretechnik-Projekt AppCiMo (application for city movement)
 \newline
 \newline
 \includegraphics[width=0.7\textwidth]{appcimo.png}}
@@ -71,7 +89,7 @@ F"ur die Planung, Organisation, Aufteilung und Verfolgung des Projekts wird die 
 \section{Projektmanagementsoftware Taiga.io}
 
 \subsection{Vorgehensmodell}
-Das Projekt Appcimo wird anhand des Scrum Vorgehensmodells bearbeitet. 
+Das Projekt Appcimo wird anhand des Scrum Vorgehensmodells bearbeitet.
 
 \begin{figure} [H]
 \begin{center}
@@ -99,7 +117,7 @@ Dabei werden vor allem folgende Vorz"uge von Scrum in dem Projekt genutzt:
 \end{itemize}
 
 
-\textbf{Die Scrum-Rollen} 
+\textbf{Die Scrum-Rollen}
 
 Die Umst"ande in denen die Webapplikation Appcimo entwickelt wird, f"uhren im Projektteam zu einer abgewandelten Form der klassischen Scrum-Vorgehensweise. \\
 
@@ -203,7 +221,7 @@ User-Stories werden mit taiga.io im Backlog "uber "`NEW USER STORY"' erstellt. N
 \end{center}
 \end{figure}
 
-Die definierten User-Stories f"uer das Projekt sind unter dem Punkt 3.1.4 als Story-Cards aufgef"uhrt.
+Die definierten User-Stories sind unter dem Punkt 3.4 aufgef"uhrt.
 
 
 \subsection{Definition von Tasks}
@@ -224,18 +242,36 @@ Die Tasks zu den User-Story werden im Sprinttaskboard erstellt und k"onnen via D
 \subsection{Sprintplanung}
 
 Zur Planung des Projektes haben wir sechs Sprint den Gesamtzeitraum des Projekts definiert. Jeder Sprint dauert zwei
-Wochen, dadurch soll gew"ahrleistet werden, dass der Sprint mit allen Vorgehensweisen des Scrum durchgef"uhrt werden kann. 
+Wochen, dadurch soll gew"ahrleistet werden, dass der Sprint mit allen Vorgehensweisen des Scrum durchgef"uhrt werden kann.
 
 \begin{figure} [H]
 \begin{center}
 
-\includegraphics[width=6cm, height=20cm]{sprints.png}
-\caption{Taiga.io Sprints}
+\includegraphics[width=6cm, height=10cm]{sprint_2.jpg}
+\caption{Taiga.io Sprints 1-3}
+
+\end{center}
+\end{figure}
+
+\begin{figure} [H]
+\begin{center}
+
+\includegraphics[width=6cm, height=10cm]{sprint_1.jpg}
+\caption{Taiga.io Sprints 4-6}
 
 \end{center}
 \end{figure}
 
 \subsection{Retrospektive}
+
+Nachdem Abschluss eines Sprints fand ein Austausch
+bezüglich der Ergebnisse der geplanten Tasks statt.
+Aus der Retrospektive ergaben sich
+Verbesserungsvorschläge für das weitere Vorgehen,
+sowie für die Planung weiterer Sprint.
+Der Austausch ist wichtig, um Einsicht in die
+Aufgaben jedes einzelnen Teammitgliedes zu erhalten
+und dadurch auf Stand zu sein. Da jedes Teammitglied eine wichtige Rolle in der Retrospektive spielt, führte dies zu einem guten Teamwork. Durch das Besprechen von Problemen wurde Frust innerhalb des Team vermieden.
 
 \chapter{Produktanforderungen}
 
@@ -337,7 +373,7 @@ FU07.03&	In der Ergebnisliste muss die Distanz angezeigt werden.\\
 
 \par
 
-\label{tab:Tabelle1}
+\label{tab:Tabelle2}
 
 \centering
 
@@ -378,7 +414,7 @@ NFU06 &	F"ur Das System soll Continious Integration implementiert werden.\\
 
 \par
 
-\label{tab:Tabelle1}
+\label{tab:Tabelle3}
 
 \centering
 
@@ -895,7 +931,7 @@ Ein weiteres Feature von CircleCI ist die Koppelung des CircleCI-Accounts mit ei
 
 
 
-\textbf{Link zur Applikation: } http://appcimo.s3-website-eu-west-1.amazonaws.com/ 
+\textbf{Link zur Applikation: } http://appcimo.s3-website-eu-west-1.amazonaws.com/
 
 
 \section{Google}
@@ -1062,7 +1098,7 @@ Es werden zwei VueGoogleAutocomplete-Komponenten verwendet. Eine f"ur den Startp
 \end{center}
 \end{figure}
 
-\textbf{price()}:  Berechnung des Preises f"ur den Transport. Der Preis f"ur die "offentlichen Verkehrsmittel ist momentan noch fix. 
+\textbf{price()}:  Berechnung des Preises f"ur den Transport. Der Preis f"ur die "offentlichen Verkehrsmittel ist momentan noch fix.
 
 \begin{figure} [H]
 \begin{center}
@@ -1142,7 +1178,7 @@ Vielmehr k"onnen die hier verwendeten Funktionsnamen als Funktionsbox gesehen we
 \section{Qualit"atsmanagement}
 
 \subsection{Refactoring}
-Um einen wartbaren Code zu schaffen, wurde regelm"a"sig ein Code-Refactoring betrieben. 
+Um einen wartbaren Code zu schaffen, wurde regelm"a"sig ein Code-Refactoring betrieben.
 Als Beispiel dient hier der erste Prototyp. Er funktionierte als Feldtest, war aber nur sehr schwer testbar und deshalb qualitativ nicht gut genug. Daraufhin wurden zwei gro"se Refactoring-Iterationen durchgef"uhrt, um wart- und testbaren Code zu erhalten.
 
 
@@ -1180,20 +1216,16 @@ Der Grundstein f"ur eine sinnvolle und innovative Webapplikation ist gelegt. Mit
 
 \chapter{Anh"ange}
 
-\section{Glossar}
-
-\section{verwendete Software}
-
-
-
-
-
-
-
-
-
-
-
+\begingroup
+	\renewcommand*{\addvspace}[1]{}
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\listfigurename}
+	\listoffigures
+	\newpage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\listtablename}
+	\listoftables
+\endgroup
 
 
 \end{document}
