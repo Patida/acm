@@ -23,8 +23,7 @@
 \contentsline {section}{\numberline {4.3}Node.js und NPM}{19}
 \contentsline {section}{\numberline {4.4}Github}{22}
 \contentsline {section}{\numberline {4.5}CircleCI}{23}
-\contentsline {section}{\numberline {4.6}Google}{26}
-\contentsline {subsection}{\numberline {4.6.1}Google Services}{26}
+\contentsline {section}{\numberline {4.6}Google Services}{26}
 \contentsline {chapter}{\numberline {5}Systementwurf und Umsetzung}{27}
 \contentsline {section}{\numberline {5.1}Architektur}{27}
 \contentsline {subsection}{\numberline {5.1.1}Systemarchitektur}{27}
