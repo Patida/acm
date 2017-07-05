@@ -237,11 +237,9 @@ Wochen, dadurch soll gew"ahrleistet werden, dass der Sprint mit allen Vorgehensw
 
 \subsection{Retrospektive}
 
-\chapter{Pflichtenheft}
+\chapter{Produktanforderungen}
 
-\section{Produktanforderungen}
-
-\subsection{Funktionale Anforderungen}
+\section{Funktionale Anforderungen}
 
 \begin{table}[H]
 
@@ -329,7 +327,7 @@ FU07.03&	In der Ergebnisliste muss die Distanz angezeigt werden.\\
 
 \end{table}
 
-\subsection{Nicht-funktionale Anforderungen}
+\section{Nicht-funktionale Anforderungen}
 
 \begin{table}[H]
 
@@ -370,7 +368,7 @@ NFU06 &	F"ur Das System soll Continious Integration implementiert werden.\\
 
 \end{table}
 
-\subsection{Projektanforderungen}
+\section{Projektanforderungen}
 
 \begin{table}[H]
 
@@ -406,7 +404,7 @@ PRJ04 &	Für das Software-Projekt muss eine Projektdokumentation erstellt werden
 
 \end{table}
 
-\subsection{User-Stories und Sprint-Tasks}
+\section{User-Stories und Sprint-Tasks}
 
 \begin{table}[H]
 
@@ -659,9 +657,9 @@ Task \#41 & Deployment AppCiMo nach AWS (Amazon Web Service)\\
 
 \end{table}
 
-\section{Konfiguration und Einrichtung zur Softwareentwicklung}
+\chapter{Konfiguration und Einrichtung zur Softwareentwicklung}
 
-\subsection{Entwicklungsumgebung}
+\section{Entwicklungsumgebung}
 Webbasierte Javascript-Anwendungen lassen sich mit Hilfe einer Vielzahl von Entwicklungsumgebungen (IDEs) programmieren.
 Das Entwicklungsteam hat sich, nach Abw"agung der jeweiligen Vor- und Nachteile, f"ur die Verwendung von zwei unterschiedlichen IDEs entschlossen.\\
 
@@ -700,7 +698,7 @@ Ausgeliefert wird Atom in einem simplen Design mit wenigen Tools und Werkzeugen.
 F"ur die Erstellung der Applikation Appcimo wurde das community-Package \textbf{lanuage-vue} installiert, dass Error-Handling und visuelle Unterst"utzung beim Programmieren zur Verf"ugung stellt.
 
 
-\subsection{VueJS}
+\section{VueJS}
 \textbf{Appcimo} wird mittels des clientseitigen Javascript-Frameworks \textbf{Vue.JS 2.0} erstellt. \\
 
 Vue.js ist eine Library f"ur interaktive User-Interfaces. Technisch gesehen ist Vue.js auf den ViewModel-Layer des MVVM-Pattern fokussiert: Sie verbindet die View und das Model "uber Two-Way-Data-Bindings. Es wird bevorzugt bei der Erstellung von Single-Page-Anwendungen verwendet.
@@ -726,7 +724,7 @@ Au"serdem bietet Vue.js M"oglichkeiten beim Ein"ugen von neuen Elementen, diese 
 Bei der Erstellung der Webapplikation Appcimo sorgen vor allem \textbf{Direktiven} f"ur "ubersichtliche und leicht-verst"andliche Code-Abschnitte. Damit lassen sich zum Beispiel Schleifen durch ein Array iterieren, HTML-Knoten optional einbinden (v-if) und ausblenden (v-show), Klickevents abfangen (v-on) und Attribute an Variablen binden (v-bind).
 
 
-\subsection{Node.js und NPM}
+\section{Node.js und NPM}
 Appcimo wird mit Hilfe der open-source JavaScript Runtime \textbf{Node.JS} erstellt. Es wird von der \textbf{Node.js Foundation} entwickelt und vertrieben. \\
 
 \begin{figure} [h]
@@ -816,7 +814,7 @@ Mittels des Package-Managers lassen sich die f"ur das eigene Programm verwendete
 
 
 
-\subsection{Github}
+\section{Github}
 Appcimo wird mit dem Verison Control System \textbf{Git} auf \textbf{Github} gespeichert.
 Dadurch wird eine transparente und sichere Erstellung der Applikation gew"ahrleistet. \\
 
@@ -845,7 +843,7 @@ Durch Kommentare bei jedem Commit, kennen alle Entwickler den aktuellen Stand un
 Bei Push-"Uberschneidungen werden die Branches gemerged, so dass alle "Anderungen und Features im neuen Versionsstand enthalten sind. \\
 
 
-\subsection{CircleCI}
+\section{CircleCI}
 \textbf{CircleCI} ist eine Continuous Integration und Release Platform. \\
 
 \begin{figure} [H]
@@ -898,12 +896,22 @@ Ein weiteres Feature von CircleCI ist die Koppelung des CircleCI-Accounts mit ei
 
 \textbf{Link zur Applikation: } http://appcimo.s3-website-eu-west-1.amazonaws.com/ 
 
+
+\section{Google}
+
+\subsection{Google Services}
+
+
+
 \chapter{Systementwurf und Umsetzung}
 
-\section{Systemkomponenten}
+\section{Architektur}
+
+\subsection{Systemarchitektur}
 
 \subsection{Komponentendiagramm}
-- Diagramm -
+
+
 \subsection{Komponentenbeschreibung}
 Komponenten sind eines der m"achtigsten Features in Vue. Durch sie ist es m"oglich, HTML-Elemente und die damit verbundenen Sctipt- und Style-Elemente wiederverwendbar zu machen.  Diese Komponenten k"onnen auf das Nutzerverhalten oder Events reagieren und Werte und  Attribute aktiv modifizieren und bereitstellen.\\
 
@@ -1072,22 +1080,21 @@ Die GoogleMap wird in dieser Komponente dargestellt.\\
 \textbf{initMap()}: Die GoogleMap wird beim Start der Komponente gerendert und anhand von vorher festgelegten Parametern (Zoom-Level der Karte, Initialstandort, ziehbare Karte)  dargestellt. Die direkte Einbindung des directionDisplay erm"oglicht es, die Route anhand von farbigen Pfaden und Wegpunkten darzustellen.\\
 
 
+\subsection{Sequenzdiagramm}
 
-\section{Google API}
+\section{Qualit"atsmanagement}
 
-\subsection{Google Services}
+\subsection{Refactoring}
 
-\subsection{Verarbeitung JSON-Objekte}
+\subsection{Unit Tests}
 
-\subsection{Methoden}
+\subsection{Build-Management}
 
-\subsection{Refactoring und Tests}
+\subsection{Continuous Integration}
+
 
 \chapter{Zusammenfassung und Ausblick}
 
-\section{Zusammenfassung}
-
-\section{Ausblick}
 
 \chapter{Anh"ange}
 
