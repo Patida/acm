@@ -1,6 +1,11 @@
-# webpacktest
+# Appcimo
 
 > A Vue.js project
+
+This is a Vue.js project based on the vue-cli webpack template.</br>
+We use Karma + Mocha for the Unit-Tests.
+
+This project uses circleCI for the Continuous Integration process.
 
 ## Build Setup
 
