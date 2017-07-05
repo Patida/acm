@@ -32,7 +32,11 @@
     },
 
     methods: {
-
+      /*
+      In this function the Google directions object will be rendered in a Google Map view.
+      Depending on the kind of transportmethod we have 2 or 3 waypoints at the rendered map.
+      Therefor we display 2 or 3 describors.
+       */
       initMap: function() {
         var that = this;
         if (that.directionRouteMap.request.travelMode != "DRIVING") {

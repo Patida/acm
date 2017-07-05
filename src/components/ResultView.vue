@@ -67,6 +67,11 @@
           this.showDrive = false;
       }
     },
+    /*
+    The watch function listen to changes in the counter property, which is happening if the button to start a search is clicked.
+    It starts the function resetDetails() to unmount the Details view and let it vanish.
+    */
+
     watch: {
       'counter'(counter) {
         this.resetDetails();

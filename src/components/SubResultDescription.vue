@@ -29,6 +29,14 @@
 
     methods: {
 
+      /*
+      In this function the Description is pushed to the html Element with the ref "leftpanel".
+      Because the carsharing route contains to Routes we have to check for the correct start. Depending on the Google API
+      the Directions could be in a different oder. Sometimes we have to start with object 0, sometimes with 1. In any case the description for walking from the start to the car
+      should be the first one.
+
+      With the panel attribute of google.maps.Directionrenderer we only let the description return. The map is not rendered here.
+       */
       updateDescription: function() {
         var that = this;
         var directionsService = new google.maps.DirectionsService();

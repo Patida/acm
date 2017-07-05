@@ -109,8 +109,14 @@
       },
 
       /*
-      returns the values to calculate the shortView values as a Json object.
-      ...
+      returns the important values from a Googlr Directions Object as a Json to calculate the shortView values .
+      Because we don't want to use the values from the Directions Object which is only used for the Map view, we have to sort this out.
+      Here we sort it out by only give the return values from Directions which have only 2 waypoints (start and end).
+      This is possible because the Carsharing Map Object has one additional waypoint to short the location of the car.
+
+      In sum the Carsharing Map object will be returned as a json object with plain values. Otherwise the other functions wouldn't work as expected
+      because they would try to compare with an undefinied object which would lead to an error.
+
       */
       getShortinfo: function(googleResult) {
         if (googleResult.geocoded_waypoints.length == 2) {
