@@ -166,9 +166,9 @@
       Sort out the results to display the map within the detailed results at SubResultMap.vue.
       For carsharing we only use the result with the extra waypoint to display also the way by feet to the car.
       */
-      getMap: function(googleResult, options) {
-        if (options.travelMode != "WALKING") {
-          if (googleResult.geocoded_waypoints.length > 2 || options.travelMode == "BICYCLING" || options.travelMode == "TRANSIT") {
+      getMap: function(googleResult) {
+        if (googleResult.request.travelMode != "WALKING") {
+          if (googleResult.geocoded_waypoints.length > 2 || googleResult.request.travelMode == "BICYCLING" || googleResult.request.travelMode == "TRANSIT") {
             return googleResult;
           }
         }

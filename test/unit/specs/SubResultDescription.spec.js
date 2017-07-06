@@ -33,5 +33,5 @@ describe('SubResultDescription', () => {
   it('WayDescriptor works', () => {
     expect(vm.WayDescriptor).to.equal('')
   })
-  
+
 })

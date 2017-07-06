@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import GetRoutes from '@/business/GetRoutes.vue'
+
+/*
+Mocking objects to test the functions.
+ */
 const testShortWaysOutputDriving = [
   {
     transportmethod: 'DRIVING',
@@ -33,6 +37,9 @@ const googleResult = {
   }]
 };
 
+/*
+Start the tests.
+ */
 describe('GetRoutes', () => {
   const Constructor = Vue.extend(GetRoutes)
   const vm = new Constructor().$mount()
@@ -50,6 +57,16 @@ describe('GetRoutes', () => {
     expect(mocking.duration).to.equal(expectvar.duration)
     expect(mocking.start).to.equal(expectvar.start)
     expect(mocking.finish).to.equal(expectvar.finish)
+  })
+
+  it('Map directions object is returned correctly', () => {
+    var mocking = vm.getMap(googleResult)
+      expect(mocking.request.travelMode).to.equal('TRANSIT')
+    })
+
+  it('Description directions object is returned correctly', () => {
+    var mocking = vm.getMap(googleResult)
+    expect(mocking.request.travelMode).to.equal('TRANSIT')
   })
 
   it('Start works', () => {
