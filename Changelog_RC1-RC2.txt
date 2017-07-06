@@ -1,4 +1,4 @@
-7599c1f (HEAD -> master, origin/master, origin/HEAD) Aktualisierte Pictures und Endfassung Doku
+ 7599c1f (HEAD -> master, origin/master, origin/HEAD) Aktualisierte Pictures und Endfassung Doku
 33fa28e Added a tests for GetRoute functions getMap and getDescription.
 6923a96 Added several comments for a better understanding within the code.
 cf57fcd Bereinigung 4.6.1, neue PDF
