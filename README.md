@@ -7,6 +7,8 @@ We use Karma + Mocha for the Unit-Tests.
 
 This project uses circleCI for the Continuous Integration process.
 
+The built and deployed project  can be visited at: http://appcimo.s3-website-eu-west-1.amazonaws.com/#/
+
 ## Build Setup
 
 ``` bash
