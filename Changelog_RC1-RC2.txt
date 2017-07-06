@@ -1,0 +1,51 @@
+7599c1f (HEAD -> master, origin/master, origin/HEAD) Aktualisierte Pictures und Endfassung Doku
+33fa28e Added a tests for GetRoute functions getMap and getDescription.
+6923a96 Added several comments for a better understanding within the code.
+cf57fcd Bereinigung 4.6.1, neue PDF
+d61030c Abbildungsverzeichnis, Tabellenverzeichnis, Retrospektive
+0153c78 Dokumentation: Google, Ausblick, CI, Sonderzeichen
+d4d2910 Dokumentation: Gliederung umstrukturiert
+83ccb38 Added tests to test the business logic at function getshortView. Added some lines to Readme.md file.
+361f0c6 Dokumentation: Features, Komponentenbeschreibung
+b629e87 Some corrections in the documentation.
+107d1c2 Merge branch 'master' of https://github.com/Patida/acm
+2a72bd0 Resolved mistake in the ResultView to make the transition of the details view working again if new results appear.
+219354f Dokumentation: User Stories
+a504a45 Dokumentation: allgemeine Ueberarbeitung
+1b5c0c5 Dokumentation: Node.JS, npm, Github, CircleCI
+9d7f34e Failing tests again changed to positive to test the buildmanagement.
+7c04b23 Added prebuild script npm test, to force a test before a build.
+8dead81 Changed test to check the build management, just to be sure that no deployment is made if the test fails.
+ed5f450 Changed test to check the build management
+4408f69 Changed test to fail to check the build management
+a72f169 Merge branch 'master' of https://github.com/Patida/acm
+7d9bb7a Added machine details to circle.yml to force using a newer nodejs version.
+191fd87 Merge remote-tracking branch 'origin/master'
+4f5f763 Änderung Dokumentation mit den Themen                           Taiga.io                                                      Sprintplanung  UserStories / Tasks
+6fc6d3f Changes at circe.yml for pushing build to deployment at S3
+59b3a5c Test für CI mit circle.yml file. We want to deploy to an AWS S3 bucket after an successful build.
+c425400 Fehler in den Tests behoben. Fehler in price function der GetRoute.vue behoben.
+b4360f8 Fehler in den Tests behoben
+646bc18 Ich habe den Fehler in der Ermittlung der Daten für die Kurzansicht behoben. Außerdem wurden erste Kommentare zur Dokumentation in Appcimo.vue eingefügt.
+710008f Unit Tests upload. GetRoute Tests laufen noch nicht
+62d7b9e Ich habs absichtlich einen Negativtest eingeführt um Circle CI zu testen :-)
+c0c8c53 Dokumentation Abschnitte Entwicklungsumgebung, Vue
+5c7d717 Changed location of GetRoutes to business folder. The business logic is in this file. Refactoring of all functions to work with promises. Refactoring of the business logic functions to make them testable.
+1f2a522 Dokomentation EInleitung, Ausgangslage, Vorgehensmodell
+d1e6680 Commit before eleminate GetRoute
+cca31ed Outsources business logic from GetRoutes.vue to Model file  RouteOperations.js.
+30aa889 Integrated first promise in car2go.js and outsourdced code from Appcimo Frontend-File to Car2Go Backend-File.
+1cdb170 Added npm package "promise" to package.json.
+c0c216c Latex Doku hochgeladen
+828db2d Changed getCarLocation in Appcimo.vue by new car2go.js functions.
+0cd0128 Refactoring to outsource our business logic and make it testable.
+352c16a Added first own test.
+bb273cd Added missing files and vue-resource to package.json.
+ca73766 Added Karma Test-Environment to our project. This time it works. Please use npm install before running dev server.
+7cd19bb CSS Rework. Fehler in der Autosuche behoben durch hinzufügen der Stadt.  Fehler in Abfolge der Wegkurzansicht und der Routedescription Reihenfolge behoben.
+3eaf922 Create index.js
+b9900b1 Erste CSS styles Anpassungen
+be8cee7 Refactoring of nearly every component to work with the new GetRoutes component. I've also deleted Hello.vue and prices.vue.
+8c7dec7 Refactoring of getRoute to return the nessecary results as an array (route-descriptions and the general information).
+04889d7 Refactoring of getRoute
+84ce454 Refactoring der getRoute-Funktion. Auslagerung von getRoute für Transit und Cycling. Vorbereitung der Auslagerung für Carsharing...
